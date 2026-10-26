@@ -1,6 +1,6 @@
 /* ==========================================================================
    FAISAL AHMED — INTERACTIVE PORTFOLIO ENGINE (script.js)
-   60fps Neural Canvas • 3D Tilt • Spotlight Cards • Case Study Modals
+   Junior Software Engineer @ Learning Shaper Technologies Limited
    ========================================================================== */
 
 // 1. PRELOADER BOOT SEQUENCE
@@ -153,7 +153,6 @@ window.addEventListener('DOMContentLoaded', () => {
     el.addEventListener('mouseleave', () => outline && outline.classList.remove('hovering'));
   });
 
-  // Spotlight radial coordinates
   document.querySelectorAll('.spotlight-card').forEach((card) => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
@@ -190,11 +189,11 @@ window.addEventListener('DOMContentLoaded', () => {
   if (!el) return;
 
   const roles = [
-    'Data Science & ML Enthusiast',
-    'ASP.NET Core & C# Developer',
-    'Full-Stack Web Developer',
-    'Database & N-Tier Architect',
-    'Final-Year CSE Student @ AIUB'
+    'Junior Software Engineer @ Learning Shaper',
+    'ASP.NET Core & C# Backend Developer',
+    'Python, Tkinter & Full-Stack Engineer',
+    'AI-Powered Cloud ERP & LMS Builder',
+    'N-Tier Architecture & SQL Specialist'
   ];
 
   let roleIdx = 0;
@@ -211,7 +210,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     el.textContent = current.substring(0, charIdx);
 
-    let speed = isDeleting ? 40 : 80;
+    let speed = isDeleting ? 38 : 75;
 
     if (!isDeleting && charIdx === current.length) {
       speed = 1900;
@@ -280,12 +279,10 @@ window.addEventListener('DOMContentLoaded', () => {
         if (entry.isIntersecting) {
           entry.target.classList.add('revealed');
 
-          // Animate skill progress bars inside revealed element
           entry.target.querySelectorAll('.skill-bar-fill').forEach((bar) => {
             bar.style.width = bar.dataset.width || '85%';
           });
 
-          // Animate stat counters
           entry.target.querySelectorAll('.stat-number[data-count]').forEach((counter) => {
             if (counter.dataset.animated) return;
             counter.dataset.animated = 'true';
@@ -293,7 +290,7 @@ window.addEventListener('DOMContentLoaded', () => {
             const suffix = counter.dataset.suffix || '';
             const duration = 1200;
             const start = performance.now();
-            const startVal = target > 1000 ? 2018 : 0;
+            const startVal = 0;
 
             function step(now) {
               const elapsed = Math.min((now - start) / duration, 1);
@@ -314,7 +311,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // 8. SKILLS & PROJECTS FILTER TABS
 (function initFilters() {
-  // Skill Filters
   const skillBtns = document.querySelectorAll('[data-skill-filter]');
   const skillCards = document.querySelectorAll('#skills-grid .skill-card');
 
@@ -331,7 +327,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Project Filters
   const projBtns = document.querySelectorAll('[data-project-filter]');
   const projCards = document.querySelectorAll('#projects-grid .project-card');
 
@@ -351,111 +346,106 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // 9. PROJECT CASE STUDY MODAL DATA & FUNCTIONS
 const PROJECT_DATA = {
+  perfume: {
+    tag: 'MARCH 2026 // PYTHON & TKINTER DESKTOP APPLICATION',
+    title: 'Perfume Decant Management App — Python, Tkinter',
+    tech: ['Python', 'Tkinter GUI', 'Inventory Tracking', 'Sales & Expense Automation'],
+    github: 'https://github.com/FaisalWebZone/Perfume_Decant_Management_App',
+    overview:
+      'Built a comprehensive business management desktop application for perfume decant inventory, sales, and expense tracking. The application automates daily record-keeping in Python through a clean, responsive graphical user interface built with Tkinter.',
+    responsibilities: [
+      'Built a complete business management application for inventory, sales, and expense tracking',
+      'Automated record-keeping, decant volume calculations, and profit/expense reporting using Python',
+      'Designed an intuitive desktop Graphical User Interface (GUI) using Tkinter'
+    ],
+    skills: [
+      'Python application engineering',
+      'Desktop GUI design with Tkinter',
+      'Business workflow & record-keeping automation',
+      'Problem-solving and modular code structure'
+    ]
+  },
+  restaurant: {
+    tag: 'JANUARY 2026 // ASP.NET CORE N-TIER ARCHITECTURE',
+    title: 'Restaurant Order & Table Management System — ASP.NET Core',
+    tech: ['ASP.NET Core', 'C#', 'N-Tier Architecture', 'SQL Server', 'Entity Framework Core (Code-First)', 'RESTful APIs', 'Postman'],
+    github: 'https://github.com/FaisalWebZone/Restaurant_Order_Table_Management-ASP.Net',
+    overview:
+      'Built a scalable backend web application using ASP.NET Core following strict N-Tier Architecture (Presentation Layer, Business Logic Layer, Data Access Layer). Implemented complete CRUD operations and SQL Server database integration with Entity Framework Core (Code-First), focusing on scalable and maintainable enterprise code structure.',
+    responsibilities: [
+      'Built a web application using ASP.NET Core following N-Tier Architecture (Presentation, BLL, DAL)',
+      'Implemented full CRUD operations and relational database integration with Microsoft SQL Server',
+      'Applied Entity Framework Core (Code-First) migrations, Repository Pattern, and DTO mapping',
+      'Implemented role-based access control and advanced search/filtering endpoints',
+      'Focused on scalable and maintainable code structure, verified thoroughly via Postman'
+    ],
+    skills: [
+      'ASP.NET Core & C# backend development',
+      'N-Tier software architecture & Repository Pattern',
+      'RESTful API design & DTO mapping',
+      'SQL Server & Entity Framework Core (Code-First)',
+      'API testing and debugging with Postman'
+    ]
+  },
+  recipe: {
+    tag: 'OCTOBER 2025 // PHP & MYSQL FULL-STACK WEB APP',
+    title: '👨‍🍳 Recipe Sharing Platform — PHP, MySQL',
+    tech: ['PHP', 'MySQL', 'HTML5', 'CSS3', 'JavaScript', 'XAMPP (Apache)'],
+    github: 'https://github.com/FaisalWebZone/Recipe_Sharing_Platform_Project-with-PHP',
+    overview:
+      'Built a dynamic role-based web application for sharing, discovering, and managing recipes. Implemented full CRUD functionality and MySQL relational database integration on an Apache/XAMPP stack, paired with an interactive frontend designed using HTML, CSS, and JavaScript.',
+    responsibilities: [
+      'Built a dynamic web application for sharing and moderating recipes',
+      'Implemented complete CRUD functionality and relational MySQL database integration',
+      'Designed a responsive, user-friendly frontend using HTML, CSS, and JavaScript',
+      'Implemented user authentication, role-based access control (Admin & User), ratings, reviews, and favorites workflows'
+    ],
+    skills: [
+      'Full-stack web development (PHP, JS, HTML, CSS)',
+      'MySQL database design and integration',
+      'Role-based authentication and authorization',
+      'End-to-end web application architecture'
+    ]
+  },
   cargo: {
-    tag: 'PROJECT 01 // COMPUTER GRAPHICS & SIMULATION',
-    title: 'Cargo Flow – From Warehouse to Sea',
+    tag: 'MARCH 2025 // C++ & OPENGL GRAPHICS SIMULATION',
+    title: 'Cargo Flow – From Warehouse to Sea — C++, OpenGL',
     tech: ['C++', 'OpenGL', 'Computer Graphics', '2D/3D Scene Animation'],
     github: 'https://github.com/FaisalWebZone/Cargo_Logistics_Visualization_Graphics',
     videoEmbed: 'https://drive.google.com/file/d/1i_nVWrm0ZE2D-rrpGEQ6I9yhIUKLDK2l/preview',
     overview:
-      'Cargo Flow is a graphical simulation developed using C++ and OpenGL that visualizes the logistics process from warehouse loading to sea transportation. The project demonstrates how goods move through different stages of the logistics chain using animated scenes and interactive graphical elements.',
+      'Built an interactive graphical cargo flow simulation using C++ and OpenGL that visualizes the real-world logistics process from warehouse loading to maritime sea transportation through animated scenes and moving objects.',
     responsibilities: [
-      'Designed multi-stage graphical scenes and spatial layouts',
-      'Implemented object movement and smooth keyframe animations using OpenGL',
-      'Created visual elements including warehouse structures, cranes, trucks, and sea transportation vessels',
-      'Assisted in debugging rendering pipelines and animation state logic in a collaborative team environment'
+      'Built a multi-stage cargo flow graphical simulation using C++ and OpenGL',
+      'Implemented smooth keyframe animation and object movement across warehouse and sea scenes',
+      'Visualized real-world logistics processes including warehouse structures, cranes, trucks, and cargo ships',
+      'Assisted in debugging rendering pipelines and animation state transitions'
     ],
     skills: [
-      'Computer graphics programming',
-      'OpenGL rendering techniques',
-      'Real-time animation logic implementation',
-      'Team collaboration and algorithmic problem solving'
-    ]
-  },
-  recipe: {
-    tag: 'PROJECT 02 // FULL-STACK WEB APPLICATION',
-    title: '👨‍🍳 Recipe Sharing Platform',
-    tech: ['PHP', 'JavaScript', 'HTML5 & CSS3', 'MySQL', 'XAMPP (Apache)'],
-    github: 'https://github.com/FaisalWebZone/Recipe_Sharing_Platform_Project-with-PHP',
-    overview:
-      'Recipe Sharing Platform is a role-based web application developed for the Web Technology course using PHP, JavaScript, and CSS. Running on an Apache & MySQL environment, the platform allows users to share, explore, and manage recipes through an interactive interface with secure authentication and role-based access control.',
-    responsibilities: [
-      'Designed and developed the responsive web interface for a smooth and user-friendly recipe sharing experience',
-      'Implemented secure user authentication and role-based access control (User & Admin)',
-      'Developed backend logic with PHP for dynamic recipe content management',
-      'Created and managed the relational MySQL database schema',
-      'Implemented recipe ratings, user reviews, favorites (watchlist), and admin approval workflows for recipe submissions',
-      'Conducted end-to-end testing and debugging between frontend and backend'
-    ],
-    skills: [
-      'Full-stack web development',
-      'Relational database design and management (MySQL)',
-      'User authentication and role-based authorization',
-      'Web application architecture and moderation workflows'
+      'C++ & OpenGL computer graphics programming',
+      'Real-time animation and object movement logic',
+      'Visual simulation design & rendering techniques',
+      'Team collaboration and debugging'
     ]
   },
   library: {
-    tag: 'PROJECT 03 // C# & .NET APPLICATION (OOP2)',
-    title: 'Library & Inventory Management System – C# Application',
-    tech: ['C#', '.NET Framework', 'Microsoft SQL Server', 'OOP2', 'Role-Based Auth'],
+    tag: 'NOVEMBER 2024 // C#, .NET & SQL SERVER APPLICATION',
+    title: 'Library Management System — C#, .NET, SQL Server',
+    tech: ['C#', '.NET Framework', 'Microsoft SQL Server', 'Object-Oriented Programming (OOP2)'],
     github: 'https://github.com/FaisalWebZone/Library_Mangement_Project-Faisal',
     overview:
-      'An individual desktop management system developed in C# and SQL Server applying core Object-Oriented Programming (OOP2) principles (encapsulation, inheritance, abstraction, polymorphism) to deliver modular, maintainable, and secure operations across Admin, Employee, and Customer roles.',
+      'Built a desktop management system to manage books, inventory, billing, and multi-role user records. Implemented secure CRUD operations with Microsoft SQL Server and developed modular business logic using C# and the .NET Framework applying OOP2 principles.',
     responsibilities: [
-      'Designed and implemented a multi-tier role-based authentication system (Admin, Employee, Customer)',
-      'Developed complete CRUD operations for catalog and inventory management',
-      'Implemented automated billing and invoice generation with transaction history',
-      'Created user management and access control panels',
-      'Applied OOP2 principles (encapsulation, inheritance, abstraction) for clean modularity',
-      'Structured and secured persistent data storage using Microsoft SQL Server'
+      'Built a complete system to manage books, inventory, and multi-role user records (Admin, Employee, Customer)',
+      'Implemented full CRUD operations and transaction history with Microsoft SQL Server',
+      'Developed using C# and .NET Framework applying OOP2 principles (encapsulation, inheritance, abstraction)',
+      'Implemented automated billing, invoice generation, and role-based access control'
     ],
     skills: [
+      'C# and .NET Framework application development',
       'Object-Oriented Programming (OOP2)',
-      'C# and .NET desktop application development',
-      'Database design and management using SQL Server',
-      'Role-based access control (RBAC) systems',
-      'Application debugging and testing'
-    ]
-  },
-  restaurant: {
-    tag: 'PROJECT 04 // N-TIER BACKEND ARCHITECTURE',
-    title: 'Restaurant Order & Library N-Tier Management API',
-    tech: ['ASP.NET Core', 'C#', 'Entity Framework Core (Code-First)', 'SQL Server', 'N-Tier Architecture', 'Postman'],
-    github: 'https://github.com/FaisalWebZone/Restaurant_Order_Table_Management-ASP.Net',
-    overview:
-      'A scalable backend web application built using ASP.NET Core following strict N-Tier Architecture (Presentation Layer, Business Logic Layer, Data Access Layer) and Repository Pattern. It demonstrates modern enterprise backend practices including RESTful API design, DTO mapping, role-based access control, and structured database management with Entity Framework Core (Code-First).',
-    responsibilities: [
-      'Architected the backend using clean N-Tier separation (Presentation Controllers, BLL, DAL)',
-      'Developed RESTful APIs for core entities with full CRUD, search, and filtering capabilities',
-      'Implemented Entity Framework Core (Code-First) with automated SQL Server migrations',
-      'Created Data Transfer Objects (DTOs) and clean entity-response mapping',
-      'Implemented role-based access control and Repository Pattern for high maintainability',
-      'Verified and stress-tested all API endpoints using Postman'
-    ],
-    skills: [
-      'Enterprise backend web development (ASP.NET Core)',
-      'RESTful API design & DTO mapping',
-      'N-Tier software architecture & Repository Pattern',
-      'Entity Framework Core (Code-First) & SQL Server',
-      'API testing and debugging with Postman'
-    ]
-  },
-  perfume: {
-    tag: 'PROJECT 05 // PYTHON SOFTWARE APPLICATION',
-    title: 'Perfume Decant Management App',
-    tech: ['Python', 'Data Management', 'Inventory & Order Workflows'],
-    github: 'https://github.com/FaisalWebZone/Perfume_Decant_Management_App',
-    overview:
-      'A Python-based application designed to streamline perfume decant inventory, bottle volume splits, pricing calculations, and customer order tracking with a clean, reliable workflow.',
-    responsibilities: [
-      'Developed core inventory and decant volume tracking logic in Python',
-      'Automated pricing and stock deduction calculations',
-      'Structured modular code for easy maintenance and extensibility'
-    ],
-    skills: [
-      'Python application development',
-      'Data modeling and workflow automation',
-      'Problem solving and clean code practices'
+      'SQL Server database design & CRUD integration',
+      'Role-based authentication & access control'
     ]
   }
 };
@@ -478,11 +468,11 @@ window.openProjectModal = function (key) {
 
   container.innerHTML = `
     <div class="bento-tag">${data.tag}</div>
-    <h3 class="bento-title" style="font-size:1.8rem;margin-bottom:12px;">${data.title}</h3>
+    <h3 class="bento-title" style="font-size:1.75rem;margin-bottom:12px;">${data.title}</h3>
     <div class="project-tech-stack" style="margin-bottom:18px;">${techHtml}</div>
     <p class="bento-text" style="font-size:1rem;">${data.overview}</p>
     ${videoHtml}
-    <div class="modal-section-title">🛠️ My Role &amp; Responsibilities</div>
+    <div class="modal-section-title">🛠️ Key Contributions &amp; Implementation</div>
     <ul class="modal-list">${respHtml}</ul>
     <div class="modal-section-title">⚡ Skills Demonstrated</div>
     <ul class="modal-list">${skillsHtml}</ul>
@@ -506,12 +496,12 @@ window.closeProjectModal = function () {
   document.body.style.overflow = '';
 };
 
-// 10. CV PREVIEW MODAL
+// 10. UPDATED CV PREVIEW MODAL
 window.openCVModal = function () {
   const modal = document.getElementById('cv-modal');
   const iframe = document.getElementById('cv-iframe');
-  if (iframe && !iframe.src.includes('drive.google.com')) {
-    iframe.src = 'https://drive.google.com/file/d/1L-VcS2QZ3bzO51ZPSIdkXYX_ThqqgXFl/preview';
+  if (iframe && !iframe.getAttribute('src')) {
+    iframe.setAttribute('src', 'cv.html');
   }
   if (modal) {
     modal.classList.add('open');
@@ -525,7 +515,6 @@ window.closeCVModal = function () {
   document.body.style.overflow = '';
 };
 
-// Close modals on backdrop click or Escape key
 window.addEventListener('click', (e) => {
   if (e.target.id === 'project-modal') closeProjectModal();
   if (e.target.id === 'cv-modal') closeCVModal();
