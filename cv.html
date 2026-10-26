@@ -117,18 +117,22 @@
     /* Contact Bar */
     .cv-contact-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.85fr 1.4fr;
-      gap: 3px 12px;
-      font-size: 10.8px;
+      grid-template-columns: 1fr 0.72fr 1.48fr;
+      gap: 4px 10px;
+      font-size: 10.6px;
       color: #1f2937;
       margin-bottom: 7px;
       padding-bottom: 6px;
       border-bottom: 1px solid #cbd5e1;
+      align-items: start;
     }
     .cv-contact-item {
-      display: flex;
-      align-items: center;
-      gap: 5px;
+      display: block;
+      line-height: 1.42;
+      white-space: nowrap;
+    }
+    .cv-contact-item.address-item {
+      white-space: normal;
     }
     .cv-contact-item a {
       color: #0f172a;
@@ -295,13 +299,16 @@
           Junior Software Engineer &nbsp;|&nbsp; <a href="https://learningshaper.com/" target="_blank">Learning Shaper</a>
         </div>
       </div>
-      <img src="assets/profile-formal.jpg?v=9" alt="Faisal Ahmed" class="cv-photo" crossorigin="anonymous" />
+      <img src="assets/profile-formal.jpg?v=9" alt="Faisal Ahmed" class="cv-photo" />
     </div>
 
     <div class="cv-contact-grid">
       <div class="cv-contact-item">✉️ <a href="mailto:faisalahmed49591@gmail.com">faisalahmed49591@gmail.com</a></div>
       <div class="cv-contact-item">📞 01402559869</div>
-      <div class="cv-contact-item">📍 House 335, Road 7/3, Raghunathpur, Kutubpur-1421, Fatullah, Narayanganj, Bangladesh</div>
+      <div class="cv-contact-item address-item">
+        <div>📍 House 335, Road 7/3, Raghunathpur,</div>
+        <div style="padding-left: 15px;">Kutubpur 1421, Fatullah, Narayanganj</div>
+      </div>
       <div class="cv-contact-item">🔗 <a href="https://www.linkedin.com/in/faisal-ahmed-4a810033a/" target="_blank">LinkedIn</a></div>
       <div class="cv-contact-item">💻 <a href="https://github.com/FaisalWebZone" target="_blank">GitHub</a></div>
       <div class="cv-contact-item">🌐 <a href="https://faisalwebzone.github.io/" target="_blank">Portfolio</a> &nbsp;|&nbsp; 🎓 <a href="https://learningshaper.com/" target="_blank">learningshaper.com</a></div>
@@ -454,22 +461,15 @@
 
   <script>
     function downloadPDF() {
-      const element = document.getElementById('cv-sheet');
-      if (window.html2pdf) {
-        const opt = {
-          margin: 0,
-          filename: 'Faisal_Ahmed.cv.pdf',
-          image: { type: 'jpeg', quality: 0.98 },
-          html2canvas: { scale: 2, useCORS: true },
-          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        };
-        html2pdf().set(opt).from(element).save();
-      } else {
-        window.print();
-      }
+      const link = document.createElement('a');
+      link.href = 'Faisal_Ahmed.cv.pdf?v=10';
+      link.download = 'Faisal_Ahmed.cv.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
     if (window.location.search.includes('download=1')) {
-      window.addEventListener('load', () => setTimeout(downloadPDF, 600));
+      window.addEventListener('load', () => setTimeout(downloadPDF, 300));
     }
   </script>
 </body>
