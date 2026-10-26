@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faisal Ahmed.portfolio | Junior Software Engineer @ Learning Shaper</title>
+  <meta name="description" content="Faisal Ahmed.portfolio — Official animated portfolio of Faisal Ahmed, Junior Software Engineer at Learning Shaper specializing in Java Spring Boot, Laravel, React, ASP.NET Core, C#, Python, and Multi-Tenant Enterprise ERP/SaaS platforms." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ==================== PRELOADER ==================== -->
+  <div class="preloader" id="preloader">
+    <div class="loader-core">
+      <div class="loader-ring"></div>
+      <div class="loader-ring"></div>
+      <span class="loader-initials">FA</span>
+    </div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar" id="loader-bar"></div>
+    </div>
+    <div class="loader-text" id="loader-text">INITIALIZING FAISAL AHMED.PORTFOLIO // 0%</div>
+  </div>
+
+  <!-- ==================== SCROLL PROGRESS & CURSOR ==================== -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-outline" id="cursor-outline"></div>
+
+  <!-- ==================== INTERACTIVE NEURAL CANVAS & BLOBS ==================== -->
+  <canvas id="neural-canvas"></canvas>
+  <div class="ambient-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- ==================== STICKY GLASS NAVBAR ==================== -->
+  <header class="navbar" id="navbar">
+    <a href="#home" class="nav-brand">
+      <div class="brand-badge">FA</div>
+      <div class="brand-text">Faisal Ahmed<span>.portfolio</span></div>
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#experience" class="nav-link">Work</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#qualifications" class="nav-link">Education &amp; CV</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="theme-btn" id="theme-toggle" aria-label="Toggle color theme" title="Toggle Dark/Light Mode">
+        <svg id="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
+      <button class="btn btn-primary btn-sm" onclick="openCVModal()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        Faisal Ahmed.cv
+      </button>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero section" id="home">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left Column -->
+          <div class="hero-content reveal">
+            <a href="https://learningshaper.com/" target="_blank" rel="noopener noreferrer" class="status-pill" style="text-decoration:none;">
+              <span class="pulse-dot"></span>
+              Junior Software Engineer @ Learning Shaper ↗
+            </a>
+
+            <h1 class="hero-title">
+              Hi, I'm <span class="gradient-text">Faisal Ahmed</span>
+            </h1>
+
+            <div class="hero-role-wrapper">
+              <span class="role-prefix">&gt;</span>
+              <span id="typewriter-text">Junior Software Engineer</span>
+              <span class="typewriter-cursor"></span>
+            </div>
+
+            <p class="hero-description">
+              I am a <strong>Junior Software Engineer</strong> at <a href="https://learningshaper.com/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-secondary);text-decoration:underline;"><strong>Learning Shaper</strong></a> (<em>Learning Shaper Technologies Limited</em>) and a <strong>Computer Science &amp; Engineering Graduate</strong> from <strong>AIUB (CGPA: 3.08)</strong>. In my professional career, I have engineered production <strong>Multi-Tenant SaaS &amp; Enterprise ERP platforms</strong> using <strong>Java 21 (Spring Boot 3), PHP 8.2 (Laravel 12), React 18, Node.js, C# (ASP.NET Core), Python, and MySQL/SQL Server</strong>.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#projects" class="btn btn-primary">
+                Explore Professional Projects (11)
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+              <button class="btn btn-outline" onclick="openCVModal()">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                Faisal Ahmed.cv
+              </button>
+              <a href="https://learningshaper.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                🎓 Learning Shaper ↗
+              </a>
+            </div>
+
+            <div class="hero-socials">
+              <a href="https://github.com/FaisalWebZone" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub (@FaisalWebZone)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/faisal-ahmed-4a810033a/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+              </a>
+              <a href="https://learningshaper.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Learning Shaper (learningshaper.com)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              </a>
+              <a href="https://www.facebook.com/mefaisalahmed17/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Facebook">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+              </a>
+              <a href="https://www.instagram.com/_faisal_ahmed_17_/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Instagram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+              </a>
+              <a href="mailto:faisalahmed49591@gmail.com" class="social-icon-btn" title="Email Faisal">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: 3D Tilt Profile Card -->
+          <div class="hero-visual reveal reveal-delay-2">
+            <div class="floating-badge badge-tl">🎓 Learning Shaper</div>
+            <div class="floating-badge badge-tr">☕ Spring Boot 3 &amp; React</div>
+            <div class="floating-badge badge-bl">⚡ Laravel 12 &amp; .NET Core</div>
+            <div class="floating-badge badge-br">🗄️ Multi-Tenant ERP/SaaS</div>
+
+            <div class="profile-3d-card" id="hero-tilt-card">
+              <div class="profile-avatar-wrap">
+                <img
+                  src="assets/profile-formal.jpg"
+                  onerror="this.src='https://github.com/FaisalWebZone.png'"
+                  alt="Faisal Ahmed — Junior Software Engineer"
+                  class="profile-avatar"
+                />
+              </div>
+
+              <div class="profile-card-info">
+                <h3>Faisal Ahmed</h3>
+                <p>Junior Software Engineer @ Learning Shaper</p>
+              </div>
+
+              <div class="mini-terminal">
+                <div class="terminal-dots">
+                  <span></span><span></span><span></span>
+                </div>
+                <div><span class="code-key">const</span> engineer = {</div>
+                <div>&nbsp;&nbsp;portfolio: <span class="code-str">"Faisal Ahmed.portfolio"</span>,</div>
+                <div>&nbsp;&nbsp;cv: <span class="code-str">"Faisal Ahmed.cv"</span>,</div>
+                <div>&nbsp;&nbsp;role: <span class="code-str">"Junior Software Engineer"</span>,</div>
+                <div>&nbsp;&nbsp;company: <span class="code-str">"Learning Shaper (Oct 2026–Present)"</span></div>
+                <div>};</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animated Counter Stats -->
+        <div class="stats-strip reveal reveal-delay-3">
+          <div class="spotlight-card stat-card">
+            <div class="stat-number">Jr. SE</div>
+            <div class="stat-label">Learning Shaper (Oct 2026 – Present)</div>
+          </div>
+          <div class="spotlight-card stat-card">
+            <div class="stat-number" data-count="11" data-suffix="+">0+</div>
+            <div class="stat-label">Enterprise ERP, SaaS &amp; Core Projects</div>
+          </div>
+          <div class="spotlight-card stat-card">
+            <div class="stat-number" data-count="20" data-suffix="+">0+</div>
+            <div class="stat-label">Languages, Frameworks &amp; Tools</div>
+          </div>
+          <div class="spotlight-card stat-card">
+            <div class="stat-number">3.08</div>
+            <div class="stat-label">B.Sc. in CSE Graduate (AIUB)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== INFINITE TECH MARQUEE ==================== -->
+    <div class="marquee-section">
+      <div class="marquee-track">
+        <div class="marquee-item"><span class="marquee-dot"></span>Junior Software Engineer @ Learning Shaper</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>Java 21 • Spring Boot 3 • React 18 • Vite</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>PHP 8.2 • Laravel 12 • Multi-Tenant ERP &amp; Offline POS</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>C# • .NET Framework • ASP.NET Core &amp; MVC</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>Node.js • Express • Tailwind CSS • Framer Motion</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>SQL Server • MySQL 8 • PostgreSQL</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>Python • Tkinter • C++ • OpenGL</div>
+        <!-- Duplicated for seamless loop -->
+        <div class="marquee-item"><span class="marquee-dot"></span>Junior Software Engineer @ Learning Shaper</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>Java 21 • Spring Boot 3 • React 18 • Vite</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>PHP 8.2 • Laravel 12 • Multi-Tenant ERP &amp; Offline POS</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>C# • .NET Framework • ASP.NET Core &amp; MVC</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>Node.js • Express • Tailwind CSS • Framer Motion</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>SQL Server • MySQL 8 • PostgreSQL</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>Python • Tkinter • C++ • OpenGL</div>
+      </div>
+    </div>
+
+    <!-- ==================== WORK EXPERIENCE SECTION ==================== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-eyebrow">// 01. WORK EXPERIENCE</div>
+          <h2 class="section-title">Career Progression at <span class="gradient-text">Learning Shaper</span></h2>
+          <p class="section-subtitle">
+            Promoted from Software Engineer Intern to full-time Junior Software Engineer building Multi-Tenant SaaS, Enterprise ERP, and AI-powered EdTech platforms.
+          </p>
+        </div>
+
+        <div class="spotlight-card experience-hero-card reveal">
+          <div class="exp-top-bar">
+            <div class="exp-company-identity">
+              <div class="ls-logo-circle">
+                <svg width="34" height="34" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="5" width="28" height="26" rx="5" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+                  <path d="M18 11L9 15.5L18 20L27 15.5L18 11Z" fill="#2563EB"/>
+                  <path d="M12.5 17.8V22.2C12.5 23.8 15 25 18 25C21 25 23.5 23.8 23.5 22.2V17.8" stroke="#1D4ED8" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M26 16V22" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="exp-role-title">Learning Shaper</h3>
+                <a href="https://learningshaper.com/" target="_blank" rel="noopener noreferrer" class="exp-company-link">
+                  Learning Shaper Technologies Limited (learningshaper.com) ↗
+                </a>
+                <div style="font-size:0.85rem; color:var(--text-secondary); margin-top:3px;">
+                  📍 Dhaka, Bangladesh • Enterprise ERP, Multi-Tenant SaaS &amp; AI-Powered LMS
+                </div>
+              </div>
+            </div>
+
+            <div class="exp-meta-badges">
+              <span class="status-pill" style="margin-bottom:0;">
+                <span class="pulse-dot"></span>
+                Current Workplace
+              </span>
+              <a href="https://learningshaper.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                Visit learningshaper.com ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="exp-grid">
+            <!-- Left: Connected Two-Role Timeline matching screenshot -->
+            <div>
+              <div class="bento-tag">// WORK HISTORY</div>
+
+              <div class="work-progression-tree">
+                <!-- Role 1: Junior Software Engineer -->
+                <div class="work-role-node">
+                  <span class="work-node-dot active-role-dot"></span>
+                  <div class="work-role-name">
+                    Junior Software Engineer
+                    <span class="tech-chip" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.4);color:#34d399;">Present</span>
+                  </div>
+                  <div class="work-role-date">Oct 1, 2026 - Present</div>
+                  <ul class="exp-Responsibility-list" style="margin-top:8px;">
+                    <li>
+                      Architecting and developing enterprise multi-tenant ERP and SaaS platforms including <strong>BanikOS (Laravel 12 ERP &amp; Offline POS)</strong>, <strong>Sales ERP (Spring Boot 3 + React 18)</strong>, and <strong>Timesheet Enterprise ERP</strong>.
+                    </li>
+                    <li>
+                      Engineering core modules for double-entry accounting, purchase-to-stock warehouse ledgers, courier/COD settlement, and AI-assisted Learning Management Systems (LMS).
+                    </li>
+                    <li>
+                      Building secure RESTful APIs, role/permission matrices, and automated end-to-end QA browser verification suites.
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Role 2: Software Engineer Intern -->
+                <div class="work-role-node">
+                  <span class="work-node-dot"></span>
+                  <div class="work-role-name">
+                    Software Engineer Intern
+                  </div>
+                  <div class="work-role-date">Jul 1, 2026 - Oct 1, 2026 · 3 months</div>
+                  <ul class="exp-Responsibility-list" style="margin-top:8px;">
+                    <li>
+                      Contributed to modernizing legacy Grails systems into clean <strong>Java 21 + Spring Boot 3 + React 18</strong> multi-tenant platforms including <strong>Smart Production Hub</strong>, <strong>SuperAdmin Hub</strong>, and <strong>LS Job &amp; Admission Portal</strong>.
+                    </li>
+                    <li>
+                      Implemented responsive React UI components, RESTful backend controllers, MySQL database migrations, and SSLCommerz billing integrations, earning promotion to full-time <strong>Junior Software Engineer</strong>.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Production Systems Engineered -->
+            <div class="exp-modules-box">
+              <div class="bento-tag">// PRODUCTION SYSTEMS WORKED ON</div>
+              <h4 style="font-family:'Space Grotesk',sans-serif; font-size:1.15rem; margin-bottom:14px;">
+                Enterprise Products &amp; Modules
+              </h4>
+              <div class="focus-pills" style="margin-bottom:20px;">
+                <span class="focus-pill">🏢 BanikOS Laravel 12 ERP &amp; POS</span>
+                <span class="focus-pill">📊 Sales &amp; Double-Entry Accounting ERP</span>
+                <span class="focus-pill">🏭 Smart Production Hub ERP</span>
+                <span class="focus-pill">🌐 LS Job, Admission &amp; Tender Portal</span>
+                <span class="focus-pill">⏱️ Timesheet &amp; Resource ERP</span>
+                <span class="focus-pill">🛡️ SuperAdmin Multi-Tenant Hub</span>
+                <span class="focus-pill">🎓 Learning Shaper AI Cloud LMS</span>
+              </div>
+              <div style="padding-top:16px; border-top:1px solid var(--border-subtle); font-size:0.85rem; color:var(--text-secondary);">
+                <strong>Official Website:</strong>
+                <a href="https://learningshaper.com/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-secondary); margin-left:6px;">
+                  https://learningshaper.com/
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FEATURED PROFESSIONAL & ACADEMIC PROJECTS ==================== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-eyebrow">// 02. PROFESSIONAL &amp; CORE PROJECTS</div>
+          <h2 class="section-title">Enterprise Systems &amp; <span class="gradient-text">Software Portfolio</span></h2>
+          <p class="section-subtitle">
+            Explore the 6 production Enterprise ERP &amp; Multi-Tenant SaaS systems I have worked on in my professional career alongside my 5 foundational software projects.
+          </p>
+        </div>
+
+        <div class="filter-tabs reveal">
+          <button class="filter-btn active" data-project-filter="all">All Projects (11)</button>
+          <button class="filter-btn" data-project-filter="professional">🏢 Professional Enterprise (6)</button>
+          <button class="filter-btn" data-project-filter="springboot">Spring Boot &amp; React</button>
+          <button class="filter-btn" data-project-filter="laravel">Laravel &amp; PHP</button>
+          <button class="filter-btn" data-project-filter="dotnet">C# &amp; .NET</button>
+          <button class="filter-btn" data-project-filter="python-cpp">Python &amp; C++</button>
+        </div>
+
+        <div class="projects-grid" id="projects-grid">
+
+          <!-- PRO 1: BanikOS ERP (October 2026) -->
+          <article class="spotlight-card project-card reveal" data-pcat="professional laravel">
+            <div>
+              <div class="project-banner banner-cargo">
+                <span class="project-arch-pill">🏢 Professional • Oct 2026</span>
+                <div class="project-visual-illustration">
+                  <div class="project-emoji-badge">🏪</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#67e8f9;">Laravel 12 • PHP 8.2 • Offline POS</div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-category">Tenant &amp; Branch-Scoped Enterprise ERP</div>
+                <h3 class="project-title">BanikOS — Multi-Tenant ERP &amp; Offline POS</h3>
+                <p class="project-desc">
+                  Production tenant- and branch-scoped Laravel 12 ERP implementing authoritative server-side transactions, offline-capable POS (`pos-sw.js`), purchase-to-stock inventory, courier/COD settlement, double-entry accounting, HR, and marketing workspaces.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-chip">PHP 8.2</span>
+                  <span class="tech-chip">Laravel 12</span>
+                  <span class="tech-chip">MySQL 8</span>
+                  <span class="tech-chip">Alpine.js</span>
+                  <span class="tech-chip">Offline POS SW</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-body" style="padding-top:0;">
+              <div class="project-actions">
+                <button class="btn btn-primary btn-sm" style="width:100%;" onclick="openProjectModal('banikos')">
+                  View Enterprise Case Study
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRO 2: Sales ERP (October 2026) -->
+          <article class="spotlight-card project-card reveal reveal-delay-1" data-pcat="professional springboot">
+            <div>
+              <div class="project-banner banner-restaurant">
+                <span class="project-arch-pill">🏢 Professional • Oct 2026</span>
+                <div class="project-visual-illustration">
+                  <div class="project-emoji-badge">📈</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#6ee7b7;">Spring Boot 3.3 • Java 21 • React 18</div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-category">Commercial Sales, POS &amp; Accounting SaaS</div>
+                <h3 class="project-title">Sales ERP — Multi-Tenant POS, Inventory &amp; Accounting</h3>
+                <p class="project-desc">
+                  Enterprise Multi-Tenant SaaS Sales ERP, Point-of-Sale (POS), Warehouse Stock Ledger, and Double-Entry Accounting platform modernized with Java 21, Spring Boot 3.3, React 18, Node.js, and MySQL 8.4.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-chip">Java 21</span>
+                  <span class="tech-chip">Spring Boot 3.3</span>
+                  <span class="tech-chip">React 18</span>
+                  <span class="tech-chip">Tailwind CSS</span>
+                  <span class="tech-chip">MySQL 8.4</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-body" style="padding-top:0;">
+              <div class="project-actions">
+                <button class="btn btn-primary btn-sm" style="width:100%;" onclick="openProjectModal('saleserp')">
+                  View Enterprise Case Study
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRO 3: Timesheet Enterprise ERP (October 2026) -->
+          <article class="spotlight-card project-card reveal reveal-delay-2" data-pcat="professional springboot">
+            <div>
+              <div class="project-banner banner-library">
+                <span class="project-arch-pill">🏢 Professional • Oct 2026</span>
+                <div class="project-visual-illustration">
+                  <div class="project-emoji-badge">⏱️</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#a5b4fc;">Java 21 • Spring Boot 3 • React 18</div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-category">Resource &amp; Workforce Management ERP</div>
+                <h3 class="project-title">Timesheet Enterprise ERP</h3>
+                <p class="project-desc">
+                  Modernized Java 21 &amp; Spring Boot 3 Timesheet and Resource Management ERP featuring employee time tracking, project resource allocation, JWT security, Excel batch import/export, and an interactive React 18 + Framer Motion UI.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-chip">Java 21</span>
+                  <span class="tech-chip">Spring Boot 3.3</span>
+                  <span class="tech-chip">React 18</span>
+                  <span class="tech-chip">Framer Motion</span>
+                  <span class="tech-chip">JWT</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-body" style="padding-top:0;">
+              <div class="project-actions">
+                <button class="btn btn-primary btn-sm" style="width:100%;" onclick="openProjectModal('timesheet')">
+                  View Enterprise Case Study
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRO 4: Smart Production Hub (September 2026) -->
+          <article class="spotlight-card project-card reveal" data-pcat="professional springboot">
+            <div>
+              <div class="project-banner banner-perfume">
+                <span class="project-arch-pill">🏢 Professional • Sep 2026</span>
+                <div class="project-visual-illustration">
+                  <div class="project-emoji-badge">🏭</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#d8b4fe;">Java 21 • Spring Boot 3 • React 18</div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-category">Manufacturing &amp; Supply Chain ERP</div>
+                <h3 class="project-title">Smart Production Hub — Apparel &amp; Supply Chain ERP</h3>
+                <p class="project-desc">
+                  Full-scale Apparel Production &amp; Supply Chain Orchestration ERP engineered with Java 21, Spring Boot 3.3, and React 18 to digitize garment production lines, BOM, work orders, quality control, and shipment pipelines.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-chip">Java 21</span>
+                  <span class="tech-chip">Spring Boot 3.3</span>
+                  <span class="tech-chip">React 18</span>
+                  <span class="tech-chip">Tailwind CSS</span>
+                  <span class="tech-chip">MySQL</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-body" style="padding-top:0;">
+              <div class="project-actions">
+                <button class="btn btn-primary btn-sm" style="width:100%;" onclick="openProjectModal('smartprod')">
+                  View Enterprise Case Study
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRO 5: SuperAdmin Hub (August 2026) -->
+          <article class="spotlight-card project-card reveal reveal-delay-1" data-pcat="professional springboot">
+            <div>
+              <div class="project-banner banner-recipe">
+                <span class="project-arch-pill">🏢 Professional • Aug 2026</span>
+                <div class="project-visual-illustration">
+                  <div class="project-emoji-badge">🛡️</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#fcd34d;">React 18 • Node/Express • SSLCommerz</div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-category">Multi-Tenant SaaS Control Plane</div>
+                <h3 class="project-title">SuperAdmin Hub — SaaS Tenant &amp; Billing Portal</h3>
+                <p class="project-desc">
+                  Centralized Multi-Tenant SaaS Management Control Plane handling client onboarding, tenant impersonation, subscription plans, SSLCommerz payment gateway billing, per-tenant feature flags, and security audit logs.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-chip">React 18</span>
+                  <span class="tech-chip">Node.js &amp; Express 5</span>
+                  <span class="tech-chip">MySQL</span>
+                  <span class="tech-chip">SSLCommerz</span>
+                  <span class="tech-chip">Tailwind CSS</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-body" style="padding-top:0;">
+              <div class="project-actions">
+                <button class="btn btn-primary btn-sm" style="width:100%;" onclick="openProjectModal('superadmin')">
+                  View Enterprise Case Study
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRO 6: LS Portal — Job, Admission & Tender Portal (August 2026) -->
+          <article class="spotlight-card project-card reveal reveal-delay-2" data-pcat="professional springboot">
+            <div>
+              <div class="project-banner banner-cargo">
+                <span class="project-arch-pill">🏢 Professional • Aug 2026</span>
+                <div class="project-visual-illustration">
+                  <div class="project-emoji-badge">🌐</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#67e8f9;">Spring Boot 3 • React 18 • Multi-Tenant</div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-category">3-Tier Multi-Tenant Enterprise SaaS</div>
+                <h3 class="project-title">LS Portal — Job, Admission, Tender &amp; Event Platform</h3>
+                <p class="project-desc">
+                  3-Tier Multi-Tenant Enterprise SaaS Platform built with Spring Boot 3, React 18, and MySQL empowering organizations to manage sub-institutions, job circulars, tenders, events, and online admissions with white-label domain routing.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-chip">Java / Spring Boot 3</span>
+                  <span class="tech-chip">React 18 (Vite)</span>
+                  <span class="tech-chip">Multi-Tenant SQL</span>
+                  <span class="tech-chip">JWT</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-body" style="padding-top:0;">
+              <div class="project-actions">
+                <button class="btn btn-primary btn-sm" style="width:100%;" onclick="openProjectModal('lsportal')">
+                  View Enterprise Case Study
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- CORE 7: Perfume Decant Management App (March 2026) -->
+          <article class="spotlight-card project-card reveal" data-pcat="python-cpp">
+            <div>
+              <div class="project-banner banner-perfume">
+                <span class="project-arch-pill">📅 March 2026</span>
+                <div class="project-visual-illustration">
+                  <div class="project-emoji-badge">🧪</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#d8b4fe;">Python • Tkinter GUI</div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-category">Business Desktop Application</div>
+                <h3 class="project-title">Perfume Decant Management App</h3>
+                <p class="project-desc">
+                  Built a complete business management desktop application for inventory, sales, and expense tracking with automated record-keeping in Python and an intuitive Tkinter GUI.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-chip">Python</span>
+                  <span class="tech-chip">Tkinter GUI</span>
+                  <span class="tech-chip">Inventory &amp; Sales</span>
+                  <span class="tech-chip">Expense Tracking</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-body" style="padding-top:0;">
+              <div class="project-actions">
+                <button class="btn btn-primary btn-sm" style="flex:1;" onclick="openProjectModal('perfume')">
+                  View Case Study
+                </button>
+                <a href="https://github.com/FaisalWebZone/Perfume_Decant_Management_App" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Source on GitHub">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CORE 8: Restaurant Order & Table Management System (January 2026) -->
+          <article class="spotlight-card project-card reveal reveal-delay-1" data-pcat="dotnet">
+            <div>
+              <div class="project-banner banner-restaurant">
+                <span class="project-arch-pill">📅 January 2026</span>
+                <div class="project-visual-illustration">
+                  <div class="project-emoji-badge">🍽️</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#6ee7b7;">ASP.NET Core • N-Tier</div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-category">N-Tier Web Application &amp; API</div>
+                <h3 class="project-title">Restaurant Order &amp; Table Management System</h3>
+                <p class="project-desc">
+                  Built a scalable backend web application using ASP.NET Core following strict N-Tier Architecture with CRUD operations, EF Core Code-First, and SQL Server database integration.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-chip">ASP.NET Core</span>
+                  <span class="tech-chip">C#</span>
+                  <span class="tech-chip">N-Tier Architecture</span>
+                  <span class="tech-chip">SQL Server</span>
+                  <span class="tech-chip">EF Core</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-body" style="padding-top:0;">
+              <div class="project-actions">
+                <button class="btn btn-primary btn-sm" style="flex:1;" onclick="openProjectModal('restaurant')">
+                  View Architecture
+                </button>
+                <a href="https://github.com/FaisalWebZone/Restaurant_Order_Table_Management-ASP.Net" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Source on GitHub">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CORE 9: Recipe Sharing Platform (October 2025) -->
+          <article class="spotlight-card project-card reveal reveal-delay-2" data-pcat="laravel">
+            <div>
+              <div class="project-banner banner-recipe">
+                <span class="project-arch-pill">📅 October 2025</span>
+                <div class="project-visual-illustration">
+                  <div class="project-emoji-badge">👨‍🍳</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#fcd34d;">PHP • MySQL • JS</div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-category">Full-Stack Web Application</div>
+                <h3 class="project-title">Recipe Sharing Platform</h3>
+                <p class="project-desc">
+                  Built a dynamic role-based web application for sharing recipes with full CRUD functionality, MySQL database integration, and an interactive HTML, CSS, and JavaScript frontend.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-chip">PHP</span>
+                  <span class="tech-chip">MySQL</span>
+                  <span class="tech-chip">HTML5 &amp; CSS3</span>
+                  <span class="tech-chip">JavaScript</span>
+                  <span class="tech-chip">XAMPP</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-body" style="padding-top:0;">
+              <div class="project-actions">
+                <button class="btn btn-primary btn-sm" style="flex:1;" onclick="openProjectModal('recipe')">
+                  View Case Study
+                </button>
+                <a href="https://github.com/FaisalWebZone/Recipe_Sharing_Platform_Project-with-PHP" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Source on GitHub">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CORE 10: Cargo Flow – From Warehouse to Sea (March 2025) -->
+          <article class="spotlight-card project-card reveal" data-pcat="python-cpp">
+            <div>
+              <div class="project-banner banner-cargo">
+                <span class="project-arch-pill">📅 March 2025 • 🎥 Demo</span>
+                <div class="project-visual-illustration">
+                  <div class="project-emoji-badge">🚢</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#67e8f9;">C++ • OpenGL Graphics</div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-category">Computer Graphics &amp; Simulation</div>
+                <h3 class="project-title">Cargo Flow – From Warehouse to Sea</h3>
+                <p class="project-desc">
+                  Built a graphical cargo flow simulation using C++ and OpenGL implementing smooth keyframe animations and object movement to visualize real-world warehouse-to-sea logistics.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-chip">C++</span>
+                  <span class="tech-chip">OpenGL</span>
+                  <span class="tech-chip">2D/3D Animation</span>
+                  <span class="tech-chip">Logistics Simulation</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-body" style="padding-top:0;">
+              <div class="project-actions">
+                <button class="btn btn-primary btn-sm" style="flex:1;" onclick="openProjectModal('cargo')">
+                  Case Study &amp; Video
+                </button>
+                <a href="https://github.com/FaisalWebZone/Cargo_Logistics_Visualization_Graphics" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Source on GitHub">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CORE 11: Library Management System (November 2024) -->
+          <article class="spotlight-card project-card reveal reveal-delay-1" data-pcat="dotnet">
+            <div>
+              <div class="project-banner banner-library">
+                <span class="project-arch-pill">📅 November 2024</span>
+                <div class="project-visual-illustration">
+                  <div class="project-emoji-badge">📚</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#a5b4fc;">C# • .NET • SQL Server</div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-category">Desktop Management System</div>
+                <h3 class="project-title">Library Management System</h3>
+                <p class="project-desc">
+                  Built a comprehensive system to manage books, inventory, billing, and multi-role user records with CRUD operations in SQL Server using C# and the .NET Framework (OOP2).
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-chip">C#</span>
+                  <span class="tech-chip">.NET Framework</span>
+                  <span class="tech-chip">SQL Server</span>
+                  <span class="tech-chip">OOP2</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-body" style="padding-top:0;">
+              <div class="project-actions">
+                <button class="btn btn-primary btn-sm" style="flex:1;" onclick="openProjectModal('library')">
+                  View Case Study
+                </button>
+                <a href="https://github.com/FaisalWebZone/Library_Mangement_Project-Faisal" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Source on GitHub">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TECHNICAL & SOFT SKILLS SECTION ==================== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-eyebrow">// 03. TECHNICAL &amp; SOFT SKILLS</div>
+          <h2 class="section-title">Technical <span class="gradient-text">Arsenal &amp; Tooling</span></h2>
+          <p class="section-subtitle">
+            Complete breakdown of my enterprise backend frameworks, frontend libraries, programming languages, and database systems.
+          </p>
+        </div>
+
+        <div class="filter-tabs reveal">
+          <button class="filter-btn active" data-skill-filter="all">All Skills</button>
+          <button class="filter-btn" data-skill-filter="programming">Programming</button>
+          <button class="filter-btn" data-skill-filter="web-framework">Enterprise Frameworks &amp; Web</button>
+          <button class="filter-btn" data-skill-filter="database">Databases &amp; Architecture</button>
+          <button class="filter-btn" data-skill-filter="tools-ai">Tools &amp; Graphics</button>
+        </div>
+
+        <div class="skills-grid" id="skills-grid">
+          <!-- Enterprise Frameworks -->
+          <div class="spotlight-card skill-card reveal" data-category="web-framework">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">SB3</div>
+                <div>
+                  <div class="skill-name">Java 21 &amp; Spring Boot 3</div>
+                  <div class="skill-cat-label">Enterprise Backend Framework</div>
+                </div>
+              </div>
+              <span class="skill-pct">92%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="92%"></div></div>
+            <div class="skill-tags">Spring Data JPA • JWT Security • Multi-Tenant SaaS • WAR</div>
+          </div>
+
+          <div class="spotlight-card skill-card reveal" data-category="web-framework">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">LV</div>
+                <div>
+                  <div class="skill-name">PHP 8.2 &amp; Laravel 12</div>
+                  <div class="skill-cat-label">Full-Stack ERP Framework</div>
+                </div>
+              </div>
+              <span class="skill-pct">91%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="91%"></div></div>
+            <div class="skill-tags">BanikOS ERP • Offline POS • Alpine.js • RBAC &amp; Ledgers</div>
+          </div>
+
+          <div class="spotlight-card skill-card reveal" data-category="web-framework">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">RCT</div>
+                <div>
+                  <div class="skill-name">React 18, Vite &amp; Tailwind CSS</div>
+                  <div class="skill-cat-label">Modern Frontend SPA</div>
+                </div>
+              </div>
+              <span class="skill-pct">90%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
+            <div class="skill-tags">React Router • Framer Motion • Axios • Responsive Dashboards</div>
+          </div>
+
+          <div class="spotlight-card skill-card reveal" data-category="web-framework">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">.NET</div>
+                <div>
+                  <div class="skill-name">C#, ASP.NET Core &amp; MVC</div>
+                  <div class="skill-cat-label">.NET Framework Ecosystem</div>
+                </div>
+              </div>
+              <span class="skill-pct">92%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="92%"></div></div>
+            <div class="skill-tags">.NET Framework • ASP.NET Core • EF Core Code-First • N-Tier</div>
+          </div>
+
+          <!-- Programming -->
+          <div class="spotlight-card skill-card reveal" data-category="programming">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">JS</div>
+                <div>
+                  <div class="skill-name">JavaScript &amp; Node.js / Express</div>
+                  <div class="skill-cat-label">Full-Stack JS Runtime</div>
+                </div>
+              </div>
+              <span class="skill-pct">90%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
+            <div class="skill-tags">Express 5 • REST APIs • Service Workers • E2E Automation</div>
+          </div>
+
+          <div class="spotlight-card skill-card reveal" data-category="programming">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">PY</div>
+                <div>
+                  <div class="skill-name">Python &amp; Tkinter</div>
+                  <div class="skill-cat-label">Programming &amp; GUI Apps</div>
+                </div>
+              </div>
+              <span class="skill-pct">90%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
+            <div class="skill-tags">Tkinter GUI • Automation • Data Science &amp; ML</div>
+          </div>
+
+          <div class="spotlight-card skill-card reveal" data-category="programming">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">C++</div>
+                <div>
+                  <div class="skill-name">C++ &amp; R</div>
+                  <div class="skill-cat-label">Core &amp; Statistical Programming</div>
+                </div>
+              </div>
+              <span class="skill-pct">89%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="89%"></div></div>
+            <div class="skill-tags">Algorithms • Data Structures • OpenGL • R Analytics</div>
+          </div>
+
+          <!-- Databases & Concepts -->
+          <div class="spotlight-card skill-card reveal" data-category="database">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">SQL</div>
+                <div>
+                  <div class="skill-name">MySQL 8, SQL Server &amp; PostgreSQL</div>
+                  <div class="skill-cat-label">Relational Database Systems</div>
+                </div>
+              </div>
+              <span class="skill-pct">93%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="93%"></div></div>
+            <div class="skill-tags">Multi-Tenant Schemas • Migrations • Double-Entry Ledgers</div>
+          </div>
+
+          <div class="spotlight-card skill-card reveal" data-category="database">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">ARC</div>
+                <div>
+                  <div class="skill-name">Multi-Tenant SaaS, N-Tier &amp; OOP</div>
+                  <div class="skill-cat-label">Software Architecture</div>
+                </div>
+              </div>
+              <span class="skill-pct">93%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="93%"></div></div>
+            <div class="skill-tags">Tenant Isolation • N-Tier • RESTful APIs • SSLCommerz</div>
+          </div>
+
+          <!-- Tools & Graphics -->
+          <div class="spotlight-card skill-card reveal" data-category="tools-ai">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">IDE</div>
+                <div>
+                  <div class="skill-name">Visual Studio, VS Code, Postman &amp; Git</div>
+                  <div class="skill-cat-label">Engineering &amp; QA Tooling</div>
+                </div>
+              </div>
+              <span class="skill-pct">94%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="94%"></div></div>
+            <div class="skill-tags">Maven • Composer • Vite • XAMPP • Postman • Git</div>
+          </div>
+
+          <div class="spotlight-card skill-card reveal" data-category="tools-ai">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">GL</div>
+                <div>
+                  <div class="skill-name">OpenGL &amp; Graphics Design</div>
+                  <div class="skill-cat-label">Computer Graphics &amp; Visuals</div>
+                </div>
+              </div>
+              <span class="skill-pct">85%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85%"></div></div>
+            <div class="skill-tags">OpenGL Rendering • Animation Logic • Basic Graphics Design</div>
+          </div>
+        </div>
+
+        <!-- Soft Skills Strip from CV -->
+        <div class="spotlight-card soft-skills-bar reveal">
+          <div>
+            <div class="bento-tag" style="margin-bottom:4px;">🤝 INTERPERSONAL &amp; PROFESSIONAL ATTRIBUTES</div>
+            <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.25rem;">Core Soft Skills</h3>
+          </div>
+          <div class="focus-pills" style="margin-top:0;">
+            <span class="focus-pill">💡 Problem-Solving</span>
+            <span class="focus-pill">⏱️ Time Management</span>
+            <span class="focus-pill">🔄 Adaptability</span>
+            <span class="focus-pill">💬 Communication</span>
+            <span class="focus-pill">🤝 Team Work</span>
+            <span class="focus-pill">🚀 Quick Learner</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT ME & CAREER FOCUS (BENTO) ==================== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-eyebrow">// 04. ABOUT ME</div>
+          <h2 class="section-title">Enterprise Engineering &amp; <span class="gradient-text">SaaS Architecture</span></h2>
+          <p class="section-subtitle">
+            Delivering production-grade Multi-Tenant ERP, POS, Accounting, and Cloud EdTech systems.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          <!-- Bio Card -->
+          <div class="spotlight-card bento-bio reveal">
+            <div>
+              <div class="bento-tag">👨‍💻 PROFESSIONAL SUMMARY</div>
+              <h3 class="bento-title">Faisal Ahmed — Junior Software Engineer</h3>
+              <p class="bento-text">
+                I am a <strong>Junior Software Engineer at Learning Shaper (Learning Shaper Technologies Limited)</strong> and a <strong>Computer Science and Engineering Graduate</strong> from <strong>American International University-Bangladesh (AIUB)</strong> (CGPA: 3.08 | Major in Information Systems, Minor in Software Engineering).
+              </p>
+              <p class="bento-text">
+                After completing a 3-month tenure as a <strong>Software Engineer Intern (Jul 1, 2026 – Oct 1, 2026)</strong> at Learning Shaper, I advanced to full-time <strong>Junior Software Engineer (Oct 1, 2026 – Present)</strong>. Across my professional career, I have engineered and modernized complex multi-tenant SaaS &amp; ERP platforms including <strong>BanikOS (Laravel 12 ERP)</strong>, <strong>Sales ERP</strong>, <strong>Smart Production Hub</strong>, <strong>Timesheet Enterprise ERP</strong>, <strong>SuperAdmin Hub</strong>, and <strong>LS Job &amp; Admission Portal</strong>.
+              </p>
+            </div>
+            <div class="focus-pills">
+              <span class="focus-pill">💼 Jr. Software Engineer @ Learning Shaper</span>
+              <span class="focus-pill">🎓 B.Sc. in CSE Graduate (CGPA: 3.08)</span>
+              <span class="focus-pill">🏗️ Multi-Tenant SaaS &amp; N-Tier ERP</span>
+              <span class="focus-pill">🔌 Spring Boot 3 • Laravel 12 • .NET Core</span>
+            </div>
+          </div>
+
+          <!-- Core Engineering Concepts Card -->
+          <div class="spotlight-card bento-exploring reveal reveal-delay-1">
+            <div class="bento-tag">⚙️ ARCHITECTURAL STRENGTHS</div>
+            <h3 class="bento-title">How I Engineer Software</h3>
+            <p class="bento-text">
+              My engineering workflow focuses on modularity, security, and production reliability:
+            </p>
+            <ul class="exploring-list">
+              <li class="exploring-item">
+                <span>🏢</span>
+                <div><strong>Multi-Tenant &amp; Branch-Scoped SaaS Isolation</strong></div>
+              </li>
+              <li class="exploring-item">
+                <span>🏛️</span>
+                <div><strong>N-Tier Architecture &amp; Clean Spring/Laravel Services</strong></div>
+              </li>
+              <li class="exploring-item">
+                <span>📒</span>
+                <div><strong>Double-Entry Accounting, Stock Ledgers &amp; Offline POS</strong></div>
+              </li>
+              <li class="exploring-item">
+                <span>🧪</span>
+                <div><strong>Automated E2E Browser &amp; REST API Verification</strong></div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Domains Card -->
+          <div class="spotlight-card bento-interests reveal reveal-delay-2">
+            <div class="bento-tag">🎯 CORE SPECIALIZATIONS</div>
+            <h3 class="bento-title">Key Technical Domains</h3>
+            <div class="interests-grid">
+              <div class="interest-box">
+                <span class="interest-icon">☕</span>
+                <h4>Spring Boot 3 &amp; Java 21</h4>
+                <p>Enterprise WAR backends, JPA/Hibernate, JWT &amp; Grails modernization.</p>
+              </div>
+              <div class="interest-box">
+                <span class="interest-icon">⚡</span>
+                <h4>Laravel 12 &amp; PHP 8.2</h4>
+                <p>Tenant-scoped ERP, POS offline continuity, stock &amp; courier settlement.</p>
+              </div>
+              <div class="interest-box">
+                <span class="interest-icon">⚛️</span>
+                <h4>React 18 &amp; Tailwind UI</h4>
+                <p>High-speed Vite SPAs, Framer Motion animations &amp; role-based dashboards.</p>
+              </div>
+              <div class="interest-box">
+                <span class="interest-icon">🛠️</span>
+                <h4>ASP.NET Core &amp; C#</h4>
+                <p>N-Tier backend APIs, Entity Framework Core &amp; desktop systems.</p>
+              </div>
+              <div class="interest-box">
+                <span class="interest-icon">🗄️</span>
+                <h4>Database Engineering</h4>
+                <p>MySQL 8, SQL Server &amp; PostgreSQL schema design and migrations.</p>
+              </div>
+              <div class="interest-box">
+                <span class="interest-icon">🐍</span>
+                <h4>Python &amp; C++</h4>
+                <p>Tkinter business GUIs, data analysis &amp; OpenGL simulations.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Location & Quick Connect Card -->
+          <div class="spotlight-card bento-location reveal reveal-delay-3">
+            <div>
+              <div class="bento-tag">📍 LOCATION</div>
+              <h3 class="bento-title">Narayanganj &amp; Dhaka</h3>
+              <p class="bento-text" style="font-size:0.88rem;">
+                House 335, Road 7/3, Raghunathpur, Kutubpur-1421, Fatullah, Narayanganj, Bangladesh
+              </p>
+            </div>
+            <div class="radar-visual">
+              <div class="radar-ring"></div>
+              <div class="radar-ring"></div>
+              <span class="pulse-dot"></span>
+            </div>
+            <a href="#contact" class="btn btn-primary" style="width: 100%;">
+              Contact Me Directly
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== EDUCATION & UPDATED CV SECTION ==================== -->
+    <section class="section" id="qualifications">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-eyebrow">// 05. EDUCATION &amp; FAISAL AHMED.CV</div>
+          <h2 class="section-title">Academic <span class="gradient-text">Credentials &amp; Official CV</span></h2>
+          <p class="section-subtitle">
+            My academic degrees and official curriculum vitae (<strong>Faisal Ahmed.cv</strong>).
+          </p>
+        </div>
+
+        <div class="edu-cv-grid">
+          <!-- Timeline -->
+          <div class="timeline reveal">
+            <div class="spotlight-card timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-period">Graduated 2026 (Sep 2022 – 2026)</span>
+              <h3 class="timeline-degree">B.Sc. in Computer Science and Engineering (CSE)</h3>
+              <div class="timeline-school">American International University-Bangladesh (AIUB)</div>
+              <p class="timeline-meta">
+                <strong>Status:</strong> Graduated &nbsp;|&nbsp; <strong>CGPA:</strong> 3.08 / 4.00 &nbsp;|&nbsp; <strong>Major:</strong> Information Systems &nbsp;|&nbsp; <strong>Minor:</strong> Software Engineering
+              </p>
+            </div>
+
+            <div class="spotlight-card timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-period">May 2021</span>
+              <h3 class="timeline-degree">Higher Secondary Certificate (HSC), Science</h3>
+              <div class="timeline-school">Dr. Mahbubur Rahman Mollah College (DMRC)</div>
+              <p class="timeline-meta">
+                <strong>Result:</strong> GPA 5.00 / 5.00 &nbsp;|&nbsp; <strong>Group:</strong> Science
+              </p>
+            </div>
+
+            <div class="spotlight-card timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-period">March 2019</span>
+              <h3 class="timeline-degree">Secondary School Certificate (SSC), Science</h3>
+              <div class="timeline-school">Shamsul Haque Khan School &amp; College</div>
+              <p class="timeline-meta">
+                <strong>Result:</strong> GPA 5.00 / 5.00 &nbsp;|&nbsp; <strong>Group:</strong> Science
+              </p>
+            </div>
+          </div>
+
+          <!-- Interactive Updated CV Card -->
+          <div class="spotlight-card cv-showcase-card reveal reveal-delay-2">
+            <div class="cv-icon-wrap">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            </div>
+            <h3>Faisal Ahmed.cv</h3>
+            <p>Includes my career progression at <strong>Learning Shaper</strong>, my 6 professional enterprise ERP/SaaS projects, academic projects, and B.Sc. in CSE (CGPA: 3.08).</p>
+
+            <div class="cv-highlights">
+              <div>💼 <strong>Current:</strong> Junior Software Engineer (Oct 1, 2026 – Present)</div>
+              <div>🚀 <strong>Previous:</strong> Software Engineer Intern (Jul 1 – Oct 1, 2026)</div>
+              <div>🎓 <strong>Graduated:</strong> B.Sc. in CSE, AIUB (CGPA: 3.08)</div>
+              <div>🏢 <strong>Projects:</strong> BanikOS, Sales ERP, Smart Production Hub &amp; more</div>
+            </div>
+
+            <div class="cv-btn-stack">
+              <button class="btn btn-primary" onclick="openCVModal()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                Preview Faisal Ahmed.cv
+              </button>
+              <a href="Faisal-Ahmed.cv.html?v=4&download=1" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download Faisal Ahmed.cv (PDF)
+              </a>
+              <a href="Faisal-Ahmed.cv.html?v=4" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                Open Faisal Ahmed.cv ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-eyebrow">// 06. GET IN TOUCH</div>
+          <h2 class="section-title">Let's Connect &amp; <span class="gradient-text">Collaborate</span></h2>
+          <p class="section-subtitle">
+            Reach out for software engineering collaborations, technical discussions, or opportunities.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Contact Info -->
+          <div class="spotlight-card contact-info-card reveal">
+            <div>
+              <h3 class="bento-title">Direct Contact Information</h3>
+              <p class="bento-text">
+                Click any channel below to copy or start a conversation immediately.
+              </p>
+
+              <div class="contact-method-list">
+                <div class="contact-method">
+                  <div class="contact-method-left">
+                    <div class="contact-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </div>
+                    <div>
+                      <div class="contact-label">Email Address</div>
+                      <a href="mailto:faisalahmed49591@gmail.com" class="contact-val">faisalahmed49591@gmail.com</a>
+                    </div>
+                  </div>
+                  <button class="copy-chip" onclick="copyText('faisalahmed49591@gmail.com', 'Email address copied!')">Copy</button>
+                </div>
+
+                <div class="contact-method">
+                  <div class="contact-method-left">
+                    <div class="contact-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </div>
+                    <div>
+                      <div class="contact-label">Phone / WhatsApp</div>
+                      <a href="tel:+8801402559869" class="contact-val">+880 1402-559869 (01402559869)</a>
+                    </div>
+                  </div>
+                  <button class="copy-chip" onclick="copyText('01402559869', 'Phone number copied!')">Copy</button>
+                </div>
+
+                <div class="contact-method">
+                  <div class="contact-method-left">
+                    <div class="contact-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <div>
+                      <div class="contact-label">Address</div>
+                      <div class="contact-val" style="font-size:0.88rem;">House 335, Road 7/3, Raghunathpur, Kutubpur-1421, Fatullah, Narayanganj, Bangladesh</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="contact-label" style="margin-bottom: 12px;">Official Links &amp; Socials</div>
+              <div class="hero-socials">
+                <a href="https://github.com/FaisalWebZone" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/faisal-ahmed-4a810033a/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                </a>
+                <a href="https://learningshaper.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Learning Shaper">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                </a>
+                <a href="https://www.facebook.com/mefaisalahmed17/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Facebook">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/_faisal_ahmed_17_/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Instagram">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="spotlight-card contact-form-card reveal reveal-delay-2">
+            <h3 class="bento-title">Send a Direct Message</h3>
+            <p class="bento-text">Fill out the form below to send an email directly to my inbox.</p>
+
+            <form id="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="sender-name">Your Name</label>
+                  <input type="text" id="sender-name" class="form-control" placeholder="e.g. Tanvir Rahman" required />
+                </div>
+                <div class="form-group">
+                  <label for="sender-email">Your Email</label>
+                  <input type="email" id="sender-email" class="form-control" placeholder="name@company.com" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="sender-subject">Subject</label>
+                <input type="text" id="sender-subject" class="form-control" placeholder="Software Engineering Collaboration / Opportunity" required />
+              </div>
+              <div class="form-group">
+                <label for="sender-message">Message</label>
+                <textarea id="sender-message" class="form-control" placeholder="Hi Faisal, I visited Faisal Ahmed.portfolio and would love to connect..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Send Message
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year">2026</span> <strong>Faisal Ahmed.portfolio</strong> • Junior Software Engineer at <a href="https://learningshaper.com/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-secondary);text-decoration:none;">Learning Shaper</a> • <a href="Faisal-Ahmed.cv.html?v=4" target="_blank" style="color:var(--accent-secondary);text-decoration:none;">Faisal Ahmed.cv</a></p>
+    </div>
+  </footer>
+
+  <!-- ==================== PROJECT CASE STUDY MODAL ==================== -->
+  <div class="modal-backdrop" id="project-modal">
+    <div class="modal-dialog">
+      <button class="modal-close" onclick="closeProjectModal()" aria-label="Close modal">✕</button>
+      <div id="project-modal-content"></div>
+    </div>
+  </div>
+
+  <!-- ==================== UPDATED CV PREVIEW MODAL ==================== -->
+  <div class="modal-backdrop" id="cv-modal">
+    <div class="modal-dialog" style="width: min(960px, 100%);">
+      <button class="modal-close" onclick="closeCVModal()" aria-label="Close CV modal">✕</button>
+      <div class="bento-tag">// FAISAL AHMED.CV</div>
+      <h3 class="bento-title" style="margin-bottom: 6px;">Faisal Ahmed.cv — Official Curriculum Vitae</h3>
+      <p class="bento-text" style="margin-bottom: 12px;">Includes my Work Experience at <strong>Learning Shaper</strong>, Professional Enterprise Projects, and B.Sc. in CSE (CGPA: 3.08).</p>
+      <div class="video-iframe-wrap" style="padding-top: 72%; background: #0f172a;">
+        <iframe id="cv-iframe" src="Faisal-Ahmed.cv.html?v=4"></iframe>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:16px;">
+        <a href="Faisal-Ahmed.cv.html?v=4&download=1" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+          ⬇ Download Faisal Ahmed.cv (PDF)
+        </a>
+        <a href="Faisal-Ahmed.cv.html?v=4" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+          🖨️ Open Full-Screen / Print Faisal Ahmed.cv ↗
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TOAST NOTIFICATION ==================== -->
+  <div class="toast" id="toast">
+    <span>✅</span>
+    <span id="toast-msg">Copied to clipboard!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
