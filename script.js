@@ -610,8 +610,8 @@ window.closeProjectModal = function () {
 window.openCVModal = function () {
   const modal = document.getElementById('cv-modal');
   const iframe = document.getElementById('cv-iframe');
-  if (iframe && !iframe.getAttribute('src')) {
-    iframe.setAttribute('src', 'Faisal-Ahmed.cv.html?v=4');
+  if (iframe) {
+    iframe.setAttribute('src', 'Faisal-Ahmed.cv.html?v=' + Date.now());
   }
   if (modal) {
     modal.classList.add('open');
