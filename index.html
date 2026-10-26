@@ -345,25 +345,41 @@
     <section class="section" id="projects">
       <div class="container">
         <div class="section-header reveal">
-          <div class="section-eyebrow">// 02. PROFESSIONAL &amp; CORE PROJECTS</div>
-          <h2 class="section-title">Enterprise Systems &amp; <span class="gradient-text">Software Portfolio</span></h2>
+          <div class="section-eyebrow">// 02. PROFESSIONAL &amp; UNIVERSITY PROJECTS</div>
+          <h2 class="section-title">Enterprise Systems &amp; <span class="gradient-text">Academic Portfolio</span></h2>
           <p class="section-subtitle">
-            Explore the 6 production Enterprise ERP &amp; Multi-Tenant SaaS systems I have worked on in my professional career alongside my 5 foundational software projects.
+            Organized into two dedicated sections: the <strong>6 Professional Enterprise ERP &amp; SaaS platforms</strong> I have worked on in my software engineering career and the <strong>5 University &amp; Academic projects</strong> built during my B.Sc. in CSE at AIUB.
           </p>
         </div>
 
         <div class="filter-tabs reveal">
           <button class="filter-btn active" data-project-filter="all">All Projects (11)</button>
           <button class="filter-btn" data-project-filter="professional">🏢 Professional Enterprise (6)</button>
+          <button class="filter-btn" data-project-filter="academic">🎓 University / Academic (5)</button>
           <button class="filter-btn" data-project-filter="springboot">Spring Boot &amp; React</button>
           <button class="filter-btn" data-project-filter="laravel">Laravel &amp; PHP</button>
           <button class="filter-btn" data-project-filter="dotnet">C# &amp; .NET</button>
           <button class="filter-btn" data-project-filter="python-cpp">Python &amp; C++</button>
         </div>
 
-        <div class="projects-grid" id="projects-grid">
+        <div id="projects-grid">
 
-          <!-- PRO 1: BanikOS ERP (October 2026) -->
+          <!-- ==================== SUBSECTION 01: PROFESSIONAL ENTERPRISE PROJECTS (6) ==================== -->
+          <div class="project-group-block" id="professional-projects-group">
+            <div class="project-group-header reveal">
+              <div>
+                <div class="project-group-badge">🏢 PART 01 // PROFESSIONAL CAREER PROJECTS (AT LEARNING SHAPER)</div>
+                <h3 class="project-group-title">Enterprise ERP &amp; Multi-Tenant SaaS Systems</h3>
+                <p class="project-group-desc">
+                  Production enterprise systems and multi-tenant SaaS platforms I have worked on in my professional career using Java 21 (Spring Boot 3.3), PHP 8.2 (Laravel 12), React 18, Node.js, and MySQL 8.
+                </p>
+              </div>
+              <div class="project-group-count">🏢 6 Enterprise Projects</div>
+            </div>
+
+            <div class="projects-grid">
+
+              <!-- PRO 1: BanikOS ERP (October 2026) -->
           <article class="spotlight-card project-card reveal" data-pcat="professional laravel">
             <div>
               <div class="project-banner banner-cargo">
@@ -566,187 +582,208 @@
             </div>
           </article>
 
-          <!-- CORE 7: Perfume Decant Management App (March 2026) -->
-          <article class="spotlight-card project-card reveal" data-pcat="python-cpp">
-            <div>
-              <div class="project-banner banner-perfume">
-                <span class="project-arch-pill">📅 March 2026</span>
-                <div class="project-visual-illustration">
-                  <div class="project-emoji-badge">🧪</div>
-                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#d8b4fe;">Python • Tkinter GUI</div>
-                </div>
-              </div>
-              <div class="project-body">
-                <div class="project-category">Business Desktop Application</div>
-                <h3 class="project-title">Perfume Decant Management App</h3>
-                <p class="project-desc">
-                  Built a complete business management desktop application for inventory, sales, and expense tracking with automated record-keeping in Python and an intuitive Tkinter GUI.
-                </p>
-                <div class="project-tech-stack">
-                  <span class="tech-chip">Python</span>
-                  <span class="tech-chip">Tkinter GUI</span>
-                  <span class="tech-chip">Inventory &amp; Sales</span>
-                  <span class="tech-chip">Expense Tracking</span>
-                </div>
-              </div>
             </div>
-            <div class="project-body" style="padding-top:0;">
-              <div class="project-actions">
-                <button class="btn btn-primary btn-sm" style="flex:1;" onclick="openProjectModal('perfume')">
-                  View Case Study
-                </button>
-                <a href="https://github.com/FaisalWebZone/Perfume_Decant_Management_App" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Source on GitHub">
-                  GitHub ↗
-                </a>
-              </div>
-            </div>
-          </article>
+          </div>
 
-          <!-- CORE 8: Restaurant Order & Table Management System (January 2026) -->
-          <article class="spotlight-card project-card reveal reveal-delay-1" data-pcat="dotnet">
-            <div>
-              <div class="project-banner banner-restaurant">
-                <span class="project-arch-pill">📅 January 2026</span>
-                <div class="project-visual-illustration">
-                  <div class="project-emoji-badge">🍽️</div>
-                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#6ee7b7;">ASP.NET Core • N-Tier</div>
-                </div>
-              </div>
-              <div class="project-body">
-                <div class="project-category">N-Tier Web Application &amp; API</div>
-                <h3 class="project-title">Restaurant Order &amp; Table Management System</h3>
-                <p class="project-desc">
-                  Built a scalable backend web application using ASP.NET Core following strict N-Tier Architecture with CRUD operations, EF Core Code-First, and SQL Server database integration.
+          <!-- ==================== SUBSECTION 02: UNIVERSITY & ACADEMIC PROJECTS (5) ==================== -->
+          <div class="project-group-block" id="academic-projects-group">
+            <div class="project-group-header academic-header reveal">
+              <div>
+                <div class="project-group-badge">🎓 PART 02 // UNIVERSITY &amp; ACADEMIC PROJECTS (B.SC. IN CSE @ AIUB)</div>
+                <h3 class="project-group-title">University &amp; Academic Software Engineering Projects</h3>
+                <p class="project-group-desc">
+                  Core software engineering, N-Tier web, desktop GUI, relational database, and computer graphics projects built during my B.Sc. in Computer Science &amp; Engineering at AIUB.
                 </p>
-                <div class="project-tech-stack">
-                  <span class="tech-chip">ASP.NET Core</span>
-                  <span class="tech-chip">C#</span>
-                  <span class="tech-chip">N-Tier Architecture</span>
-                  <span class="tech-chip">SQL Server</span>
-                  <span class="tech-chip">EF Core</span>
-                </div>
               </div>
+              <div class="project-group-count">🎓 5 University Projects</div>
             </div>
-            <div class="project-body" style="padding-top:0;">
-              <div class="project-actions">
-                <button class="btn btn-primary btn-sm" style="flex:1;" onclick="openProjectModal('restaurant')">
-                  View Architecture
-                </button>
-                <a href="https://github.com/FaisalWebZone/Restaurant_Order_Table_Management-ASP.Net" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Source on GitHub">
-                  GitHub ↗
-                </a>
-              </div>
-            </div>
-          </article>
 
-          <!-- CORE 9: Recipe Sharing Platform (October 2025) -->
-          <article class="spotlight-card project-card reveal reveal-delay-2" data-pcat="laravel">
-            <div>
-              <div class="project-banner banner-recipe">
-                <span class="project-arch-pill">📅 October 2025</span>
-                <div class="project-visual-illustration">
-                  <div class="project-emoji-badge">👨‍🍳</div>
-                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#fcd34d;">PHP • MySQL • JS</div>
-                </div>
-              </div>
-              <div class="project-body">
-                <div class="project-category">Full-Stack Web Application</div>
-                <h3 class="project-title">Recipe Sharing Platform</h3>
-                <p class="project-desc">
-                  Built a dynamic role-based web application for sharing recipes with full CRUD functionality, MySQL database integration, and an interactive HTML, CSS, and JavaScript frontend.
-                </p>
-                <div class="project-tech-stack">
-                  <span class="tech-chip">PHP</span>
-                  <span class="tech-chip">MySQL</span>
-                  <span class="tech-chip">HTML5 &amp; CSS3</span>
-                  <span class="tech-chip">JavaScript</span>
-                  <span class="tech-chip">XAMPP</span>
-                </div>
-              </div>
-            </div>
-            <div class="project-body" style="padding-top:0;">
-              <div class="project-actions">
-                <button class="btn btn-primary btn-sm" style="flex:1;" onclick="openProjectModal('recipe')">
-                  View Case Study
-                </button>
-                <a href="https://github.com/FaisalWebZone/Recipe_Sharing_Platform_Project-with-PHP" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Source on GitHub">
-                  GitHub ↗
-                </a>
-              </div>
-            </div>
-          </article>
+            <div class="projects-grid">
 
-          <!-- CORE 10: Cargo Flow – From Warehouse to Sea (March 2025) -->
-          <article class="spotlight-card project-card reveal" data-pcat="python-cpp">
-            <div>
-              <div class="project-banner banner-cargo">
-                <span class="project-arch-pill">📅 March 2025 • 🎥 Demo</span>
-                <div class="project-visual-illustration">
-                  <div class="project-emoji-badge">🚢</div>
-                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#67e8f9;">C++ • OpenGL Graphics</div>
+              <!-- ACADEMIC 1: Perfume Decant Management App (March 2026) -->
+              <article class="spotlight-card project-card reveal" data-pcat="academic python-cpp">
+                <div>
+                  <div class="project-banner banner-perfume">
+                    <span class="project-arch-pill">🎓 University • Mar 2026</span>
+                    <div class="project-visual-illustration">
+                      <div class="project-emoji-badge">🧪</div>
+                      <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#d8b4fe;">Python • Tkinter GUI</div>
+                    </div>
+                  </div>
+                  <div class="project-body">
+                    <div class="project-category">Academic Desktop GUI Application</div>
+                    <h3 class="project-title">Perfume Decant Management App</h3>
+                    <p class="project-desc">
+                      Built a complete business management desktop application for inventory, sales, and expense tracking with automated record-keeping in Python and an intuitive Tkinter GUI.
+                    </p>
+                    <div class="project-tech-stack">
+                      <span class="tech-chip">Python</span>
+                      <span class="tech-chip">Tkinter GUI</span>
+                      <span class="tech-chip">Inventory &amp; Sales</span>
+                      <span class="tech-chip">Expense Tracking</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="project-body">
-                <div class="project-category">Computer Graphics &amp; Simulation</div>
-                <h3 class="project-title">Cargo Flow – From Warehouse to Sea</h3>
-                <p class="project-desc">
-                  Built a graphical cargo flow simulation using C++ and OpenGL implementing smooth keyframe animations and object movement to visualize real-world warehouse-to-sea logistics.
-                </p>
-                <div class="project-tech-stack">
-                  <span class="tech-chip">C++</span>
-                  <span class="tech-chip">OpenGL</span>
-                  <span class="tech-chip">2D/3D Animation</span>
-                  <span class="tech-chip">Logistics Simulation</span>
+                <div class="project-body" style="padding-top:0;">
+                  <div class="project-actions">
+                    <button class="btn btn-primary btn-sm" style="flex:1;" onclick="openProjectModal('perfume')">
+                      View Case Study
+                    </button>
+                    <a href="https://github.com/FaisalWebZone/Perfume_Decant_Management_App" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Source on GitHub">
+                      GitHub ↗
+                    </a>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="project-body" style="padding-top:0;">
-              <div class="project-actions">
-                <button class="btn btn-primary btn-sm" style="flex:1;" onclick="openProjectModal('cargo')">
-                  Case Study &amp; Video
-                </button>
-                <a href="https://github.com/FaisalWebZone/Cargo_Logistics_Visualization_Graphics" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Source on GitHub">
-                  GitHub ↗
-                </a>
-              </div>
-            </div>
-          </article>
+              </article>
 
-          <!-- CORE 11: Library Management System (November 2024) -->
-          <article class="spotlight-card project-card reveal reveal-delay-1" data-pcat="dotnet">
-            <div>
-              <div class="project-banner banner-library">
-                <span class="project-arch-pill">📅 November 2024</span>
-                <div class="project-visual-illustration">
-                  <div class="project-emoji-badge">📚</div>
-                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#a5b4fc;">C# • .NET • SQL Server</div>
+              <!-- ACADEMIC 2: Restaurant Order & Table Management System (January 2026) -->
+              <article class="spotlight-card project-card reveal reveal-delay-1" data-pcat="academic dotnet">
+                <div>
+                  <div class="project-banner banner-restaurant">
+                    <span class="project-arch-pill">🎓 University • Jan 2026</span>
+                    <div class="project-visual-illustration">
+                      <div class="project-emoji-badge">🍽️</div>
+                      <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#6ee7b7;">ASP.NET Core • N-Tier</div>
+                    </div>
+                  </div>
+                  <div class="project-body">
+                    <div class="project-category">Academic N-Tier Web Application &amp; API</div>
+                    <h3 class="project-title">Restaurant Order &amp; Table Management System</h3>
+                    <p class="project-desc">
+                      Built a scalable backend web application using ASP.NET Core following strict N-Tier Architecture with CRUD operations, EF Core Code-First, and SQL Server database integration.
+                    </p>
+                    <div class="project-tech-stack">
+                      <span class="tech-chip">ASP.NET Core</span>
+                      <span class="tech-chip">C#</span>
+                      <span class="tech-chip">N-Tier Architecture</span>
+                      <span class="tech-chip">SQL Server</span>
+                      <span class="tech-chip">EF Core</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="project-body">
-                <div class="project-category">Desktop Management System</div>
-                <h3 class="project-title">Library Management System</h3>
-                <p class="project-desc">
-                  Built a comprehensive system to manage books, inventory, billing, and multi-role user records with CRUD operations in SQL Server using C# and the .NET Framework (OOP2).
-                </p>
-                <div class="project-tech-stack">
-                  <span class="tech-chip">C#</span>
-                  <span class="tech-chip">.NET Framework</span>
-                  <span class="tech-chip">SQL Server</span>
-                  <span class="tech-chip">OOP2</span>
+                <div class="project-body" style="padding-top:0;">
+                  <div class="project-actions">
+                    <button class="btn btn-primary btn-sm" style="flex:1;" onclick="openProjectModal('restaurant')">
+                      View Architecture
+                    </button>
+                    <a href="https://github.com/FaisalWebZone/Restaurant_Order_Table_Management-ASP.Net" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Source on GitHub">
+                      GitHub ↗
+                    </a>
+                  </div>
                 </div>
-              </div>
+              </article>
+
+              <!-- ACADEMIC 3: Recipe Sharing Platform (October 2025) -->
+              <article class="spotlight-card project-card reveal reveal-delay-2" data-pcat="academic laravel">
+                <div>
+                  <div class="project-banner banner-recipe">
+                    <span class="project-arch-pill">🎓 University • Oct 2025</span>
+                    <div class="project-visual-illustration">
+                      <div class="project-emoji-badge">👨‍🍳</div>
+                      <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#fcd34d;">PHP • MySQL • JS</div>
+                    </div>
+                  </div>
+                  <div class="project-body">
+                    <div class="project-category">Academic Full-Stack Web Application</div>
+                    <h3 class="project-title">Recipe Sharing Platform</h3>
+                    <p class="project-desc">
+                      Built a dynamic role-based web application for sharing recipes with full CRUD functionality, MySQL database integration, and an interactive HTML, CSS, and JavaScript frontend.
+                    </p>
+                    <div class="project-tech-stack">
+                      <span class="tech-chip">PHP</span>
+                      <span class="tech-chip">MySQL</span>
+                      <span class="tech-chip">HTML5 &amp; CSS3</span>
+                      <span class="tech-chip">JavaScript</span>
+                      <span class="tech-chip">XAMPP</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-body" style="padding-top:0;">
+                  <div class="project-actions">
+                    <button class="btn btn-primary btn-sm" style="flex:1;" onclick="openProjectModal('recipe')">
+                      View Case Study
+                    </button>
+                    <a href="https://github.com/FaisalWebZone/Recipe_Sharing_Platform_Project-with-PHP" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Source on GitHub">
+                      GitHub ↗
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- ACADEMIC 4: Cargo Flow – From Warehouse to Sea (March 2025) -->
+              <article class="spotlight-card project-card reveal" data-pcat="academic python-cpp">
+                <div>
+                  <div class="project-banner banner-cargo">
+                    <span class="project-arch-pill">🎓 University • Mar 2025 • 🎥 Demo</span>
+                    <div class="project-visual-illustration">
+                      <div class="project-emoji-badge">🚢</div>
+                      <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#67e8f9;">C++ • OpenGL Graphics</div>
+                    </div>
+                  </div>
+                  <div class="project-body">
+                    <div class="project-category">Academic Computer Graphics &amp; Simulation</div>
+                    <h3 class="project-title">Cargo Flow – From Warehouse to Sea</h3>
+                    <p class="project-desc">
+                      Built a graphical cargo flow simulation using C++ and OpenGL implementing smooth keyframe animations and object movement to visualize real-world warehouse-to-sea logistics.
+                    </p>
+                    <div class="project-tech-stack">
+                      <span class="tech-chip">C++</span>
+                      <span class="tech-chip">OpenGL</span>
+                      <span class="tech-chip">2D/3D Animation</span>
+                      <span class="tech-chip">Logistics Simulation</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-body" style="padding-top:0;">
+                  <div class="project-actions">
+                    <button class="btn btn-primary btn-sm" style="flex:1;" onclick="openProjectModal('cargo')">
+                      Case Study &amp; Video
+                    </button>
+                    <a href="https://github.com/FaisalWebZone/Cargo_Logistics_Visualization_Graphics" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Source on GitHub">
+                      GitHub ↗
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- ACADEMIC 5: Library Management System (November 2024) -->
+              <article class="spotlight-card project-card reveal reveal-delay-1" data-pcat="academic dotnet">
+                <div>
+                  <div class="project-banner banner-library">
+                    <span class="project-arch-pill">🎓 University • Nov 2024</span>
+                    <div class="project-visual-illustration">
+                      <div class="project-emoji-badge">📚</div>
+                      <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#a5b4fc;">C# • .NET • SQL Server</div>
+                    </div>
+                  </div>
+                  <div class="project-body">
+                    <div class="project-category">Academic Desktop Management System</div>
+                    <h3 class="project-title">Library Management System</h3>
+                    <p class="project-desc">
+                      Built a comprehensive system to manage books, inventory, billing, and multi-role user records with CRUD operations in SQL Server using C# and the .NET Framework (OOP2).
+                    </p>
+                    <div class="project-tech-stack">
+                      <span class="tech-chip">C#</span>
+                      <span class="tech-chip">.NET Framework</span>
+                      <span class="tech-chip">SQL Server</span>
+                      <span class="tech-chip">OOP2</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-body" style="padding-top:0;">
+                  <div class="project-actions">
+                    <button class="btn btn-primary btn-sm" style="flex:1;" onclick="openProjectModal('library')">
+                      View Case Study
+                    </button>
+                    <a href="https://github.com/FaisalWebZone/Library_Mangement_Project-Faisal" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Source on GitHub">
+                      GitHub ↗
+                    </a>
+                  </div>
+                </div>
+              </article>
+
             </div>
-            <div class="project-body" style="padding-top:0;">
-              <div class="project-actions">
-                <button class="btn btn-primary btn-sm" style="flex:1;" onclick="openProjectModal('library')">
-                  View Case Study
-                </button>
-                <a href="https://github.com/FaisalWebZone/Library_Mangement_Project-Faisal" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Source on GitHub">
-                  GitHub ↗
-                </a>
-              </div>
-            </div>
-          </article>
+          </div>
 
         </div>
       </div>
