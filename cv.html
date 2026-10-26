@@ -18,8 +18,8 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       color: #111827;
       background: #0f172a;
-      line-height: 1.42;
-      font-size: 12.2px;
+      line-height: 1.4;
+      font-size: 12px;
       padding: 18px 0 32px;
     }
     .cv-toolbar {
@@ -63,7 +63,7 @@
       min-height: 296mm;
       margin: 0 auto;
       background: #ffffff;
-      padding: 12mm 15mm;
+      padding: 11mm 15mm;
       box-shadow: 0 20px 50px rgba(0,0,0,0.45);
     }
     /* Header */
@@ -72,18 +72,18 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 2px solid #0f172a;
-      padding-bottom: 10px;
-      margin-bottom: 9px;
+      padding-bottom: 9px;
+      margin-bottom: 8px;
     }
     .cv-name {
-      font-size: 24px;
+      font-size: 23px;
       font-weight: 800;
       letter-spacing: 0.5px;
       color: #0f172a;
       text-transform: uppercase;
     }
     .cv-role {
-      font-size: 13.8px;
+      font-size: 13.5px;
       font-weight: 700;
       color: #1d4ed8;
       margin-top: 2px;
@@ -93,8 +93,8 @@
       text-decoration: none;
     }
     .cv-photo {
-      width: 66px;
-      height: 66px;
+      width: 62px;
+      height: 62px;
       border-radius: 50%;
       object-fit: cover;
       object-position: center 15%;
@@ -104,11 +104,11 @@
     .cv-contact-grid {
       display: grid;
       grid-template-columns: 1.05fr 0.85fr 1.4fr;
-      gap: 5px 12px;
-      font-size: 11.2px;
+      gap: 4px 12px;
+      font-size: 11px;
       color: #1f2937;
-      margin-bottom: 9px;
-      padding-bottom: 8px;
+      margin-bottom: 8px;
+      padding-bottom: 7px;
       border-bottom: 1px solid #cbd5e1;
     }
     .cv-contact-item {
@@ -125,25 +125,83 @@
     .cv-summary {
       font-style: italic;
       color: #1f2937;
-      margin-bottom: 9px;
-      font-size: 11.6px;
-      line-height: 1.44;
+      margin-bottom: 8px;
+      font-size: 11.4px;
+      line-height: 1.42;
     }
     /* Section Header */
     .cv-sec-title {
       background: #dbeafe;
       color: #0f172a;
       font-weight: 800;
-      font-size: 11.8px;
+      font-size: 11.5px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      padding: 4px 8px;
-      margin: 8px 0 6px;
+      padding: 3.5px 8px;
+      margin: 7px 0 6px;
       border-left: 3.5px solid #1d4ed8;
+    }
+    /* Nested Company Career Progression in CV */
+    .cv-company-block {
+      margin-bottom: 8px;
+    }
+    .cv-company-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+    .cv-company-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      font-size: 12.6px;
+      color: #0f172a;
+    }
+    .cv-company-title a {
+      color: #1d4ed8;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 11.3px;
+    }
+    .cv-role-tree {
+      position: relative;
+      padding-left: 20px;
+      margin-left: 8px;
+    }
+    .cv-role-tree::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 6px;
+      bottom: 12px;
+      width: 1.5px;
+      background: #94a3b8;
+    }
+    .cv-role-step {
+      position: relative;
+      margin-bottom: 6px;
+    }
+    .cv-role-step:last-child {
+      margin-bottom: 0;
+    }
+    .cv-role-dot {
+      position: absolute;
+      left: -19.5px;
+      top: 4px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #64748b;
+    }
+    .cv-role-dot.active {
+      background: #1d4ed8;
+      box-shadow: 0 0 0 2px #dbeafe;
     }
     /* Experience & Projects */
     .cv-entry {
-      margin-bottom: 7px;
+      margin-bottom: 6px;
     }
     .cv-entry-head {
       display: flex;
@@ -151,22 +209,10 @@
       align-items: baseline;
       font-weight: 700;
       color: #0f172a;
-      font-size: 12.2px;
-    }
-    .cv-entry-sub {
-      display: flex;
-      justify-content: space-between;
-      font-size: 11.4px;
-      color: #1d4ed8;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-    .cv-entry-sub a {
-      color: #1d4ed8;
-      text-decoration: none;
+      font-size: 12px;
     }
     .cv-entry-date {
-      font-size: 11.2px;
+      font-size: 11px;
       font-weight: 700;
       color: #1e293b;
       white-space: nowrap;
@@ -175,17 +221,17 @@
       list-style: disc;
       margin-left: 16px;
       color: #1f2937;
-      font-size: 11.4px;
+      font-size: 11.2px;
     }
     .cv-bullets li {
-      margin-bottom: 1.5px;
+      margin-bottom: 1px;
     }
     /* Skills List */
     .cv-skills-list {
       display: flex;
       flex-direction: column;
-      gap: 2.5px;
-      font-size: 11.5px;
+      gap: 2px;
+      font-size: 11.3px;
       color: #1f2937;
     }
     .cv-skills-list div strong {
@@ -207,7 +253,7 @@
         box-shadow: none;
         width: 100%;
         min-height: auto;
-        padding: 10mm 14mm;
+        padding: 9mm 14mm;
       }
     }
   </style>
@@ -215,7 +261,7 @@
 <body>
 
   <div class="cv-toolbar">
-    <div>📄 <strong>Faisal Ahmed — Updated Official CV</strong> (Junior Software Engineer @ Learning Shaper Technologies Ltd.)</div>
+    <div>📄 <strong>Faisal Ahmed — Official Updated CV</strong> (Junior Software Engineer @ Learning Shaper)</div>
     <div style="display:flex; gap:8px;">
       <button class="cv-toolbar-btn" onclick="downloadPDF()">⬇ Download PDF</button>
       <button class="cv-toolbar-btn secondary" onclick="window.print()">🖨️ Print / Save as PDF</button>
@@ -227,7 +273,7 @@
       <div>
         <div class="cv-name">FAISAL AHMED</div>
         <div class="cv-role">
-          Junior Software Engineer &nbsp;|&nbsp; <a href="https://learningshaper.com/" target="_blank">Learning Shaper Technologies Limited</a>
+          Junior Software Engineer &nbsp;|&nbsp; <a href="https://learningshaper.com/" target="_blank">Learning Shaper</a>
         </div>
       </div>
       <img src="assets/profile-formal.jpg" alt="Faisal Ahmed" class="cv-photo" crossorigin="anonymous" />
@@ -239,29 +285,50 @@
       <div class="cv-contact-item">📍 House 335, Road 7/3, Raghunathpur, Kutubpur-1421, Fatullah, Narayanganj, Bangladesh</div>
       <div class="cv-contact-item">🔗 <a href="https://www.linkedin.com/in/faisal-ahmed-4a810033a/" target="_blank">LinkedIn</a></div>
       <div class="cv-contact-item">💻 <a href="https://github.com/FaisalWebZone" target="_blank">GitHub</a></div>
-      <div class="cv-contact-item">🌐 <a href="https://faisalwebzone.github.io/" target="_blank">Portfolio</a> &nbsp;|&nbsp; 🏢 <a href="https://learningshaper.com/" target="_blank">learningshaper.com</a></div>
+      <div class="cv-contact-item">🌐 <a href="https://faisalwebzone.github.io/" target="_blank">Portfolio</a> &nbsp;|&nbsp; 🎓 <a href="https://learningshaper.com/" target="_blank">learningshaper.com</a></div>
     </div>
 
     <div class="cv-summary">
-      “Junior Software Engineer at Learning Shaper Technologies Limited and final-year Computer Science &amp; Engineering student at AIUB skilled in C++, Java, C#, .NET, Python, and full-stack web development (HTML, CSS, JavaScript, PHP, SQL). Experienced in building scalable N-Tier architectures, RESTful APIs, and AI-powered cloud software solutions.”
+      “Junior Software Engineer at Learning Shaper (Learning Shaper Technologies Limited) with a B.Sc. in Computer Science and Engineering from AIUB. Skilled in C++, Java, C#, .NET, Python, and full-stack web development (HTML, CSS, JavaScript, PHP, SQL). Experienced in architecting N-Tier enterprise backend systems, RESTful APIs, and scalable cloud applications.”
     </div>
 
-    <!-- PROFESSIONAL EXPERIENCE -->
-    <div class="cv-sec-title">PROFESSIONAL EXPERIENCE</div>
-    <div class="cv-entry">
-      <div class="cv-entry-head">
-        <span>Junior Software Engineer — Learning Shaper Technologies Limited</span>
-        <span class="cv-entry-date">2026 – Present</span>
+    <!-- WORK EXPERIENCE -->
+    <div class="cv-sec-title">WORK EXPERIENCE</div>
+    <div class="cv-company-block">
+      <div class="cv-company-head">
+        <div class="cv-company-title">
+          <span>🎓 Learning Shaper</span>
+          <a href="https://learningshaper.com/" target="_blank">(Learning Shaper Technologies Limited — learningshaper.com)</a>
+        </div>
+        <span class="cv-entry-date">Dhaka, Bangladesh</span>
       </div>
-      <div class="cv-entry-sub">
-        <span>AI-Powered Cloud School Management ERP &amp; LMS Platform (<a href="https://learningshaper.com/" target="_blank">https://learningshaper.com/</a>)</span>
-        <span>Dhaka, Bangladesh</span>
+
+      <div class="cv-role-tree">
+        <!-- Role 1 -->
+        <div class="cv-role-step">
+          <span class="cv-role-dot active"></span>
+          <div class="cv-entry-head">
+            <span>Junior Software Engineer</span>
+            <span class="cv-entry-date">Oct 1, 2026 - Present</span>
+          </div>
+          <ul class="cv-bullets">
+            <li>Developing and maintaining backend services, RESTful APIs, and web modules for <strong>Learning Shaper</strong>, an AI-powered School Management ERP &amp; Learning Management System (LMS).</li>
+            <li>Engineering core institutional workflows including automated grading, Question Banks, OMR scanning, attendance, and fee management with relational database integration.</li>
+          </ul>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="cv-role-step">
+          <span class="cv-role-dot"></span>
+          <div class="cv-entry-head">
+            <span>Software Engineer Intern</span>
+            <span class="cv-entry-date">Jul 1, 2026 - Oct 1, 2026 · 3 months</span>
+          </div>
+          <ul class="cv-bullets">
+            <li>Assisted in developing web interfaces, CRUD operations, and database integrations across academic and classroom management modules; promoted to full-time Junior Software Engineer.</li>
+          </ul>
+        </div>
       </div>
-      <ul class="cv-bullets">
-        <li>Developing and maintaining backend services, web modules, and RESTful APIs for <strong>Learning Shaper</strong>, an AI-powered education ERP and Learning Management System (LMS).</li>
-        <li>Building and optimizing modules for academic management, automated exam &amp; AI grading workflows, attendance, and institutional operations.</li>
-        <li>Collaborating with the engineering team on database integration, bug resolution, and scalable software architecture.</li>
-      </ul>
     </div>
 
     <!-- TECHNICAL SKILLS -->
@@ -271,12 +338,12 @@
       <div><strong>Web:</strong> HTML, CSS, JavaScript, PHP</div>
       <div><strong>Frameworks:</strong> .NET Framework, ASP.NET MVC, ASP.NET Core, Entity Framework Core, Tkinter</div>
       <div><strong>Database:</strong> SQL Server, MySQL, PostgreSQL</div>
-      <div><strong>Concepts:</strong> Object-Oriented Programming (OOP), N-Tier Architecture, RESTful APIs, Data Science &amp; Machine Learning</div>
+      <div><strong>Concepts:</strong> Object-Oriented Programming (OOP), N-Tier Architecture, RESTful APIs</div>
       <div><strong>Tools &amp; Graphics:</strong> Visual Studio, XAMPP, Postman, CodeBlocks, Git, OpenGL, Basic Graphics Design</div>
     </div>
 
-    <!-- ACADEMIC & SOFTWARE PROJECTS -->
-    <div class="cv-sec-title">SOFTWARE &amp; ACADEMIC PROJECTS</div>
+    <!-- PROJECTS -->
+    <div class="cv-sec-title">PROJECTS</div>
 
     <div class="cv-entry">
       <div class="cv-entry-head">
@@ -285,7 +352,7 @@
       </div>
       <ul class="cv-bullets">
         <li>Built a business management application for inventory, sales, and expense tracking</li>
-        <li>Automated record-keeping using Python and designed interactive desktop GUI using Tkinter</li>
+        <li>Automated record-keeping using Python and designed GUI using Tkinter</li>
       </ul>
     </div>
 
@@ -306,7 +373,7 @@
         <span class="cv-entry-date">October 2025</span>
       </div>
       <ul class="cv-bullets">
-        <li>Built a dynamic web application for sharing recipes with role-based access control</li>
+        <li>Built a dynamic web application for sharing recipes</li>
         <li>Implemented CRUD functionality, database integration, and designed frontend using HTML, CSS, and JavaScript</li>
       </ul>
     </div>
@@ -328,7 +395,7 @@
         <span class="cv-entry-date">November 2024</span>
       </div>
       <ul class="cv-bullets">
-        <li>Built a system to manage books and user records with role-based authentication</li>
+        <li>Built a system to manage books and user records</li>
         <li>Implemented CRUD operations with SQL Server and developed using C# and .NET framework</li>
       </ul>
     </div>
@@ -340,7 +407,7 @@
         <span>B.Sc. in Computer Science and Engineering</span>
         <span class="cv-entry-date">September 2022 – 2026</span>
       </div>
-      <div>American International University-Bangladesh (AIUB) &nbsp;|&nbsp; <strong>CGPA: 3.07 (Current)</strong></div>
+      <div>American International University Bangladesh &nbsp;|&nbsp; <strong>CGPA: 3.07</strong></div>
     </div>
 
     <div class="cv-entry">
@@ -361,7 +428,7 @@
 
     <!-- SOFT SKILLS -->
     <div class="cv-sec-title">SOFT SKILLS</div>
-    <div style="font-size: 11.5px; color: #1f2937;">
+    <div style="font-size: 11.3px; color: #1f2937;">
       Problem-Solving &nbsp;|&nbsp; Time Management &nbsp;|&nbsp; Adaptability &nbsp;|&nbsp; Communication &nbsp;|&nbsp; Team Work &nbsp;|&nbsp; Quick Learner
     </div>
   </div>
