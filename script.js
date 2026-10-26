@@ -328,6 +328,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const projBtns = document.querySelectorAll('[data-project-filter]');
   const projCards = document.querySelectorAll('#projects-grid .project-card');
+  const projGroups = document.querySelectorAll('#projects-grid .project-group-block');
 
   projBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -339,6 +340,11 @@ window.addEventListener('DOMContentLoaded', () => {
         const categories = (card.dataset.pcat || '').split(/\s+/);
         const match = filter === 'all' || categories.includes(filter);
         card.classList.toggle('hidden', !match);
+      });
+
+      projGroups.forEach((group) => {
+        const visibleInGroup = group.querySelectorAll('.project-card:not(.hidden)').length;
+        group.classList.toggle('hidden', visibleInGroup === 0);
       });
     });
   });
