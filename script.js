@@ -1,5 +1,5 @@
 /* ==========================================================================
-   FAISAL AHMED — INTERACTIVE PORTFOLIO ENGINE (script.js)
+   FAISAL AHMED.PORTFOLIO — INTERACTIVE PORTFOLIO ENGINE (script.js)
    Junior Software Engineer @ Learning Shaper Technologies Limited
    ========================================================================== */
 
@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
       }, 250);
     }
     if (bar) bar.style.width = `${progress}%`;
-    if (text) text.textContent = `INITIALIZING FAISAL.DEV // ${progress}%`;
+    if (text) text.textContent = `INITIALIZING FAISAL AHMED.PORTFOLIO // ${progress}%`;
   }, 90);
 });
 
@@ -190,10 +190,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const roles = [
     'Junior Software Engineer @ Learning Shaper',
+    'Java 21, Spring Boot 3 & React 18 Engineer',
+    'Laravel 12 & Multi-Tenant ERP Architect',
     'ASP.NET Core & C# Backend Developer',
-    'Python, Tkinter & Full-Stack Engineer',
-    'AI-Powered Cloud ERP & LMS Builder',
-    'N-Tier Architecture & SQL Specialist'
+    'Full-Stack SaaS & Database Specialist'
   ];
 
   let roleIdx = 0;
@@ -257,7 +257,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Mobile Menu Toggle
   const mobileToggle = document.getElementById('mobile-toggle');
   const navLinksContainer = document.getElementById('nav-links');
   if (mobileToggle && navLinksContainer) {
@@ -337,15 +336,124 @@ window.addEventListener('DOMContentLoaded', () => {
       const filter = btn.dataset.projectFilter;
 
       projCards.forEach((card) => {
-        const match = filter === 'all' || card.dataset.pcat === filter;
+        const categories = (card.dataset.pcat || '').split(/\s+/);
+        const match = filter === 'all' || categories.includes(filter);
         card.classList.toggle('hidden', !match);
       });
     });
   });
 })();
 
-// 9. PROJECT CASE STUDY MODAL DATA & FUNCTIONS
+// 9. PROJECT CASE STUDY MODAL DATA (6 PROFESSIONAL + 5 CORE PROJECTS)
 const PROJECT_DATA = {
+  banikos: {
+    tag: 'PROFESSIONAL ENTERPRISE ERP // OCTOBER 2026',
+    title: 'BanikOS — Tenant & Branch-Scoped Laravel 12 ERP & Offline POS',
+    tech: ['PHP 8.2', 'Laravel 12', 'MySQL 8', 'Alpine.js', 'Vite', 'Service Worker (pos-sw.js)', 'E2E Browser QA'],
+    overview:
+      'BanikOS is a production tenant- and branch-scoped commercial ERP built on Laravel 12 and PHP 8.2. Authoritative transactions, role/state-dependent permissions, stock ledgers, double-entry accounting, and audit controls are enforced server-side with full offline POS continuity.',
+    responsibilities: [
+      'Engineered multi-tenant and branch-scoped workspaces across Administration, Orders, Sales/POS with offline Service Worker continuity (pos-sw.js), Purchases, Stock & Warehouse, Services, Production, and HR/Marketing',
+      'Implemented Purchase-to-Stock inventory ledgers, Delivery/Courier COD settlement workflows, and double-entry accounting control mappings (Accounts Payable/Receivable)',
+      'Built comprehensive automated end-to-end (E2E) browser verification gates and staging QC matrices to guarantee zero-defect transactional parity'
+    ],
+    skills: [
+      'Laravel 12 & PHP 8.2 enterprise backend architecture',
+      'Multi-tenant & branch-scoped authorization and audit logging',
+      'Double-entry accounting & warehouse stock ledger mechanics',
+      'Offline-first POS architecture & automated E2E QA suites'
+    ]
+  },
+  saleserp: {
+    tag: 'PROFESSIONAL MULTI-TENANT SAAS // OCTOBER 2026',
+    title: 'Sales ERP — Commercial Sales, POS, Inventory & Accounting Platform',
+    tech: ['Java 21 LTS', 'Spring Boot 3.3', 'React 18', 'Node.js / Express', 'Tailwind CSS', 'MySQL 8.4 InnoDB', 'JWT'],
+    overview:
+      'A modern, enterprise-grade Multi-Tenant SaaS Sales ERP, Point-of-Sale (POS), Warehouse Inventory, and Double-Entry Accounting Platform engineered for SMEs, retail chains, and wholesale distributors.',
+    responsibilities: [
+      'Executed hybrid feature-by-feature modernization from legacy Grails into clean Java 21 + Spring Boot 3.3 JPA entities, validated DTOs, and @Transactional service layers',
+      'Developed interactive React 18 + Tailwind CSS SPA interfaces for commercial sales, purchase orders, stock ledgers, barcode printing (jsbarcode), and financial vouchers',
+      'Implemented automated PDF/Excel reporting (jspdf, xlsx) and production WAR packaging pipelines'
+    ],
+    skills: [
+      'Java 21 & Spring Boot 3.3 enterprise backend engineering',
+      'React 18, Vite & Tailwind CSS frontend architecture',
+      'Double-entry voucher posting & stock ledger algorithms',
+      'Legacy Grails-to-Spring Boot modernization'
+    ]
+  },
+  timesheet: {
+    tag: 'PROFESSIONAL ENTERPRISE ERP // OCTOBER 2026',
+    title: 'Timesheet Enterprise ERP — Workforce & Resource Management',
+    tech: ['Java 21', 'Spring Boot 3.3', 'React 18', 'Tailwind CSS', 'Framer Motion', 'MySQL', 'JWT', 'SheetJS (xlsx)'],
+    overview:
+      'Modernized Enterprise Timesheet and Resource Management ERP built with Java 21, Spring Boot 3, and React 18 to track employee work logs, project resource allocations, leave workflows, and automated productivity analytics.',
+    responsibilities: [
+      'Migrated legacy Grails timesheet workflows into a high-performance Spring Boot 3 REST backend with JWT authentication',
+      'Built an animated, responsive React 18 + Framer Motion frontend dashboard for daily/weekly timesheet submissions and supervisor approvals',
+      'Integrated bulk employee & timesheet Excel import/export pipelines using SheetJS (xlsx)'
+    ],
+    skills: [
+      'Java 21 & Spring Boot 3 RESTful API architecture',
+      'React 18 & Framer Motion UI engineering',
+      'Role-based resource & timesheet workflow automation',
+      'Enterprise data migration & Excel reporting'
+    ]
+  },
+  smartprod: {
+    tag: 'PROFESSIONAL MANUFACTURING ERP // SEPTEMBER 2026',
+    title: 'Smart Production Hub — Apparel Production & Supply Chain ERP',
+    tech: ['Java 21', 'Spring Boot 3.3', 'React 18', 'Vite', 'Tailwind CSS', 'Framer Motion', 'MySQL'],
+    overview:
+      'End-to-end Apparel Production & Supply Chain Orchestration ERP designed to manage garment manufacturing lifecycles, bill of materials (BOM), floor production tracking, quality assurance, and supply chain logistics.',
+    responsibilities: [
+      'Architected modular Spring Boot 3 backend services and MySQL schemas for apparel production stages, order tracking, and supply chain orchestration',
+      'Developed real-time React 18 production floor dashboards with interactive status tracking and KPI analytics',
+      'Configured automated production WAR builds and Ubuntu server deployment scripts'
+    ],
+    skills: [
+      'Supply chain & manufacturing ERP domain modeling',
+      'Spring Boot 3 & Java 21 backend development',
+      'React 18 & Tailwind CSS dashboard engineering',
+      'Production Linux/WAR deployment automation'
+    ]
+  },
+  superadmin: {
+    tag: 'PROFESSIONAL SAAS CONTROL PLANE // AUGUST 2026',
+    title: 'SuperAdmin Hub — Multi-Tenant SaaS Subscription & Billing Portal',
+    tech: ['React 18', 'Node.js', 'Express 5', 'MySQL', 'Tailwind CSS', 'Framer Motion', 'SSLCommerz Gateway'],
+    overview:
+      'Standalone Multi-Tenant SaaS Management Control Plane powering client onboarding, tenant status control, subscription tier management, automated invoicing with SSLCommerz payment gateway integration, per-client module feature flags, and security audit logs.',
+    responsibilities: [
+      'Built SuperAdmin Dashboard, Client Onboarding & Impersonation (/super-admin/clients), and per-tenant Module Feature Flags (/super-admin/module-settings)',
+      'Implemented Subscription Plan & Pricing Tier managers alongside automated Billing & SSLCommerz payment gateway integration',
+      'Engineered system-wide security event tracking and user activity Audit Logs with Express 5 and MySQL'
+    ],
+    skills: [
+      'Multi-tenant SaaS control plane architecture',
+      'SSLCommerz payment gateway & subscription billing integration',
+      'React 18, Node.js & Express 5 full-stack development',
+      'Feature flagging, tenant impersonation & security auditing'
+    ]
+  },
+  lsportal: {
+    tag: 'PROFESSIONAL 3-TIER MULTI-TENANT SAAS // AUGUST 2026',
+    title: 'LS Portal — Multi-Tenant Job, Admission, Tender & Event Platform',
+    tech: ['Java 17/21', 'Spring Boot 3.3', 'React 18 (Vite)', 'MySQL', 'JWT', 'Multi-Tenant Routing'],
+    overview:
+      'A 3-Tier Multi-Tenant Enterprise SaaS Platform built with Spring Boot 3, MySQL, and React 18 that empowers organizations (including Trust Innovation & Learning Shaper) to manage sub-institutions, job circulars, business tenders, events, and online admissions from a unified ecosystem with white-label custom domain routing.',
+    responsibilities: [
+      'Engineered 3-Tier Multi-Tenant routing and data isolation across Master Portal, Organization Tenants, and Sub-Institutions',
+      'Migrated legacy MySQL dumps into normalized multi-tenant schemas with automated SQL migration scripts',
+      'Developed full-stack modules for job circular publishing, applicant tracking, online admissions, and tender management'
+    ],
+    skills: [
+      '3-Tier Multi-Tenant SaaS architecture & white-label routing',
+      'Spring Boot 3, React 18 & JWT security',
+      'Complex legacy database migration & SQL normalization',
+      'Enterprise portal development'
+    ]
+  },
   perfume: {
     tag: 'MARCH 2026 // PYTHON & TKINTER DESKTOP APPLICATION',
     title: 'Perfume Decant Management App — Python, Tkinter',
@@ -371,20 +479,18 @@ const PROJECT_DATA = {
     tech: ['ASP.NET Core', 'C#', 'N-Tier Architecture', 'SQL Server', 'Entity Framework Core (Code-First)', 'RESTful APIs', 'Postman'],
     github: 'https://github.com/FaisalWebZone/Restaurant_Order_Table_Management-ASP.Net',
     overview:
-      'Built a scalable backend web application using ASP.NET Core following strict N-Tier Architecture (Presentation Layer, Business Logic Layer, Data Access Layer). Implemented complete CRUD operations and SQL Server database integration with Entity Framework Core (Code-First), focusing on scalable and maintainable enterprise code structure.',
+      'Built a scalable backend web application using ASP.NET Core following strict N-Tier Architecture (Presentation Layer, Business Logic Layer, Data Access Layer). Implemented complete CRUD operations and SQL Server database integration with Entity Framework Core (Code-First).',
     responsibilities: [
       'Built a web application using ASP.NET Core following N-Tier Architecture (Presentation, BLL, DAL)',
       'Implemented full CRUD operations and relational database integration with Microsoft SQL Server',
       'Applied Entity Framework Core (Code-First) migrations, Repository Pattern, and DTO mapping',
-      'Implemented role-based access control and advanced search/filtering endpoints',
       'Focused on scalable and maintainable code structure, verified thoroughly via Postman'
     ],
     skills: [
       'ASP.NET Core & C# backend development',
       'N-Tier software architecture & Repository Pattern',
       'RESTful API design & DTO mapping',
-      'SQL Server & Entity Framework Core (Code-First)',
-      'API testing and debugging with Postman'
+      'SQL Server & Entity Framework Core (Code-First)'
     ]
   },
   recipe: {
@@ -398,13 +504,12 @@ const PROJECT_DATA = {
       'Built a dynamic web application for sharing and moderating recipes',
       'Implemented complete CRUD functionality and relational MySQL database integration',
       'Designed a responsive, user-friendly frontend using HTML, CSS, and JavaScript',
-      'Implemented user authentication, role-based access control (Admin & User), ratings, reviews, and favorites workflows'
+      'Implemented user authentication, role-based access control (Admin & User), ratings, and reviews'
     ],
     skills: [
       'Full-stack web development (PHP, JS, HTML, CSS)',
       'MySQL database design and integration',
-      'Role-based authentication and authorization',
-      'End-to-end web application architecture'
+      'Role-based authentication and authorization'
     ]
   },
   cargo: {
@@ -418,14 +523,12 @@ const PROJECT_DATA = {
     responsibilities: [
       'Built a multi-stage cargo flow graphical simulation using C++ and OpenGL',
       'Implemented smooth keyframe animation and object movement across warehouse and sea scenes',
-      'Visualized real-world logistics processes including warehouse structures, cranes, trucks, and cargo ships',
-      'Assisted in debugging rendering pipelines and animation state transitions'
+      'Visualized real-world logistics processes including warehouse structures, cranes, trucks, and cargo ships'
     ],
     skills: [
       'C++ & OpenGL computer graphics programming',
       'Real-time animation and object movement logic',
-      'Visual simulation design & rendering techniques',
-      'Team collaboration and debugging'
+      'Visual simulation design & rendering techniques'
     ]
   },
   library: {
@@ -438,14 +541,12 @@ const PROJECT_DATA = {
     responsibilities: [
       'Built a complete system to manage books, inventory, and multi-role user records (Admin, Employee, Customer)',
       'Implemented full CRUD operations and transaction history with Microsoft SQL Server',
-      'Developed using C# and .NET Framework applying OOP2 principles (encapsulation, inheritance, abstraction)',
-      'Implemented automated billing, invoice generation, and role-based access control'
+      'Developed using C# and .NET Framework applying OOP2 principles (encapsulation, inheritance, abstraction)'
     ],
     skills: [
       'C# and .NET Framework application development',
       'Object-Oriented Programming (OOP2)',
-      'SQL Server database design & CRUD integration',
-      'Role-based authentication & access control'
+      'SQL Server database design & CRUD integration'
     ]
   }
 };
@@ -465,6 +566,11 @@ window.openProjectModal = function (key) {
          <iframe src="${data.videoEmbed}" allow="autoplay; fullscreen" allowfullscreen></iframe>
        </div>`
     : '';
+  const githubBtn = data.github
+    ? `<a href="${data.github}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+         View Source Code on GitHub ↗
+       </a>`
+    : `<span class="tech-chip" style="padding:8px 14px;">🏢 Enterprise Production Project @ Learning Shaper</span>`;
 
   container.innerHTML = `
     <div class="bento-tag">${data.tag}</div>
@@ -472,14 +578,12 @@ window.openProjectModal = function (key) {
     <div class="project-tech-stack" style="margin-bottom:18px;">${techHtml}</div>
     <p class="bento-text" style="font-size:1rem;">${data.overview}</p>
     ${videoHtml}
-    <div class="modal-section-title">🛠️ Key Contributions &amp; Implementation</div>
+    <div class="modal-section-title">🛠️ Key Engineering Contributions</div>
     <ul class="modal-list">${respHtml}</ul>
-    <div class="modal-section-title">⚡ Skills Demonstrated</div>
+    <div class="modal-section-title">⚡ Technologies &amp; Skills Demonstrated</div>
     <ul class="modal-list">${skillsHtml}</ul>
-    <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;">
-      <a href="${data.github}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-        View Source Code on GitHub ↗
-      </a>
+    <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+      ${githubBtn}
       <button class="btn btn-outline btn-sm" onclick="closeProjectModal()">Close</button>
     </div>
   `;
@@ -501,7 +605,7 @@ window.openCVModal = function () {
   const modal = document.getElementById('cv-modal');
   const iframe = document.getElementById('cv-iframe');
   if (iframe && !iframe.getAttribute('src')) {
-    iframe.setAttribute('src', 'cv.html');
+    iframe.setAttribute('src', 'Faisal-Ahmed.cv.html?v=4');
   }
   if (modal) {
     modal.classList.add('open');
