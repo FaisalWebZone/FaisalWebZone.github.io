@@ -165,7 +165,7 @@ window.addEventListener('DOMContentLoaded', () => {
 // 4. 3D HERO PROFILE CARD TILT
 (function init3DTilt() {
   const card = document.getElementById('hero-tilt-card');
-  if (!card) return;
+  if (!card || window.matchMedia('(pointer: coarse)').matches) return;
 
   card.addEventListener('mousemove', (e) => {
     const rect = card.getBoundingClientRect();
@@ -252,8 +252,12 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    const dockLinks = document.querySelectorAll('.dock-item[data-dock-link]');
     navLinks.forEach((link) => {
       link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
+    });
+    dockLinks.forEach((dlink) => {
+      dlink.classList.toggle('active', dlink.getAttribute('data-dock-link') === `#${currentId}`);
     });
   });
 
