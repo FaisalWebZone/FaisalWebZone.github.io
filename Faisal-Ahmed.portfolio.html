@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=11" />
 </head>
 <body>
 
@@ -72,9 +72,9 @@
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
       </button>
-      <button class="btn btn-primary btn-sm" onclick="openCVModal()">
+      <button class="btn btn-primary btn-sm nav-cv-btn" onclick="openCVModal()">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-        Faisal Ahmed.cv
+        <span><span class="hide-xs">Faisal Ahmed</span>.cv</span>
       </button>
       <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -1315,9 +1315,37 @@
   <!-- ==================== FOOTER ==================== -->
   <footer class="footer">
     <div class="container">
-      <p>© <span id="year">2026</span> <strong>Faisal Ahmed.portfolio</strong> • Junior Software Engineer at <a href="https://learningshaper.com/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-secondary);text-decoration:none;">Learning Shaper</a> • <a href="Faisal-Ahmed.cv.html?v=8" target="_blank" style="color:var(--accent-secondary);text-decoration:none;">Faisal Ahmed.cv</a></p>
+      <p>© <span id="year">2026</span> <strong>Faisal Ahmed.portfolio</strong> • Junior Software Engineer at <a href="https://learningshaper.com/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-secondary);text-decoration:none;">Learning Shaper</a> • <a href="Faisal-Ahmed.cv.html?v=11" target="_blank" style="color:var(--accent-secondary);text-decoration:none;">Faisal Ahmed.cv</a></p>
     </div>
   </footer>
+
+  <!-- ==================== MOBILE FLOATING BOTTOM DOCK ==================== -->
+  <nav class="mobile-bottom-dock" aria-label="Mobile Quick Navigation">
+    <a href="#home" class="dock-item active" data-dock-link="#home">
+      <span class="dock-icon">🏠</span>
+      <span class="dock-label">Home</span>
+    </a>
+    <a href="#experience" class="dock-item" data-dock-link="#experience">
+      <span class="dock-icon">💼</span>
+      <span class="dock-label">Work</span>
+    </a>
+    <a href="#projects" class="dock-item" data-dock-link="#projects">
+      <span class="dock-icon">🚀</span>
+      <span class="dock-label">Projects</span>
+    </a>
+    <a href="#skills" class="dock-item" data-dock-link="#skills">
+      <span class="dock-icon">⚡</span>
+      <span class="dock-label">Skills</span>
+    </a>
+    <button type="button" class="dock-item dock-btn" onclick="openCVModal()">
+      <span class="dock-icon">📄</span>
+      <span class="dock-label">.cv</span>
+    </button>
+    <a href="#contact" class="dock-item" data-dock-link="#contact">
+      <span class="dock-icon">✉️</span>
+      <span class="dock-label">Contact</span>
+    </a>
+  </nav>
 
   <!-- ==================== PROJECT CASE STUDY MODAL ==================== -->
   <div class="modal-backdrop" id="project-modal">
@@ -1334,14 +1362,14 @@
       <div class="bento-tag">// FAISAL AHMED.CV</div>
       <h3 class="bento-title" style="margin-bottom: 6px;">Faisal Ahmed.cv — Official Curriculum Vitae</h3>
       <p class="bento-text" style="margin-bottom: 12px;">Includes my Work Experience at <strong>Learning Shaper</strong>, Technical Skills, Core Software Projects, and B.Sc. in CSE (Graduated, CGPA: 3.08).</p>
-      <div class="video-iframe-wrap" style="padding-top: 72%; background: #0f172a;">
-        <iframe id="cv-iframe" src="Faisal-Ahmed.cv.html?v=10"></iframe>
+      <div class="video-iframe-wrap cv-iframe-wrap" style="padding-top: 72%; background: #0f172a;">
+        <iframe id="cv-iframe" src="Faisal-Ahmed.cv.html?v=11"></iframe>
       </div>
       <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:16px;">
-        <a href="Faisal_Ahmed.cv.pdf?v=10" download="Faisal_Ahmed.cv.pdf" class="btn btn-primary btn-sm">
+        <a href="Faisal_Ahmed.cv.pdf?v=11" download="Faisal_Ahmed.cv.pdf" class="btn btn-primary btn-sm">
           ⬇ Download Faisal Ahmed.cv (PDF)
         </a>
-        <a href="Faisal-Ahmed.cv.html?v=10" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+        <a href="Faisal-Ahmed.cv.html?v=11" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
           🖨️ Open Full-Screen / Print Faisal Ahmed.cv ↗
         </a>
       </div>
@@ -1354,6 +1382,6 @@
     <span id="toast-msg">Copied to clipboard!</span>
   </div>
 
-  <script src="script.js?v=7"></script>
+  <script src="script.js?v=11"></script>
 </body>
 </html>
