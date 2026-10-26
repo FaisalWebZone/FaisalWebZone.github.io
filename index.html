@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faisal Ahmed | CSE Student, Data Science & Software Engineer Portfolio</title>
+  <meta name="description" content="Official interactive portfolio of Faisal Ahmed — Final-year CSE student at AIUB specializing in Data Science, Machine Learning, ASP.NET Core, C#, Python, and SQL." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ==================== PRELOADER ==================== -->
+  <div class="preloader" id="preloader">
+    <div class="loader-core">
+      <div class="loader-ring"></div>
+      <div class="loader-ring"></div>
+      <span class="loader-initials">FA</span>
+    </div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar" id="loader-bar"></div>
+    </div>
+    <div class="loader-text" id="loader-text">INITIALIZING FAISAL.DEV // 0%</div>
+  </div>
+
+  <!-- ==================== SCROLL PROGRESS & CURSOR ==================== -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-outline" id="cursor-outline"></div>
+
+  <!-- ==================== INTERACTIVE NEURAL CANVAS & BLOBS ==================== -->
+  <canvas id="neural-canvas"></canvas>
+  <div class="ambient-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- ==================== STICKY GLASS NAVBAR ==================== -->
+  <header class="navbar" id="navbar">
+    <a href="#home" class="nav-brand">
+      <div class="brand-badge">FA</div>
+      <div class="brand-text">Faisal<span>.dev</span></div>
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#qualifications" class="nav-link">Qualifications</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="theme-btn" id="theme-toggle" aria-label="Toggle color theme" title="Toggle Dark/Light Mode">
+        <svg id="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
+      <button class="btn btn-primary btn-sm" onclick="openCVModal()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        CV / Resume
+      </button>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero section" id="home">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left Column -->
+          <div class="hero-content reveal">
+            <div class="status-pill">
+              <span class="pulse-dot"></span>
+              Final-Year CSE @ AIUB • Open to Opportunities
+            </div>
+
+            <h1 class="hero-title">
+              Hi, I'm <span class="gradient-text">Faisal Ahmed</span>
+            </h1>
+
+            <div class="hero-role-wrapper">
+              <span class="role-prefix">&gt;</span>
+              <span id="typewriter-text">Data Science &amp; ML Enthusiast</span>
+              <span class="typewriter-cursor"></span>
+            </div>
+
+            <p class="hero-description">
+              I am a final-year <strong>Computer Science and Engineering</strong> student at <strong>American International University-Bangladesh (AIUB)</strong>, majoring in <strong>Information Systems</strong> and minoring in <strong>Software Engineering</strong>. My focus spans <strong>Machine Learning, Data Science, Data Mining, and Data Warehousing</strong>, building scalable software and data-driven solutions with <strong>Python, C#, ASP.NET Core, and SQL</strong>.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#projects" class="btn btn-primary">
+                Explore My Projects
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+              <button class="btn btn-outline" onclick="openCVModal()">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                View / Download CV
+              </button>
+              <a href="#contact" class="btn btn-outline">Let's Connect</a>
+            </div>
+
+            <div class="hero-socials">
+              <a href="https://github.com/FaisalWebZone" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub (@FaisalWebZone)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/faisal-ahmed-4a810033a/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+              </a>
+              <a href="https://www.facebook.com/mefaisalahmed17/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Facebook">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+              </a>
+              <a href="https://www.instagram.com/_faisal_ahmed_17_/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Instagram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+              </a>
+              <a href="mailto:faisalahmed49591@gmail.com" class="social-icon-btn" title="Email Faisal">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: 3D Tilt Profile Card -->
+          <div class="hero-visual reveal reveal-delay-2">
+            <div class="floating-badge badge-tl">🧠 Machine Learning &amp; AI</div>
+            <div class="floating-badge badge-tr">⚡ ASP.NET Core &amp; C#</div>
+            <div class="floating-badge badge-bl">🐍 Python &amp; Data Science</div>
+            <div class="floating-badge badge-br">🗄️ SQL Server &amp; N-Tier</div>
+
+            <div class="profile-3d-card" id="hero-tilt-card">
+              <div class="profile-avatar-wrap">
+                <img
+                  src="https://sites.google.com/sitesv-images-rt/AMxu72s98A4uhaKp_QYbmnyYK2HjbB8U_hCFw_WFYw9b_tvqP7EoseSdyYMsi49ji7bm23TPQQ6zzaetzhQZNzCIGaFvxwKXNfeu3mW3b0RUslC20Kk5ODr3smJN4WTr2Mur38tEpFHY6RIuh7OhU2HtudYmcJjkLZ0oJLkpBAztnP2Npa98YAH9X3M6NUDbxaOAcnjLAhfFarG1cRKG0yHEwdbmpXskVSi5RjtuzDBU=w1280"
+                  onerror="this.onerror=function(){this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22><defs><linearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22><stop offset=%220%%22 stop-color=%22%236366f1%22/><stop offset=%22100%%22 stop-color=%22%2306b6d4%22/></linearGradient></defs><rect width=%22200%22 height=%22200%22 fill=%22%230b1021%22/><circle cx=%22100%22 cy=%2278%22 r=%2236%22 fill=%22url(%23g)%22/><path d=%22M36 185c10-38 38-55 64-55s54 17 64 55%22 fill=%22url(%23g)%22/></svg>';};this.src='https://github.com/FaisalWebZone.png';"
+                  alt="Faisal Ahmed"
+                  class="profile-avatar"
+                />
+              </div>
+
+              <div class="profile-card-info">
+                <h3>Faisal Ahmed</h3>
+                <p>BSc. in CSE @ AIUB • Narayanganj, Dhaka</p>
+              </div>
+
+              <div class="mini-terminal">
+                <div class="terminal-dots">
+                  <span></span><span></span><span></span>
+                </div>
+                <div><span class="code-key">const</span> developer = {</div>
+                <div>&nbsp;&nbsp;major: <span class="code-str">"Information Systems"</span>,</div>
+                <div>&nbsp;&nbsp;minor: <span class="code-str">"Software Engineering"</span>,</div>
+                <div>&nbsp;&nbsp;stack: [<span class="code-str">"Python"</span>, <span class="code-str">"C#"</span>, <span class="code-str">".NET"</span>, <span class="code-str">"SQL"</span>],</div>
+                <div>&nbsp;&nbsp;focus: <span class="code-str">"ML, Data Science &amp; Backend"</span></div>
+                <div>};</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animated Counter Stats -->
+        <div class="stats-strip reveal reveal-delay-3">
+          <div class="spotlight-card stat-card">
+            <div class="stat-number" data-count="5" data-suffix="+">0+</div>
+            <div class="stat-label">Featured Software &amp; Graphics Projects</div>
+          </div>
+          <div class="spotlight-card stat-card">
+            <div class="stat-number" data-count="14" data-suffix="+">0+</div>
+            <div class="stat-label">Languages, Frameworks &amp; Tools</div>
+          </div>
+          <div class="spotlight-card stat-card">
+            <div class="stat-number" data-count="6" data-suffix="">0</div>
+            <div class="stat-label">Core AI, Data &amp; Engineering Domains</div>
+          </div>
+          <div class="spotlight-card stat-card">
+            <div class="stat-number" data-count="2022" data-suffix="–Now">2022</div>
+            <div class="stat-label">BSc. in CSE Journey @ AIUB</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== INFINITE TECH MARQUEE ==================== -->
+    <div class="marquee-section">
+      <div class="marquee-track">
+        <div class="marquee-item"><span class="marquee-dot"></span>Python &amp; Data Science</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>Machine Learning &amp; Computer Vision</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>C# &amp; ASP.NET Core</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>N-Tier Architecture &amp; EF Core</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>SQL Server • MySQL • PostgreSQL</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>C++ &amp; OpenGL Graphics</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>PHP &amp; Full-Stack Web Dev</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>Data Mining &amp; Data Warehousing</div>
+        <!-- Duplicated for seamless loop -->
+        <div class="marquee-item"><span class="marquee-dot"></span>Python &amp; Data Science</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>Machine Learning &amp; Computer Vision</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>C# &amp; ASP.NET Core</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>N-Tier Architecture &amp; EF Core</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>SQL Server • MySQL • PostgreSQL</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>C++ &amp; OpenGL Graphics</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>PHP &amp; Full-Stack Web Dev</div>
+        <div class="marquee-item"><span class="marquee-dot"></span>Data Mining &amp; Data Warehousing</div>
+      </div>
+    </div>
+
+    <!-- ==================== ABOUT ME & CAREER INTERESTS (BENTO) ==================== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-eyebrow">// 01. ABOUT &amp; VISION</div>
+          <h2 class="section-title">Engineering Intelligent &amp; <span class="gradient-text">Data-Driven Solutions</span></h2>
+          <p class="section-subtitle">
+            Combining analytical thinking in Data Science &amp; Machine Learning with structured full-stack and N-Tier software engineering.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          <!-- Bio Card -->
+          <div class="spotlight-card bento-bio reveal">
+            <div>
+              <div class="bento-tag">👨‍💻 WHO I AM</div>
+              <h3 class="bento-title">Academic Excellence Meets Practical Software Engineering</h3>
+              <p class="bento-text">
+                Hi, I'm <strong>Faisal Ahmed</strong>, a final-year Computer Science and Engineering student at <strong>American International University-Bangladesh (AIUB)</strong>, majoring in <strong>Information Systems</strong> and minoring in <strong>Software Engineering</strong>.
+              </p>
+              <p class="bento-text">
+                Alongside my focus on <strong>Machine Learning, Data Science, Data Mining, and Data Warehousing</strong>, I have developed strong hands-on experience in software and web application development using <strong>ASP.NET Core, .NET, C#, SQL Server, PHP, and Python</strong>. I have built database-driven systems, RESTful APIs, and graphical simulations that strengthened my foundation in system architecture and problem solving.
+              </p>
+            </div>
+            <div class="focus-pills">
+              <span class="focus-pill">🎓 AIUB Final-Year CSE</span>
+              <span class="focus-pill">📊 Major: Information Systems</span>
+              <span class="focus-pill">⚙️ Minor: Software Engineering</span>
+              <span class="focus-pill">🔬 ML &amp; Data Mining</span>
+            </div>
+          </div>
+
+          <!-- Currently Exploring Card -->
+          <div class="spotlight-card bento-exploring reveal reveal-delay-1">
+            <div class="bento-tag">🚀 CURRENTLY EXPLORING</div>
+            <h3 class="bento-title">Next-Gen AI &amp; Vision</h3>
+            <p class="bento-text">
+              I am actively expanding my knowledge in Machine Learning and intelligent systems, focusing on:
+            </p>
+            <ul class="exploring-list">
+              <li class="exploring-item">
+                <span>👁️</span>
+                <div><strong>Deep Learning for Computer Vision</strong></div>
+              </li>
+              <li class="exploring-item">
+                <span>🤖</span>
+                <div><strong>Machine Learning &amp; Predictive Modeling</strong></div>
+              </li>
+              <li class="exploring-item">
+                <span>📈</span>
+                <div><strong>Advanced Data Analysis &amp; Mining</strong></div>
+              </li>
+              <li class="exploring-item">
+                <span>⚡</span>
+                <div><strong>Data-Driven Application Development</strong></div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Career Interests Card -->
+          <div class="spotlight-card bento-interests reveal reveal-delay-2">
+            <div class="bento-tag">🎯 CAREER INTERESTS</div>
+            <h3 class="bento-title">Domains Where I Create Impact</h3>
+            <div class="interests-grid">
+              <div class="interest-box">
+                <span class="interest-icon">📊</span>
+                <h4>Data Science</h4>
+                <p>Extracting actionable insights &amp; predictive patterns from complex datasets.</p>
+              </div>
+              <div class="interest-box">
+                <span class="interest-icon">🧠</span>
+                <h4>Machine Learning</h4>
+                <p>Training intelligent models &amp; computer vision pipelines.</p>
+              </div>
+              <div class="interest-box">
+                <span class="interest-icon">📉</span>
+                <h4>Data Analysis</h4>
+                <p>Statistical analysis, R/Python modeling &amp; data warehousing.</p>
+              </div>
+              <div class="interest-box">
+                <span class="interest-icon">🛠️</span>
+                <h4>Backend Development</h4>
+                <p>RESTful APIs, ASP.NET Core, EF Core &amp; N-Tier architectures.</p>
+              </div>
+              <div class="interest-box">
+                <span class="interest-icon">💻</span>
+                <h4>Software Development</h4>
+                <p>Modular OOP systems, desktop &amp; full-stack web applications.</p>
+              </div>
+              <div class="interest-box">
+                <span class="interest-icon">✨</span>
+                <h4>Artificial Intelligence</h4>
+                <p>Solving real-world challenges with modern AI workflows.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Location & Quick Connect Card -->
+          <div class="spotlight-card bento-location reveal reveal-delay-3">
+            <div>
+              <div class="bento-tag">📍 BASE OF OPERATIONS</div>
+              <h3 class="bento-title">Narayanganj, Dhaka</h3>
+              <p class="bento-text">Bangladesh • Available for on-site, hybrid, and remote roles.</p>
+            </div>
+            <div class="radar-visual">
+              <div class="radar-ring"></div>
+              <div class="radar-ring"></div>
+              <span class="pulse-dot"></span>
+            </div>
+            <a href="#contact" class="btn btn-primary" style="width: 100%;">
+              Get In Touch
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TECHNICAL SKILLS SECTION ==================== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-eyebrow">// 02. TECHNICAL ARSENAL</div>
+          <h2 class="section-title">Skills, Frameworks &amp; <span class="gradient-text">Technologies</span></h2>
+          <p class="section-subtitle">
+            Filter through my programming languages, web technologies, enterprise frameworks, and database systems.
+          </p>
+        </div>
+
+        <div class="filter-tabs reveal">
+          <button class="filter-btn active" data-skill-filter="all">All Skills</button>
+          <button class="filter-btn" data-skill-filter="programming">Programming</button>
+          <button class="filter-btn" data-skill-filter="web-framework">Web &amp; Frameworks</button>
+          <button class="filter-btn" data-skill-filter="database">Databases</button>
+          <button class="filter-btn" data-skill-filter="tools-ai">Tools, Graphics &amp; AI</button>
+        </div>
+
+        <div class="skills-grid" id="skills-grid">
+          <!-- Programming -->
+          <div class="spotlight-card skill-card reveal" data-category="programming">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">C#</div>
+                <div>
+                  <div class="skill-name">C# &amp; OOP2</div>
+                  <div class="skill-cat-label">Programming Language</div>
+                </div>
+              </div>
+              <span class="skill-pct">92%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="92%"></div></div>
+            <div class="skill-tags">Encapsulation • Inheritance • .NET • Desktop &amp; API</div>
+          </div>
+
+          <div class="spotlight-card skill-card reveal" data-category="programming">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">PY</div>
+                <div>
+                  <div class="skill-name">Python</div>
+                  <div class="skill-cat-label">Programming &amp; Data Science</div>
+                </div>
+              </div>
+              <span class="skill-pct">90%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
+            <div class="skill-tags">Machine Learning • Data Analysis • Automation • Apps</div>
+          </div>
+
+          <div class="spotlight-card skill-card reveal" data-category="programming">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">C++</div>
+                <div>
+                  <div class="skill-name">C++</div>
+                  <div class="skill-cat-label">Core &amp; Graphics Programming</div>
+                </div>
+              </div>
+              <span class="skill-pct">88%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88%"></div></div>
+            <div class="skill-tags">Algorithms • Data Structures • OpenGL Simulations</div>
+          </div>
+
+          <div class="spotlight-card skill-card reveal" data-category="programming">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">R</div>
+                <div>
+                  <div class="skill-name">R Programming</div>
+                  <div class="skill-cat-label">Statistical Computing</div>
+                </div>
+              </div>
+              <span class="skill-pct">82%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="82%"></div></div>
+            <div class="skill-tags">Data Mining • Statistical Analysis • Visualization</div>
+          </div>
+
+          <!-- Frameworks & Web -->
+          <div class="spotlight-card skill-card reveal" data-category="web-framework">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">.NET</div>
+                <div>
+                  <div class="skill-name">ASP.NET Core &amp; MVC</div>
+                  <div class="skill-cat-label">Backend Framework</div>
+                </div>
+              </div>
+              <span class="skill-pct">90%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
+            <div class="skill-tags">N-Tier Architecture • RESTful APIs • EF Core Code-First</div>
+          </div>
+
+          <div class="spotlight-card skill-card reveal" data-category="web-framework">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">PHP</div>
+                <div>
+                  <div class="skill-name">PHP</div>
+                  <div class="skill-cat-label">Server-Side Web</div>
+                </div>
+              </div>
+              <span class="skill-pct">86%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="86%"></div></div>
+            <div class="skill-tags">Role-Based Auth • Dynamic Workflows • Apache/XAMPP</div>
+          </div>
+
+          <div class="spotlight-card skill-card reveal" data-category="web-framework">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">JS</div>
+                <div>
+                  <div class="skill-name">HTML5, CSS3 &amp; JavaScript</div>
+                  <div class="skill-cat-label">Frontend Web Technologies</div>
+                </div>
+              </div>
+              <span class="skill-pct">88%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88%"></div></div>
+            <div class="skill-tags">Responsive UI • DOM Manipulation • Interactive Web</div>
+          </div>
+
+          <!-- Databases -->
+          <div class="spotlight-card skill-card reveal" data-category="database">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">SQL</div>
+                <div>
+                  <div class="skill-name">Microsoft SQL Server</div>
+                  <div class="skill-cat-label">Relational Database</div>
+                </div>
+              </div>
+              <span class="skill-pct">91%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="91%"></div></div>
+            <div class="skill-tags">Schema Design • EF Migrations • Stored Procedures</div>
+          </div>
+
+          <div class="spotlight-card skill-card reveal" data-category="database">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">MY</div>
+                <div>
+                  <div class="skill-name">MySQL &amp; PostgreSQL</div>
+                  <div class="skill-cat-label">Database Management</div>
+                </div>
+              </div>
+              <span class="skill-pct">86%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="86%"></div></div>
+            <div class="skill-tags">Relational Modeling • Query Optimization • Data Warehousing</div>
+          </div>
+
+          <!-- Tools, Graphics & AI -->
+          <div class="spotlight-card skill-card reveal" data-category="tools-ai">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">ML</div>
+                <div>
+                  <div class="skill-name">Machine Learning &amp; CV</div>
+                  <div class="skill-cat-label">AI &amp; Data Science</div>
+                </div>
+              </div>
+              <span class="skill-pct">84%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="84%"></div></div>
+            <div class="skill-tags">Computer Vision • Deep Learning • Data Mining</div>
+          </div>
+
+          <div class="spotlight-card skill-card reveal" data-category="tools-ai">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">GL</div>
+                <div>
+                  <div class="skill-name">OpenGL Graphics</div>
+                  <div class="skill-cat-label">Simulation &amp; Rendering</div>
+                </div>
+              </div>
+              <span class="skill-pct">85%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85%"></div></div>
+            <div class="skill-tags">Scene Rendering • Keyframe Animation • Logistics Sim</div>
+          </div>
+
+          <div class="spotlight-card skill-card reveal" data-category="tools-ai">
+            <div class="skill-top">
+              <div class="skill-identity">
+                <div class="skill-icon-box">DEV</div>
+                <div>
+                  <div class="skill-name">Visual Studio, Postman &amp; XAMPP</div>
+                  <div class="skill-cat-label">Engineering Tooling</div>
+                </div>
+              </div>
+              <span class="skill-pct">92%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="92%"></div></div>
+            <div class="skill-tags">REST API Testing • Debugging • Git &amp; GitHub</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FEATURED PROJECTS SECTION ==================== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-eyebrow">// 03. FEATURED PORTFOLIO</div>
+          <h2 class="section-title">Real-World <span class="gradient-text">Engineering Projects</span></h2>
+          <p class="section-subtitle">
+            Explore my academic and software engineering projects across N-Tier backend APIs, full-stack web apps, C# desktop systems, and OpenGL simulations. Click any project for full architecture &amp; video demos.
+          </p>
+        </div>
+
+        <div class="filter-tabs reveal">
+          <button class="filter-btn active" data-project-filter="all">All Projects (5)</button>
+          <button class="filter-btn" data-project-filter="dotnet">C# &amp; .NET</button>
+          <button class="filter-btn" data-project-filter="web">Full-Stack Web</button>
+          <button class="filter-btn" data-project-filter="graphics">C++ &amp; OpenGL</button>
+          <button class="filter-btn" data-project-filter="python">Python</button>
+        </div>
+
+        <div class="projects-grid" id="projects-grid">
+
+          <!-- Project 1: Cargo Flow -->
+          <article class="spotlight-card project-card reveal" data-pcat="graphics">
+            <div>
+              <div class="project-banner banner-cargo">
+                <span class="project-arch-pill">🎥 Video Demo Inside</span>
+                <div class="project-visual-illustration">
+                  <div class="project-emoji-badge">🚢</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#67e8f9;">OpenGL 2D/3D Pipeline</div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-category">Computer Graphics &amp; Simulation</div>
+                <h3 class="project-title">Cargo Flow – From Warehouse to Sea</h3>
+                <p class="project-desc">
+                  A graphical simulation built with C++ and OpenGL that visualizes the complete logistics supply chain from warehouse loading to maritime sea transportation using animated scenes.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-chip">C++</span>
+                  <span class="tech-chip">OpenGL</span>
+                  <span class="tech-chip">Scene Animation</span>
+                  <span class="tech-chip">Computer Graphics</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-body" style="padding-top:0;">
+              <div class="project-actions">
+                <button class="btn btn-primary btn-sm" style="flex:1;" onclick="openProjectModal('cargo')">
+                  Case Study &amp; Demo
+                </button>
+                <a href="https://github.com/FaisalWebZone/Cargo_Logistics_Visualization_Graphics" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Source on GitHub">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Recipe Sharing Platform -->
+          <article class="spotlight-card project-card reveal reveal-delay-1" data-pcat="web">
+            <div>
+              <div class="project-banner banner-recipe">
+                <span class="project-arch-pill">Role-Based Web App</span>
+                <div class="project-visual-illustration">
+                  <div class="project-emoji-badge">👨‍🍳</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#fcd34d;">PHP • MySQL • Apache</div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-category">Full-Stack Web Application</div>
+                <h3 class="project-title">Recipe Sharing Platform</h3>
+                <p class="project-desc">
+                  Interactive role-based web platform enabling users to share, discover, rate, and favorite recipes while admins moderate submissions and manage user workflows.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-chip">PHP</span>
+                  <span class="tech-chip">JavaScript</span>
+                  <span class="tech-chip">MySQL</span>
+                  <span class="tech-chip">HTML/CSS</span>
+                  <span class="tech-chip">XAMPP</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-body" style="padding-top:0;">
+              <div class="project-actions">
+                <button class="btn btn-primary btn-sm" style="flex:1;" onclick="openProjectModal('recipe')">
+                  View Case Study
+                </button>
+                <a href="https://github.com/FaisalWebZone/Recipe_Sharing_Platform_Project-with-PHP" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Source on GitHub">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Library / Medicine Management System (C# OOP2) -->
+          <article class="spotlight-card project-card reveal reveal-delay-2" data-pcat="dotnet">
+            <div>
+              <div class="project-banner banner-library">
+                <span class="project-arch-pill">OOP2 Architecture</span>
+                <div class="project-visual-illustration">
+                  <div class="project-emoji-badge">📚</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#a5b4fc;">C# • .NET • SQL Server</div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-category">Desktop &amp; Enterprise System</div>
+                <h3 class="project-title">Library &amp; Inventory Management System</h3>
+                <p class="project-desc">
+                  Individual C# and SQL Server application implementing strict OOP2 principles with multi-role authentication (Admin, Employee, Customer), CRUD workflows, and automated billing/invoicing.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-chip">C#</span>
+                  <span class="tech-chip">.NET</span>
+                  <span class="tech-chip">SQL Server</span>
+                  <span class="tech-chip">OOP2</span>
+                  <span class="tech-chip">RBAC</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-body" style="padding-top:0;">
+              <div class="project-actions">
+                <button class="btn btn-primary btn-sm" style="flex:1;" onclick="openProjectModal('library')">
+                  View Case Study
+                </button>
+                <a href="https://github.com/FaisalWebZone/Library_Mangement_Project-Faisal" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Source on GitHub">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4: Restaurant Order & N-Tier Backend System -->
+          <article class="spotlight-card project-card reveal" data-pcat="dotnet">
+            <div>
+              <div class="project-banner banner-restaurant">
+                <span class="project-arch-pill">N-Tier Architecture</span>
+                <div class="project-visual-illustration">
+                  <div class="project-emoji-badge">🍽️</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#6ee7b7;">ASP.NET Core • EF Core</div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-category">RESTful Backend API</div>
+                <h3 class="project-title">Restaurant Order &amp; Table Management API</h3>
+                <p class="project-desc">
+                  Enterprise backend web API built with ASP.NET Core following strict N-Tier Architecture (Presentation, BLL, DAL), Repository Pattern, DTO mapping, and EF Core Code-First migrations.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-chip">ASP.NET Core</span>
+                  <span class="tech-chip">C#</span>
+                  <span class="tech-chip">EF Core (Code-First)</span>
+                  <span class="tech-chip">N-Tier</span>
+                  <span class="tech-chip">Postman</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-body" style="padding-top:0;">
+              <div class="project-actions">
+                <button class="btn btn-primary btn-sm" style="flex:1;" onclick="openProjectModal('restaurant')">
+                  View Architecture
+                </button>
+                <a href="https://github.com/FaisalWebZone/Restaurant_Order_Table_Management-ASP.Net" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Source on GitHub">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 5: Perfume Decant Management App (from GitHub) -->
+          <article class="spotlight-card project-card reveal reveal-delay-1" data-pcat="python">
+            <div>
+              <div class="project-banner banner-perfume">
+                <span class="project-arch-pill">Python Application</span>
+                <div class="project-visual-illustration">
+                  <div class="project-emoji-badge">🧪</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#d8b4fe;">Python • Inventory Logic</div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-category">Python Software Application</div>
+                <h3 class="project-title">Perfume Decant Management App</h3>
+                <p class="project-desc">
+                  A specialized Python application crafted to manage decant inventory, volume tracking, pricing calculations, and customer order workflows efficiently.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-chip">Python</span>
+                  <span class="tech-chip">Data Management</span>
+                  <span class="tech-chip">Inventory Tracking</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-body" style="padding-top:0;">
+              <div class="project-actions">
+                <button class="btn btn-primary btn-sm" style="flex:1;" onclick="openProjectModal('perfume')">
+                  View Case Study
+                </button>
+                <a href="https://github.com/FaisalWebZone/Perfume_Decant_Management_App" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Source on GitHub">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== QUALIFICATIONS & CV SECTION ==================== -->
+    <section class="section" id="qualifications">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-eyebrow">// 04. EDUCATION &amp; CURRICULUM VITAE</div>
+          <h2 class="section-title">Academic <span class="gradient-text">Qualifications &amp; CV</span></h2>
+          <p class="section-subtitle">
+            My educational timeline and direct access to my curriculum vitae.
+          </p>
+        </div>
+
+        <div class="edu-cv-grid">
+          <!-- Timeline -->
+          <div class="timeline reveal">
+            <div class="spotlight-card timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-period">2022 – Present</span>
+              <h3 class="timeline-degree">BSc. in Computer Science and Engineering (CSE)</h3>
+              <div class="timeline-school">American International University-Bangladesh (AIUB)</div>
+              <p class="timeline-meta">
+                <strong>Major:</strong> Information Systems &nbsp;|&nbsp; <strong>Minor:</strong> Software Engineering<br />
+                <strong>Focus Areas:</strong> Machine Learning, Data Science, Data Mining, Data Warehousing, N-Tier Software Engineering, and Database Systems.
+              </p>
+            </div>
+
+            <div class="spotlight-card timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-period">2019 – 2021</span>
+              <h3 class="timeline-degree">Higher Secondary Certificate (HSC)</h3>
+              <div class="timeline-school">Dr. Mahbubur Rahman Mollah College (DMRC)</div>
+              <p class="timeline-meta">
+                <strong>Group:</strong> Science • Built strong analytical foundations in Mathematics, Physics, and ICT.
+              </p>
+            </div>
+
+            <div class="spotlight-card timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-period">2010 – 2019</span>
+              <h3 class="timeline-degree">Secondary School Certificate (SSC)</h3>
+              <div class="timeline-school">Shamsul Haque Khan School &amp; College</div>
+              <p class="timeline-meta">
+                <strong>Group:</strong> Science • Completed secondary education with distinction in science and mathematics.
+              </p>
+            </div>
+          </div>
+
+          <!-- Interactive CV Card -->
+          <div class="spotlight-card cv-showcase-card reveal reveal-delay-2">
+            <div class="cv-icon-wrap">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            </div>
+            <h3>Faisal Ahmed — Official CV</h3>
+            <p>Preview my complete Curriculum Vitae directly inside this portfolio or download the PDF copy.</p>
+
+            <div class="cv-highlights">
+              <div>✅ <strong>BSc. in CSE</strong> — AIUB (Final Year)</div>
+              <div>✅ <strong>Major:</strong> Information Systems</div>
+              <div>✅ <strong>Minor:</strong> Software Engineering</div>
+              <div>✅ <strong>Core Stack:</strong> Python, C#, ASP.NET Core, SQL</div>
+            </div>
+
+            <div class="cv-btn-stack">
+              <button class="btn btn-primary" onclick="openCVModal()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                Interactive Live CV Preview
+              </button>
+              <a href="https://drive.google.com/uc?id=1L-VcS2QZ3bzO51ZPSIdkXYX_ThqqgXFl&export=download" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download CV (PDF)
+              </a>
+              <a href="https://drive.google.com/drive/folders/1F3v7Nxa7czX0CpOV3cBgZOhkibxVkkTJ" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                Open Google Drive Folder ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-eyebrow">// 05. GET IN TOUCH</div>
+          <h2 class="section-title">Let's Build Something <span class="gradient-text">Extraordinary</span></h2>
+          <p class="section-subtitle">
+            Looking for a dedicated Data Science, Machine Learning, or Backend Software Engineering intern/developer? Reach out anytime!
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Contact Info -->
+          <div class="spotlight-card contact-info-card reveal">
+            <div>
+              <h3 class="bento-title">Direct Contact Channels</h3>
+              <p class="bento-text">
+                Click any item below to copy or launch a direct conversation.
+              </p>
+
+              <div class="contact-method-list">
+                <div class="contact-method">
+                  <div class="contact-method-left">
+                    <div class="contact-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </div>
+                    <div>
+                      <div class="contact-label">Email Address</div>
+                      <a href="mailto:faisalahmed49591@gmail.com" class="contact-val">faisalahmed49591@gmail.com</a>
+                    </div>
+                  </div>
+                  <button class="copy-chip" onclick="copyText('faisalahmed49591@gmail.com', 'Email address copied!')">Copy</button>
+                </div>
+
+                <div class="contact-method">
+                  <div class="contact-method-left">
+                    <div class="contact-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </div>
+                    <div>
+                      <div class="contact-label">Phone / WhatsApp</div>
+                      <a href="tel:+8801402559869" class="contact-val">+880 1402-559869</a>
+                    </div>
+                  </div>
+                  <button class="copy-chip" onclick="copyText('+8801402559869', 'Phone number copied!')">Copy</button>
+                </div>
+
+                <div class="contact-method">
+                  <div class="contact-method-left">
+                    <div class="contact-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <div>
+                      <div class="contact-label">Location</div>
+                      <div class="contact-val">Narayanganj, Dhaka, Bangladesh</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="contact-label" style="margin-bottom: 12px;">Social Profiles</div>
+              <div class="hero-socials">
+                <a href="https://github.com/FaisalWebZone" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/faisal-ahmed-4a810033a/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/mefaisalahmed17/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Facebook">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/_faisal_ahmed_17_/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Instagram">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="spotlight-card contact-form-card reveal reveal-delay-2">
+            <h3 class="bento-title">Send a Direct Message</h3>
+            <p class="bento-text">Fill out the form below and it will prepare a direct email to my inbox.</p>
+
+            <form id="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="sender-name">Your Name</label>
+                  <input type="text" id="sender-name" class="form-control" placeholder="e.g. Tanvir Rahman" required />
+                </div>
+                <div class="form-group">
+                  <label for="sender-email">Your Email</label>
+                  <input type="email" id="sender-email" class="form-control" placeholder="name@company.com" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="sender-subject">Subject</label>
+                <input type="text" id="sender-subject" class="form-control" placeholder="Software / Data Science Opportunity" required />
+              </div>
+              <div class="form-group">
+                <label for="sender-message">Message</label>
+                <textarea id="sender-message" class="form-control" placeholder="Hi Faisal, I came across your portfolio and would love to discuss..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Send Message
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year">2026</span> <strong>Faisal Ahmed</strong>. Crafted with high-performance animations • Narayanganj, Dhaka, Bangladesh.</p>
+    </div>
+  </footer>
+
+  <!-- ==================== PROJECT CASE STUDY MODAL ==================== -->
+  <div class="modal-backdrop" id="project-modal">
+    <div class="modal-dialog">
+      <button class="modal-close" onclick="closeProjectModal()" aria-label="Close modal">✕</button>
+      <div id="project-modal-content"></div>
+    </div>
+  </div>
+
+  <!-- ==================== CV PREVIEW MODAL ==================== -->
+  <div class="modal-backdrop" id="cv-modal">
+    <div class="modal-dialog">
+      <button class="modal-close" onclick="closeCVModal()" aria-label="Close CV modal">✕</button>
+      <div class="bento-tag">// CURRICULUM VITAE</div>
+      <h3 class="bento-title" style="margin-bottom: 8px;">Faisal Ahmed — Resume / CV</h3>
+      <p class="bento-text">You can view the embedded PDF below or download it directly.</p>
+      <div class="video-iframe-wrap" style="padding-top: 70%;">
+        <iframe id="cv-iframe" src="" allow="autoplay"></iframe>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:16px;">
+        <a href="https://drive.google.com/uc?id=1L-VcS2QZ3bzO51ZPSIdkXYX_ThqqgXFl&export=download" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+          Download PDF
+        </a>
+        <a href="https://drive.google.com/open?id=1L-VcS2QZ3bzO51ZPSIdkXYX_ThqqgXFl" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+          Open in Google Drive ↗
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TOAST NOTIFICATION ==================== -->
+  <div class="toast" id="toast">
+    <span>✅</span>
+    <span id="toast-msg">Copied to clipboard!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
