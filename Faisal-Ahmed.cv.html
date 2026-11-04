@@ -107,11 +107,10 @@
       text-decoration: none;
     }
     .cv-photo {
-      width: 56px;
-      height: 64px;
-      border-radius: 9px;
-      object-fit: cover;
-      object-position: center top;
+      width: 64px;
+      height: 78px;
+      border-radius: 8px;
+      object-fit: fill;
       border: 2px solid #1d4ed8;
     }
     /* Contact Bar */
@@ -325,7 +324,7 @@
           Junior Software Engineer &nbsp;|&nbsp; <a href="https://learningshaper.com/" target="_blank">Learning Shaper</a>
         </div>
       </div>
-      <img src="assets/profile-cv.jpg?v=22" alt="Faisal Ahmed" class="cv-photo" />
+      <img src="assets/profile-formal.jpg?v=23" alt="Faisal Ahmed" class="cv-photo" />
     </div>
 
     <div class="cv-contact-grid">
@@ -509,7 +508,7 @@
   <script>
     function downloadPDF() {
       const link = document.createElement('a');
-      link.href = 'Faisal_Ahmed.cv.pdf?v=22';
+      link.href = 'Faisal_Ahmed.cv.pdf?v=23';
       link.download = 'Faisal_Ahmed.cv.pdf';
       document.body.appendChild(link);
       link.click();
