@@ -800,10 +800,11 @@ main {
 
 .profile-avatar-wrap {
   position: relative;
-  width: 100%;
-  height: 276px;
+  width: 238px;
+  height: 290px;
+  aspect-ratio: 600 / 732;
   margin: 0 auto 12px;
-  border-radius: 19px;
+  border-radius: 20px;
   padding: 3px;
   background: linear-gradient(135deg, #6366f1 0%, #06b6d4 55%, #10b981 100%);
   box-shadow: 0 14px 34px -8px rgba(6, 182, 212, 0.38);
@@ -816,9 +817,8 @@ main {
 .profile-avatar {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  border-radius: 16px;
+  object-fit: fill;
+  border-radius: 17px;
   background: var(--bg-secondary);
   display: block;
 }
@@ -2330,8 +2330,9 @@ section[id] {
   }
 
   .profile-avatar-wrap {
-    width: 100%;
-    height: 270px;
+    width: 210px;
+    height: 256px;
+    aspect-ratio: 600 / 732;
     margin: 0 auto 14px;
   }
 
