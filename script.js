@@ -190,6 +190,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const roles = [
     'Junior Software Engineer @ Learning Shaper',
+    'Deep Learning & Computer Vision Researcher (ViT • GNN • TCN)',
     'Java 21, Spring Boot 3 & React 18 Engineer',
     'Laravel 12 & Multi-Tenant ERP Architect',
     'ASP.NET Core & C# Backend Developer',
@@ -558,6 +559,68 @@ const PROJECT_DATA = {
       'Object-Oriented Programming (OOP2)',
       'SQL Server database design & CRUD integration'
     ]
+  },
+
+  thesis_slr_fer: {
+    tag: '🎓 UNDERGRADUATE B.SC. THESIS (CSC 4298) • AIUB • OCT 2026',
+    title: 'Beyond Hand Gestures: A Hybrid Deep Learning Framework for Joint Sign Language and Facial Emotion Recognition',
+    tech: [
+      'Python & PyTorch (CUDA)',
+      'Vision Transformer (ViT)',
+      'Graph Neural Network (GCN/GAT)',
+      'Dilated Causal TCN',
+      'Google MediaPipe Holistic & Face Mesh (478 3D Landmarks)',
+      'Affective Computing & Spatio-Temporal AI'
+    ],
+    docUrl: 'assets/Faisal_Ahmed_BSc_Thesis_AIUB.pdf',
+    docLabel: '📄 Read Full 80-Page AIUB Thesis Book (PDF) ↗',
+    respHeading: '🔬 Research Methodology (4-Stage Pipeline & Equations 1–11)',
+    skillsHeading: '📊 Quantitative Experimental Results & Lead Contributions',
+    overview:
+      'Submitted to the Department of Computer Science, Faculty of Science and Technology (FST), American International University-Bangladesh (AIUB) in partial fulfillment of B.Sc. in CSE (Supervised by Md. Hamid Uddin, Lecturer, Dept. of Computer Science, AIUB; Co-authors: Md Shahariar Kabir Bhuiya, Jiad Hasan, Faisal Ahmed [22-49591-3], Md Abdul Alim). This thesis addresses the linguistic gap between manual hand gestures and non-manual affective facial markers in Sign Language Recognition by introducing a dual-branch hybrid spatio-temporal deep learning architecture combining Vision Transformers (ViT), Graph Neural Networks (GNN), and Dilated Causal Temporal Convolutional Networks (TCN).',
+    responsibilities: [
+      'Stage 1 — Video Preprocessing & 3D Anatomical Keypoint Normalization (Eqs. 1–2): Uniformly samples T=30 RGB frames (224×224) for dynamic sign videos and T=32 frames for facial emotion videos. Extracts 3D anatomical coordinates L_i = (x_i, y_i, z_i) via Google MediaPipe Holistic & Face Mesh (21 hand keypoints per hand, 478 3D facial mesh landmarks, and 33 body pose anchors), applying root-anchor centering (L̂_i = (L_i - L_root) / ||L_scale||_2) and strict ≥70% face-presence quality filtering.',
+      'Stage 2 — Global Visual Feature Representation via Vision Transformer (Eqs. 3–5): Partitions each frame into N=196 non-overlapping 16×16 patches projected into D=256 latent space with learnable positional embeddings (Z_0 = [x_p^1 E; ...; x_p^N E] + E_pos) and 8-head Multi-Head Self-Attention (Attention(Q,K,V) = softmax(QK^T / √d_k)V) to capture global hand-shape and upper-body context.',
+      'Stage 3 — Spatial-Topological Modeling via Graph Neural Networks (Eqs. 6–8): Constructs undirected anatomical skeletal and facial graphs G=(V,E) with normalized adjacency matrix Â = D̃^(-1/2)(A+I)D̃^(-1/2) and 2 GCN/GAT message-passing layers (H^(l+1) = σ(Â H^(l) W^(l))) to model non-Euclidean finger joint articulations and facial muscle Action Units (eyebrows, lips, cheeks, jaw).',
+      'Stage 4 — Long-Range Sequential Modeling via Dilated Causal TCN (Eqs. 9–11): Models inter-frame temporal dynamics across dilation factors d ∈ {1, 2, 4, 8} with kernel size k=3, 256 hidden channels, residual skip connections, and Cross-Entropy optimization with AdamW (lr=1e-4) and ReduceLROnPlateau.',
+      'Faisal Ahmed Lead Contributions (WBS Table 5.3): Led WP-3 (Dataset Curation & 3D Landmark Pipeline across 47 dynamic sign classes and 144 emotion videos) and Co-Led WP-4 (Mathematical formulation & PyTorch implementation of the Hybrid ViT–GNN–TCN and lightweight GNN–TCN branches).'
+    ],
+    skills: [
+      'Branch 1 (Dynamic Sign Language Recognition — ViT+GNN+TCN, ~14.2M params, 47 classes): Achieved 97.21% Peak Validation Accuracy (Epoch 25), 96.74% Test Accuracy, and 96.77% Macro-F1 (97.00% Precision & Recall; 416/430 correct) on the held-out split, with 1.00 F1-score on 27 sign classes.',
+      'External Unseen Folder & Live Single-Video Inference: Achieved 96.43% Test Accuracy (96.47% Macro-F1) on the separate 336-clip evaluation set and 95.41% Softmax confidence on single-video inference (predict.py on mysign.mp4).',
+      'Branch 2 (Lightweight Facial Emotion Recognition — Landmark GNN+TCN without ViT, 0.91M params, 3 classes: Angry, Neutral, Sad): Trained in ~1.2s/epoch (11 epochs), achieving 96.08% Training Accuracy, 100.00% Validation Accuracy (1.0000 Macro-F1), and 80.95% Unseen Test Accuracy (1.00 F1 on Sad).',
+      'Demonstrated 15× parameter reduction (0.91M vs 14.2M) on the facial emotion branch by replacing raw pixel backbones with 478-point 3D facial mesh GNN topology.'
+    ]
+  },
+
+  paper_asl_vit: {
+    tag: '📑 MACHINE LEARNING RESEARCH PAPER (CSC 4234) • AIUB • JAN 2026',
+    title: 'A Hybrid ViT–GNN–TCN Framework for Static and Video-Based American Sign Language Recognition',
+    tech: [
+      'Python & PyTorch',
+      'Vision Transformer (ViT)',
+      'Graph Neural Network (GNN)',
+      'Temporal Convolutional Network (1D TCN)',
+      'Kaggle ASL Alphabet (~87,000 Images)',
+      'WLASL Dynamic Video Dataset (2,000+ Signs)'
+    ],
+    docUrl: 'assets/Faisal_Ahmed_ASL_ViT_GNN_TCN_Paper.docx',
+    docLabel: '📥 Download Full Research Paper (.docx) ⬇',
+    respHeading: '🔬 Research Methodology (Two-Stage Static & Video ASL Pipeline)',
+    skillsHeading: '📊 Quantitative Benchmark Results & Research Findings',
+    overview:
+      'Authored for CSC 4234: Machine Learning (Section J) at American International University-Bangladesh (AIUB) (Instructor: Sharfuddin Mahmood; Authors: Md. Shahariar Kabir Bhuiya, Anika Tabassum Ria, Salma Akter, Faisal Ahmed [22-49591-3]). This research paper proposes a unified two-stage hybrid deep learning framework combining Vision Transformers (ViT), Graph Neural Networks (GNN), and Temporal Convolutional Networks (TCN) to bridge static hand-alphabet classification and continuous dynamic word-level American Sign Language (ASL) video recognition.',
+    responsibilities: [
+      'Stage 1 — Static ASL Alphabet Recognition Pipeline: Preprocessed the Kaggle ASL Alphabet dataset (~87,000 RGB images across 29 classes: A–Z, space, delete, nothing) resized to 224×224 with data augmentation (random rotation, scaling, brightness normalization). Extracted global spatial patch representations via Vision Transformer (ViT) self-attention coupled with relational Graph Neural Network (GNN) structural hand modeling.',
+      'Stage 2 — Dynamic Video-Based Word-Level ASL Pipeline: Uniformly sampled T=16 frames (224×224) per video clip across multi-source dynamic ASL video datasets (WLASL, Kaggle ASL video sets, and curated real-world recordings spanning 2,000+ sign classes).',
+      'Spatio-Temporal Feature Fusion: Extracted per-frame ViT visual embeddings, modeled inter-frame and anatomical structural relationships via a Temporal GNN, and captured sequential motion continuity via 1D Temporal Convolutional Networks (TCN) with causal dilated convolutions.',
+      'Comparative Literature & Ablation Analysis: Benchmarked against 20+ recent peer-reviewed sign language architectures (I3D, 3D-ResNet, ST-GCN, SignBERT, SpotER, and CNN-LSTM hybrids).'
+    ],
+    skills: [
+      'Stage 1 (Static ASL Alphabet Benchmark — ~87,000 Images, 29 Classes): Achieved 99.15% Training Accuracy and 99.65%–99.67% Testing Accuracy with rapid convergence and near-zero overfitting.',
+      'Stage 2 (Dynamic Word-Level Video ASL Benchmark — T=16 Frames): Achieved 89%–90% Training Accuracy and 87.60% Testing Accuracy across diverse signers, lighting conditions, and motion speeds.',
+      'Demonstrated that dilated 1D TCN layers provide superior training stability and parallel temporal receptive fields compared to recurrent Bi-LSTM/GRU sequence models.'
+    ]
   }
 };
 
@@ -570,17 +633,27 @@ window.openProjectModal = function (key) {
   const techHtml = data.tech.map((t) => `<span class="tech-chip">${t}</span>`).join('');
   const respHtml = data.responsibilities.map((r) => `<li>${r}</li>`).join('');
   const skillsHtml = data.skills.map((s) => `<li>${s}</li>`).join('');
+  const respHeading = data.respHeading || '🛠️ Key Engineering Contributions';
+  const skillsHeading = data.skillsHeading || '⚡ Technologies &amp; Skills Demonstrated';
   const videoHtml = data.videoEmbed
     ? `<div class="modal-section-title">🎥 Project Demonstration Video</div>
        <div class="video-iframe-wrap">
          <iframe src="${data.videoEmbed}" allow="autoplay; fullscreen" allowfullscreen></iframe>
        </div>`
     : '';
-  const githubBtn = data.github
-    ? `<a href="${data.github}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+  let actionBtnHtml = '';
+  if (data.docUrl) {
+    const isDocx = data.docUrl.toLowerCase().endsWith('.docx');
+    actionBtnHtml = `<a href="${data.docUrl}" ${isDocx ? 'download' : 'target="_blank" rel="noopener noreferrer"'} class="btn btn-primary btn-sm">
+         ${data.docLabel || 'Open Research Document ↗'}
+       </a>`;
+  } else if (data.github) {
+    actionBtnHtml = `<a href="${data.github}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
          View Source Code on GitHub ↗
-       </a>`
-    : `<span class="tech-chip" style="padding:8px 14px;">🏢 Enterprise Production Project @ Learning Shaper</span>`;
+       </a>`;
+  } else {
+    actionBtnHtml = `<span class="tech-chip" style="padding:8px 14px;">🏢 Enterprise Production Project @ Learning Shaper</span>`;
+  }
 
   container.innerHTML = `
     <div class="bento-tag">${data.tag}</div>
@@ -588,12 +661,12 @@ window.openProjectModal = function (key) {
     <div class="project-tech-stack" style="margin-bottom:18px;">${techHtml}</div>
     <p class="bento-text" style="font-size:1rem;">${data.overview}</p>
     ${videoHtml}
-    <div class="modal-section-title">🛠️ Key Engineering Contributions</div>
+    <div class="modal-section-title">${respHeading}</div>
     <ul class="modal-list">${respHtml}</ul>
-    <div class="modal-section-title">⚡ Technologies &amp; Skills Demonstrated</div>
+    <div class="modal-section-title">${skillsHeading}</div>
     <ul class="modal-list">${skillsHtml}</ul>
     <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
-      ${githubBtn}
+      ${actionBtnHtml}
       <button class="btn btn-outline btn-sm" onclick="closeProjectModal()">Close</button>
     </div>
   `;
