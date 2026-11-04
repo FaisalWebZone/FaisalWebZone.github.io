@@ -2033,6 +2033,11 @@ textarea.form-control {
    ========================================================================== */
 .project-group-block {
   margin-bottom: 64px;
+  scroll-margin-top: 96px;
+}
+
+section[id] {
+  scroll-margin-top: 90px;
 }
 
 .project-group-block:last-child {
