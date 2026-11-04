@@ -12,9 +12,26 @@
   <meta property="og:type" content="website" />
   <script>
     (function () {
-      var p = (window.location.pathname || '').toLowerCase();
-      if (p.indexOf('.cv') !== -1 || p === '/cv' || p === '/cv/') {
+      var p = (window.location.pathname || '').toLowerCase().replace(/\/+$/, '');
+      if (p.indexOf('.cv') !== -1 || p === '/cv') {
         window.location.replace('/faisal-ahmed.cv.html');
+        return;
+      }
+      var routeMap = {
+        '/home': '#home',
+        '/work': '#experience',
+        '/experience': '#experience',
+        '/projects': '#projects',
+        '/research': '#thesis-research-group',
+        '/thesis': '#thesis-research-group',
+        '/skills': '#skills',
+        '/about': '#about',
+        '/education': '#qualifications',
+        '/qualifications': '#qualifications',
+        '/contact': '#contact'
+      };
+      if (routeMap[p]) {
+        window.history.replaceState(null, '', '/' + routeMap[p]);
       }
     })();
   </script>
@@ -24,7 +41,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css?v=18" />
+  <link rel="stylesheet" href="styles.css?v=19" />
 </head>
 <body>
 
@@ -1567,6 +1584,6 @@
     <span id="toast-msg">Copied to clipboard!</span>
   </div>
 
-  <script src="script.js?v=17"></script>
+  <script src="script.js?v=19"></script>
 </body>
 </html>
