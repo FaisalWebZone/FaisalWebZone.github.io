@@ -228,14 +228,113 @@ window.addEventListener('DOMContentLoaded', () => {
   tick();
 })();
 
-// 6. SCROLL PROGRESS, STICKY NAVBAR & SCROLL-SPY
+// 6. SCROLL PROGRESS, STICKY NAVBAR, SECTION ROUTING & SCROLL-SPY
 (function initScrollFeatures() {
   const progressBar = document.getElementById('scroll-progress');
   const navbar = document.getElementById('navbar');
-  const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
+  const dockLinks = document.querySelectorAll('.dock-item[data-dock-link]');
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const navLinksContainer = document.getElementById('nav-links');
 
-  window.addEventListener('scroll', () => {
+  const HASH_ALIASES = {
+    '#work': '#experience',
+    '#research': '#thesis-research-group',
+    '#thesis': '#thesis-research-group',
+    '#education': '#qualifications'
+  };
+
+  // Ordered targets in the document for accurate scroll-spy across all 8 navbar routes
+  const SPY_TARGETS = [
+    { id: 'home', navHash: '#home', dockHash: '#home' },
+    { id: 'experience', navHash: '#experience', dockHash: '#experience' },
+    { id: 'projects', navHash: '#projects', dockHash: '#projects' },
+    { id: 'thesis-research-group', navHash: '#thesis-research-group', dockHash: '#projects' },
+    { id: 'academic-projects-group', navHash: '#projects', dockHash: '#projects' },
+    { id: 'skills', navHash: '#skills', dockHash: '#skills' },
+    { id: 'about', navHash: '#about', dockHash: '#about' },
+    { id: 'qualifications', navHash: '#qualifications', dockHash: '#qualifications' },
+    { id: 'contact', navHash: '#contact', dockHash: '#contact' }
+  ];
+
+  let isProgrammaticScroll = false;
+  let scrollLockTimer = null;
+
+  function setActiveRoute(navHash) {
+    const normalized = HASH_ALIASES[navHash] || navHash || '#home';
+    const dockHash = normalized === '#thesis-research-group' ? '#projects' : normalized;
+
+    navLinks.forEach((link) => {
+      link.classList.toggle('active', link.getAttribute('href') === normalized);
+    });
+    dockLinks.forEach((dlink) => {
+      dlink.classList.toggle('active', dlink.getAttribute('data-dock-link') === dockHash);
+    });
+  }
+
+  function ensureProjectSectionVisible(targetHash) {
+    if (targetHash !== '#projects' && targetHash !== '#thesis-research-group') return;
+
+    const targetGroup =
+      targetHash === '#thesis-research-group'
+        ? document.getElementById('thesis-research-group')
+        : document.getElementById('professional-projects-group');
+
+    if (targetGroup && targetGroup.classList.contains('hidden')) {
+      const allBtn = document.querySelector('[data-project-filter="all"]');
+      if (allBtn) allBtn.click();
+    }
+  }
+
+  function navigateToSection(rawHash, pushHistory = true) {
+    if (!rawHash || !rawHash.startsWith('#')) return;
+    const targetHash = HASH_ALIASES[rawHash.toLowerCase()] || rawHash;
+
+    ensureProjectSectionVisible(targetHash);
+
+    const targetId = targetHash.slice(1);
+    const targetEl = document.getElementById(targetId);
+    if (!targetEl && targetHash !== '#home') return;
+
+    if (navLinksContainer) {
+      navLinksContainer.classList.remove('open');
+    }
+
+    isProgrammaticScroll = true;
+    if (scrollLockTimer) clearTimeout(scrollLockTimer);
+    setActiveRoute(targetHash);
+
+    const navOffset = navbar ? navbar.offsetHeight + 22 : 92;
+    const targetTop =
+      targetHash === '#home'
+        ? 0
+        : Math.max(0, targetEl.getBoundingClientRect().top + window.scrollY - navOffset);
+
+    window.scrollTo({
+      top: targetTop,
+      behavior: 'smooth'
+    });
+
+    if (pushHistory && window.history && window.history.pushState) {
+      window.history.pushState(null, '', targetHash);
+    }
+
+    scrollLockTimer = setTimeout(() => {
+      isProgrammaticScroll = false;
+    }, 850);
+  }
+
+  // Intercept all in-page anchor clicks (navbar, mobile dock, hero buttons, etc.)
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', (e) => {
+      const href = anchor.getAttribute('href');
+      if (!href || href === '#') return;
+      e.preventDefault();
+      navigateToSection(href, true);
+    });
+  });
+
+  function handleScroll() {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
@@ -245,32 +344,51 @@ window.addEventListener('DOMContentLoaded', () => {
       navbar.classList.toggle('scrolled', scrollTop > 40);
     }
 
-    let currentId = 'home';
-    sections.forEach((sec) => {
-      const top = sec.offsetTop - 160;
-      if (scrollTop >= top) {
-        currentId = sec.getAttribute('id');
-      }
-    });
+    if (isProgrammaticScroll) return;
 
-    const dockLinks = document.querySelectorAll('.dock-item[data-dock-link]');
-    navLinks.forEach((link) => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
-    });
-    dockLinks.forEach((dlink) => {
-      dlink.classList.toggle('active', dlink.getAttribute('data-dock-link') === `#${currentId}`);
-    });
+    const triggerLine = scrollTop + (navbar ? navbar.offsetHeight + 90 : 160);
+    let activeNavHash = '#home';
+
+    for (let i = 0; i < SPY_TARGETS.length; i++) {
+      const item = SPY_TARGETS[i];
+      const el = document.getElementById(item.id);
+      if (!el || el.classList.contains('hidden')) continue;
+      const elTop = el.getBoundingClientRect().top + scrollTop;
+      if (triggerLine >= elTop) {
+        activeNavHash = item.navHash;
+      }
+    }
+
+    if (window.innerHeight + scrollTop >= document.documentElement.scrollHeight - 40) {
+      activeNavHash = '#contact';
+    }
+
+    setActiveRoute(activeNavHash);
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+
+  window.addEventListener('popstate', () => {
+    if (window.location.hash) {
+      navigateToSection(window.location.hash, false);
+    } else {
+      navigateToSection('#home', false);
+    }
   });
 
-  const mobileToggle = document.getElementById('mobile-toggle');
-  const navLinksContainer = document.getElementById('nav-links');
   if (mobileToggle && navLinksContainer) {
     mobileToggle.addEventListener('click', () => {
       navLinksContainer.classList.toggle('open');
     });
-    navLinks.forEach((l) =>
-      l.addEventListener('click', () => navLinksContainer.classList.remove('open'))
-    );
+  }
+
+  // Handle initial hash on page load
+  if (window.location.hash && window.location.hash !== '#home') {
+    setTimeout(() => {
+      navigateToSection(window.location.hash, false);
+    }, 300);
+  } else {
+    handleScroll();
   }
 })();
 
