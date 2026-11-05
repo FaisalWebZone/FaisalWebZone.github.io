@@ -56,7 +56,7 @@ window.addEventListener('DOMContentLoaded', () => {
       this.vx = (Math.random() - 0.5) * 0.65;
       this.vy = (Math.random() - 0.5) * 0.65;
       this.size = Math.random() * 2 + 1;
-      this.color = Math.random() > 0.5 ? '#6366f1' : '#06b6d4';
+      this.color = Math.random() > 0.45 ? '#ef4444' : '#38bdf8';
     }
 
     update() {
@@ -872,19 +872,466 @@ function showToast(msg) {
   });
 })();
 
-// 13. THEME TOGGLE (DARK / LIGHT MODE)
+// 13. THEME TOGGLE (NOIR CRIMSON / CYBER BLUE / LIGHT MODE)
 (function initTheme() {
   const btn = document.getElementById('theme-toggle');
   const root = document.documentElement;
-  const saved = localStorage.getItem('faisal-theme') || 'dark';
+  const themes = ['dark', 'cyber', 'light'];
+  const labels = {
+    dark: 'Reel Noir & Crimson Mode',
+    cyber: 'Cyber Indigo & Cyan Mode',
+    light: 'Clean Light Mode'
+  };
+  const saved = localStorage.getItem('faisal-theme-v24') || 'dark';
   root.setAttribute('data-theme', saved);
 
   if (btn) {
     btn.addEventListener('click', () => {
-      const current = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      root.setAttribute('data-theme', current);
-      localStorage.setItem('faisal-theme', current);
-      showToast(`Switched to ${current === 'dark' ? 'Cyber Dark' : 'Clean Light'} Mode`);
+      const current = root.getAttribute('data-theme') || 'dark';
+      const next = themes[(themes.indexOf(current) + 1) % themes.length];
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('faisal-theme-v24', next);
+      showToast(`Switched to ${labels[next]}`);
     });
   }
+})();
+
+// 14. INSTAGRAM REEL "AGENTIC BUILD 🤖" — 18-AGENT LIVE WIREFRAME & AUTO-TOUR ENGINE
+(function initAgenticBuildEngine() {
+  const overlay = document.getElementById('agentic-overlay');
+  const wireframesEl = document.getElementById('agentic-wireframes');
+  const cursorsEl = document.getElementById('agentic-cursors');
+  const snapH = document.getElementById('agentic-snap-h');
+  const snapV = document.getElementById('agentic-snap-v');
+  const hud = document.getElementById('agentic-hud');
+  const hudAgents = document.getElementById('agentic-hud-agents');
+  const hudLayers = document.getElementById('agentic-hud-layers');
+  const hudBar = document.getElementById('agentic-hud-bar');
+  const tourBtn = document.getElementById('agentic-tour-btn');
+  const speedBtn = document.getElementById('agentic-speed-btn');
+  const skipBtn = document.getElementById('agentic-skip-btn');
+  const navDispatchBtn = document.getElementById('trigger-agent-build');
+
+  if (!overlay || !wireframesEl || !cursorsEl || !hud) return;
+
+  const AGENT_COLORS = [
+    '#ef4444', '#38bdf8', '#10b981', '#f59e0b', '#a855f7', '#ec4899',
+    '#06b6d4', '#84cc16', '#f97316', '#6366f1', '#14b8a6', '#eab308',
+    '#d946ef', '#fb7185', '#22d3ee', '#4ade80', '#fbbf24', '#c084fc'
+  ];
+  const TOTAL_VIRTUAL_LAYERS = 252;
+
+  const isHeadless = /HeadlessChrome/i.test(navigator.userAgent || '');
+  let cursors = [];
+  let isBuilding = false;
+  let isTouring = !isHeadless;
+  let speedMultiplier = 1;
+  let buildRunId = 0;
+  let orbitFrameId = null;
+
+  function createCursors() {
+    cursorsEl.innerHTML = '';
+    cursors = AGENT_COLORS.map((color, idx) => {
+      const el = document.createElement('div');
+      el.className = 'agentic-cursor';
+      el.style.filter = `drop-shadow(0 0 8px ${color}) drop-shadow(0 2px 5px rgba(0,0,0,0.85))`;
+      el.innerHTML = `
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="${color}" stroke="#ffffff" stroke-width="1.3">
+          <path d="M3 2L21 11L12.2 13.8L8.8 22L3 2Z"/>
+        </svg>
+      `;
+      cursorsEl.appendChild(el);
+      return { el, x: window.innerWidth / 2, y: window.innerHeight / 2, color, idx };
+    });
+  }
+
+  function moveCursor(c, x, y, rotateDeg = 0) {
+    c.x = x;
+    c.y = y;
+    c.el.style.transform = `translate3d(${Math.round(x)}px, ${Math.round(y)}px, 0) rotate(${rotateDeg}deg)`;
+  }
+
+  function setSwarmScanFormation() {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    cursors.forEach((c, i) => {
+      const isLeft = i < 9;
+      const groupIdx = isLeft ? i : i - 9;
+      const row = Math.floor(groupIdx / 3);
+      const col = groupIdx % 3;
+      const baseX = isLeft ? w * 0.22 + col * 24 : w * 0.74 + col * 24;
+      const baseY = h * 0.34 + row * 72 + (col % 2) * 16;
+      const rot = isLeft ? 35 : -135;
+      c.el.style.opacity = '1';
+      moveCursor(c, baseX, baseY, rot);
+    });
+  }
+
+  function collectTargets() {
+    const selectors = [
+      '#navbar',
+      '[data-agent-target="PORTFOLIO_OUTLINE"]',
+      '[data-agent-target="HELLO_SCRIPT"]',
+      '[data-agent-target="NAME_STAMP"]',
+      '[data-agent-target="ROLE_BADGE"]',
+      '[data-agent-target="ROLE_TYPEWRITER"]',
+      '[data-agent-target="HERO_BIO"]',
+      '[data-agent-target="HERO_CTA"]',
+      '[data-agent-target="HERO_METRICS"]',
+      '[data-agent-target="HERO_SOCIALS"]',
+      '[data-agent-target="PORTRAIT_FRAME"]',
+      '[data-agent-target="SPEC_CORE_01"]',
+      '[data-agent-target="SPEC_CORE_02"]',
+      '[data-agent-target="SPEC_TECH_STRIP"]',
+      '.stat-card',
+      '.marquee-section',
+      '#experience .section-header',
+      '#experience .timeline-item',
+      '#projects .section-header',
+      '#professional-projects-group .project-group-header',
+      '#professional-projects-group .project-card',
+      '#thesis-research-group .project-group-header',
+      '#thesis-research-group .project-card',
+      '#academic-projects-group .project-group-header',
+      '#academic-projects-group .project-card',
+      '#skills .section-header',
+      '#skills .skill-category-card',
+      '#about .section-header',
+      '#about .bento-card',
+      '#qualifications .section-header',
+      '#qualifications .qual-card',
+      '#contact .section-header',
+      '#contact .contact-info-card',
+      '#contact .contact-form-card'
+    ];
+    const seen = new Set();
+    const list = [];
+    selectors.forEach((sel) => {
+      document.querySelectorAll(sel).forEach((el) => {
+        if (!seen.has(el) && el.offsetParent !== null) {
+          seen.add(el);
+          list.push(el);
+        }
+      });
+    });
+    return list;
+  }
+
+  function renderWireframesForBatch(batch) {
+    wireframesEl.innerHTML = '';
+    const activeRects = [];
+
+    batch.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.width < 8 || r.height < 8) return;
+      if (r.bottom < -50 || r.top > window.innerHeight + 120) return;
+
+      activeRects.push({ el, rect: r });
+
+      const box = document.createElement('div');
+      box.className = 'agentic-wireframe-box';
+      box.style.left = `${Math.round(r.left)}px`;
+      box.style.top = `${Math.round(r.top)}px`;
+      box.style.width = `${Math.round(r.width)}px`;
+      box.style.height = `${Math.round(r.height)}px`;
+
+      const rawText = (el.innerText || el.getAttribute('data-agent-target') || 'LAYER_NODE')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, 38);
+
+      box.innerHTML = `
+        <span class="agentic-corner tl"></span>
+        <span class="agentic-corner tr"></span>
+        <span class="agentic-corner bl"></span>
+        <span class="agentic-corner br"></span>
+        <span class="agentic-dim-pill">${Math.round(r.width)} × ${Math.round(r.height)}</span>
+        <span class="agentic-type-label">${rawText}▋</span>
+      `;
+      wireframesEl.appendChild(box);
+    });
+
+    if (activeRects.length > 0) {
+      const primary = activeRects[0].rect;
+      snapH.style.top = `${Math.round(primary.top)}px`;
+      snapH.style.opacity = '1';
+      snapV.style.left = `${Math.round(primary.left)}px`;
+      snapV.style.opacity = '1';
+
+      cursors.forEach((c, i) => {
+        const target = activeRects[i % activeRects.length].rect;
+        // Spread all 18 cursors around the perimeter & interior of the active boxes without clumping
+        const ringPos = i / cursors.length;
+        const angle = ringPos * Math.PI * 2 + (performance.now() * 0.002);
+        const rx = Math.max(24, target.width * 0.48);
+        const ry = Math.max(16, target.height * 0.48);
+        const cx = target.left + target.width * 0.5;
+        const cy = target.top + target.height * 0.5;
+        const tx = cx + Math.cos(angle) * rx * (0.55 + (i % 3) * 0.22);
+        const ty = cy + Math.sin(angle) * ry * (0.55 + ((i + 1) % 3) * 0.22);
+        const rot = ((i % 5) - 2) * 12;
+        moveCursor(c, tx, ty, rot);
+      });
+    }
+  }
+
+  function startOrbitCelebration(runId) {
+    if (orbitFrameId) cancelAnimationFrame(orbitFrameId);
+    let angle = 0;
+    const startTime = performance.now();
+
+    function stepOrbit(now) {
+      if (runId !== buildRunId) return;
+      const elapsed = now - startTime;
+      if (elapsed > 4800) {
+        cursors.forEach((c) => {
+          c.el.style.opacity = '0';
+        });
+        return;
+      }
+      angle += 0.045;
+      const cx = window.innerWidth * 0.84;
+      const cy = window.innerHeight * 0.54;
+      const radius = Math.min(110, window.innerWidth * 0.12);
+
+      cursors.forEach((c, i) => {
+        const theta = angle + (i / cursors.length) * Math.PI * 2;
+        const x = cx + Math.cos(theta) * radius;
+        const y = cy + Math.sin(theta) * radius;
+        const deg = (theta * 180) / Math.PI + 90;
+        c.el.style.transition = 'none';
+        moveCursor(c, x, y, deg);
+      });
+
+      orbitFrameId = requestAnimationFrame(stepOrbit);
+    }
+    orbitFrameId = requestAnimationFrame(stepOrbit);
+  }
+
+  function finishBuildImmediately(elapsedSec = 18.4, showOrbit = false) {
+    buildRunId++;
+    const currentRun = buildRunId;
+    isBuilding = false;
+    wireframesEl.innerHTML = '';
+    snapH.style.opacity = '0';
+    snapV.style.opacity = '0';
+
+    document.querySelectorAll('.agent-unbuilt, .agent-building').forEach((el) => {
+      el.classList.remove('agent-unbuilt', 'agent-building');
+      el.classList.add('agent-built');
+    });
+    document.querySelectorAll('.reveal').forEach((el) => el.classList.add('revealed'));
+
+    hudAgents.textContent = `Rebuilt by 18 agents in ${elapsedSec}s`;
+    hudLayers.textContent = `${TOTAL_VIRTUAL_LAYERS} / ${TOTAL_VIRTUAL_LAYERS} layers`;
+    if (hudBar) hudBar.style.width = '100%';
+    if (tourBtn) {
+      tourBtn.textContent = 'Done';
+      tourBtn.classList.add('active');
+    }
+    if (skipBtn) {
+      skipBtn.textContent = '↻ Replay';
+    }
+
+    if (showOrbit) {
+      startOrbitCelebration(currentRun);
+    } else {
+      cursors.forEach((c) => {
+        c.el.style.opacity = '0';
+      });
+    }
+  }
+
+  function sleep(ms) {
+    return new Promise((r) => setTimeout(r, ms));
+  }
+
+  async function animateScrollTo(targetY, durationMs) {
+    const root = document.documentElement;
+    const prevBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    const startY = window.scrollY;
+    const diff = targetY - startY;
+    if (Math.abs(diff) >= 4) {
+      const steps = 8;
+      const stepTime = Math.max(16, Math.round(durationMs / steps));
+      for (let s = 1; s <= steps; s++) {
+        const t = s / steps;
+        const eased = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        window.scrollTo(0, Math.round(startY + diff * eased));
+        await sleep(stepTime);
+      }
+    }
+    root.style.scrollBehavior = prevBehavior;
+  }
+
+  async function runAgenticBuild() {
+    buildRunId++;
+    const myRunId = buildRunId;
+    if (orbitFrameId) cancelAnimationFrame(orbitFrameId);
+
+    isBuilding = true;
+    hud.style.display = 'inline-flex';
+    createCursors();
+
+    // Ensure all parent .reveal wrappers are visible so only leaf agent targets are controlled
+    document.querySelectorAll('.reveal').forEach((el) => el.classList.add('revealed'));
+
+    const targets = collectTargets();
+    targets.forEach((el) => {
+      el.classList.remove('agent-built', 'agent-building');
+      el.classList.add('agent-unbuilt');
+    });
+
+    const startTime = performance.now();
+    document.documentElement.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+    document.documentElement.style.scrollBehavior = '';
+
+    // Phase 1: "Scanning page..." exactly like t=0.0s in the Instagram Reel
+    hudAgents.textContent = 'Scanning page...';
+    hudLayers.textContent = `0 / ${TOTAL_VIRTUAL_LAYERS} layers`;
+    if (hudBar) hudBar.style.width = '4%';
+    if (tourBtn) {
+      tourBtn.textContent = isTouring ? 'Touring' : 'Paused';
+      tourBtn.classList.toggle('active', isTouring);
+    }
+    if (skipBtn) skipBtn.textContent = 'Skip';
+
+    setSwarmScanFormation();
+    await sleep(680 / speedMultiplier);
+    if (myRunId !== buildRunId) return;
+
+    hudAgents.textContent = '18 agents';
+
+    // Group targets into sequential batches (Hero first in fine steps, then sections)
+    const batches = [];
+    const heroTargets = targets.slice(0, 14);
+    for (let i = 0; i < heroTargets.length; i += 2) {
+      batches.push(heroTargets.slice(i, i + 2));
+    }
+    const bodyTargets = targets.slice(14);
+    for (let i = 0; i < bodyTargets.length; i += 3) {
+      batches.push(bodyTargets.slice(i, i + 3));
+    }
+
+    for (let bIdx = 0; bIdx < batches.length; bIdx++) {
+      if (myRunId !== buildRunId) return;
+      const batch = batches[bIdx];
+      const firstEl = batch[0];
+
+      // Pause briefly right after the Hero section finishes so the full Hero can be admired
+      if (bIdx === 7) {
+        wireframesEl.innerHTML = '';
+        snapH.style.opacity = '0';
+        snapV.style.opacity = '0';
+        await sleep(900 / speedMultiplier);
+        if (myRunId !== buildRunId) return;
+      }
+
+      // Auto-scroll touring to bring the active batch into view (keep scrollY=0 during main Hero build)
+      const isMainHeroBatch = bIdx <= 7;
+      if (isTouring && firstEl && !isMainHeroBatch) {
+        const rect = firstEl.getBoundingClientRect();
+        if (rect.top > window.innerHeight * 0.72 || rect.top < 70) {
+          const destY = Math.max(0, window.scrollY + rect.top - 130);
+          await animateScrollTo(destY, 260 / speedMultiplier);
+          if (myRunId !== buildRunId) return;
+        }
+      }
+
+      batch.forEach((el) => {
+        el.classList.remove('agent-unbuilt');
+        el.classList.add('agent-building');
+        el.classList.add('revealed');
+      });
+
+      renderWireframesForBatch(batch);
+
+      // Jitter cursors mid-step to simulate live resizing & typing
+      await sleep(175 / speedMultiplier);
+      if (myRunId !== buildRunId) return;
+      renderWireframesForBatch(batch);
+
+      await sleep(185 / speedMultiplier);
+      if (myRunId !== buildRunId) return;
+
+      batch.forEach((el) => {
+        el.classList.remove('agent-building');
+        el.classList.add('agent-built');
+      });
+
+      const completedLayers = Math.min(
+        TOTAL_VIRTUAL_LAYERS,
+        Math.round(((bIdx + 1) / batches.length) * TOTAL_VIRTUAL_LAYERS)
+      );
+      const pct = Math.round((completedLayers / TOTAL_VIRTUAL_LAYERS) * 100);
+      hudLayers.textContent = `${completedLayers} / ${TOTAL_VIRTUAL_LAYERS} layers`;
+      if (hudBar) hudBar.style.width = `${pct}%`;
+    }
+
+    const totalSec = ((performance.now() - startTime) / 1000).toFixed(1);
+    finishBuildImmediately(totalSec, true);
+  }
+
+  // Controls
+  if (tourBtn) {
+    tourBtn.addEventListener('click', () => {
+      if (!isBuilding) {
+        hud.style.display = 'none';
+        cursors.forEach((c) => (c.el.style.opacity = '0'));
+        return;
+      }
+      isTouring = !isTouring;
+      tourBtn.textContent = isTouring ? 'Touring' : 'Manual';
+      tourBtn.classList.toggle('active', isTouring);
+    });
+  }
+
+  if (speedBtn) {
+    speedBtn.addEventListener('click', () => {
+      speedMultiplier = speedMultiplier === 1 ? 2 : 1;
+      speedBtn.textContent = `${speedMultiplier}x`;
+    });
+  }
+
+  if (skipBtn) {
+    skipBtn.addEventListener('click', () => {
+      if (isBuilding) {
+        finishBuildImmediately(14.2, false);
+      } else {
+        isTouring = true;
+        runAgenticBuild();
+      }
+    });
+  }
+
+  if (navDispatchBtn) {
+    navDispatchBtn.addEventListener('click', () => {
+      isTouring = true;
+      runAgenticBuild();
+    });
+  }
+
+  // Pause auto-scroll touring if user manually wheels/touches during build
+  window.addEventListener(
+    'wheel',
+    () => {
+      if (isBuilding && isTouring) {
+        isTouring = false;
+        if (tourBtn) {
+          tourBtn.textContent = 'Manual';
+          tourBtn.classList.remove('active');
+        }
+      }
+    },
+    { passive: true }
+  );
+
+  // Auto-launch the 18-agent live build on page load!
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      runAgenticBuild();
+    }, 120);
+  });
 })();
