@@ -3091,9 +3091,9 @@ body::before {
 }
 
 .reel-portrait-card .profile-avatar-wrap {
-  width: 244px;
-  height: 298px;
-  aspect-ratio: 600 / 732;
+  width: 240px;
+  height: 320px;
+  aspect-ratio: 3 / 4;
   margin: 0 auto 10px;
   border-radius: 6px;
   padding: 2px;
@@ -3102,11 +3102,13 @@ body::before {
 }
 
 .reel-portrait-card .profile-avatar {
+  width: 100%;
+  height: 100%;
   border-radius: 5px;
   object-fit: cover;
+  object-position: center center;
   image-rendering: auto;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  display: block;
 }
 
 .reel-corner-plus {
