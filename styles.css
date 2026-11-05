@@ -810,8 +810,7 @@ main {
   background: linear-gradient(160deg, rgba(22, 33, 62, 0.88), rgba(10, 15, 30, 0.96));
   border: 1px solid rgba(99, 102, 241, 0.38);
   box-shadow: 0 28px 55px -15px rgba(0, 0, 0, 0.78), 0 0 38px rgba(99, 102, 241, 0.24);
-  transform-style: preserve-3d;
-  transition: transform 0.2s ease-out;
+  transition: transform 0.25s ease-out;
   position: relative;
 }
 
@@ -3104,7 +3103,10 @@ body::before {
 
 .reel-portrait-card .profile-avatar {
   border-radius: 5px;
-  object-fit: fill;
+  object-fit: cover;
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .reel-corner-plus {
@@ -3403,7 +3405,7 @@ body::before {
   height: 22px;
   pointer-events: none;
   will-change: transform;
-  transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+  transition: transform 0.82s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease;
   z-index: 9995;
   filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.75));
 }
