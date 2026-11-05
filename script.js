@@ -1017,7 +1017,7 @@ function showToast(msg) {
     return list;
   }
 
-  function renderWireframesForBatch(batch) {
+  function renderWireframesForBatch(batch, textProgress = 1) {
     wireframesEl.innerHTML = '';
     const activeRects = [];
 
@@ -1035,10 +1035,12 @@ function showToast(msg) {
       box.style.width = `${Math.round(r.width)}px`;
       box.style.height = `${Math.round(r.height)}px`;
 
-      const rawText = (el.innerText || el.getAttribute('data-agent-target') || 'LAYER_NODE')
+      const fullText = (el.innerText || el.getAttribute('data-agent-target') || 'LAYER_NODE')
         .replace(/\s+/g, ' ')
         .trim()
-        .slice(0, 38);
+        .slice(0, 42);
+      const charCount = Math.max(4, Math.round(fullText.length * textProgress));
+      const rawText = fullText.slice(0, charCount);
 
       box.innerHTML = `
         <span class="agentic-corner tl"></span>
@@ -1060,16 +1062,16 @@ function showToast(msg) {
 
       cursors.forEach((c, i) => {
         const target = activeRects[i % activeRects.length].rect;
-        // Spread all 18 cursors around the perimeter & interior of the active boxes without clumping
+        // Spread all 18 cursors smoothly around the perimeter & interior of the active boxes
         const ringPos = i / cursors.length;
-        const angle = ringPos * Math.PI * 2 + (performance.now() * 0.002);
-        const rx = Math.max(24, target.width * 0.48);
-        const ry = Math.max(16, target.height * 0.48);
+        const angle = ringPos * Math.PI * 2 + textProgress * 1.35;
+        const rx = Math.max(24, target.width * 0.46);
+        const ry = Math.max(16, target.height * 0.46);
         const cx = target.left + target.width * 0.5;
         const cy = target.top + target.height * 0.5;
-        const tx = cx + Math.cos(angle) * rx * (0.55 + (i % 3) * 0.22);
-        const ty = cy + Math.sin(angle) * ry * (0.55 + ((i + 1) % 3) * 0.22);
-        const rot = ((i % 5) - 2) * 12;
+        const tx = cx + Math.cos(angle) * rx * (0.52 + (i % 3) * 0.22);
+        const ty = cy + Math.sin(angle) * ry * (0.52 + ((i + 1) % 3) * 0.22);
+        const rot = ((i % 5) - 2) * 10;
         moveCursor(c, tx, ty, rot);
       });
     }
@@ -1153,11 +1155,11 @@ function showToast(msg) {
     const startY = window.scrollY;
     const diff = targetY - startY;
     if (Math.abs(diff) >= 4) {
-      const steps = 8;
+      const steps = 28;
       const stepTime = Math.max(16, Math.round(durationMs / steps));
       for (let s = 1; s <= steps; s++) {
         const t = s / steps;
-        const eased = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        const eased = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
         window.scrollTo(0, Math.round(startY + diff * eased));
         await sleep(stepTime);
       }
@@ -1199,7 +1201,7 @@ function showToast(msg) {
     if (skipBtn) skipBtn.textContent = 'Skip';
 
     setSwarmScanFormation();
-    await sleep(680 / speedMultiplier);
+    await sleep(1350 / speedMultiplier);
     if (myRunId !== buildRunId) return;
 
     hudAgents.textContent = '18 agents';
@@ -1220,22 +1222,24 @@ function showToast(msg) {
       const batch = batches[bIdx];
       const firstEl = batch[0];
 
-      // Pause briefly right after the Hero section finishes so the full Hero can be admired
+      // Pause right after the Hero section finishes so the full Hero can be admired comfortably
       if (bIdx === 7) {
         wireframesEl.innerHTML = '';
         snapH.style.opacity = '0';
         snapV.style.opacity = '0';
-        await sleep(900 / speedMultiplier);
+        await sleep(1650 / speedMultiplier);
         if (myRunId !== buildRunId) return;
       }
 
-      // Auto-scroll touring to bring the active batch into view (keep scrollY=0 during main Hero build)
+      // Auto-scroll touring to bring the active batch into view smoothly & cinematically
       const isMainHeroBatch = bIdx <= 7;
       if (isTouring && firstEl && !isMainHeroBatch) {
         const rect = firstEl.getBoundingClientRect();
         if (rect.top > window.innerHeight * 0.72 || rect.top < 70) {
           const destY = Math.max(0, window.scrollY + rect.top - 130);
-          await animateScrollTo(destY, 260 / speedMultiplier);
+          await animateScrollTo(destY, 1100 / speedMultiplier);
+          if (myRunId !== buildRunId) return;
+          await sleep(250 / speedMultiplier);
           if (myRunId !== buildRunId) return;
         }
       }
@@ -1246,14 +1250,19 @@ function showToast(msg) {
         el.classList.add('revealed');
       });
 
-      renderWireframesForBatch(batch);
-
-      // Jitter cursors mid-step to simulate live resizing & typing
-      await sleep(175 / speedMultiplier);
+      // Stage A: Initial wireframe lock & cursor arrival (35% text typed)
+      renderWireframesForBatch(batch, 0.35);
+      await sleep(420 / speedMultiplier);
       if (myRunId !== buildRunId) return;
-      renderWireframesForBatch(batch);
 
-      await sleep(185 / speedMultiplier);
+      // Stage B: Mid-build cursor adjustment & progressive typing (72% text typed)
+      renderWireframesForBatch(batch, 0.72);
+      await sleep(420 / speedMultiplier);
+      if (myRunId !== buildRunId) return;
+
+      // Stage C: Finalizing layer dimensions & full text (100% text typed)
+      renderWireframesForBatch(batch, 1.0);
+      await sleep(400 / speedMultiplier);
       if (myRunId !== buildRunId) return;
 
       batch.forEach((el) => {
@@ -1289,8 +1298,10 @@ function showToast(msg) {
   }
 
   if (speedBtn) {
+    const speeds = [1, 0.5, 2];
     speedBtn.addEventListener('click', () => {
-      speedMultiplier = speedMultiplier === 1 ? 2 : 1;
+      const nextIdx = (speeds.indexOf(speedMultiplier) + 1) % speeds.length;
+      speedMultiplier = speeds[nextIdx];
       speedBtn.textContent = `${speedMultiplier}x`;
     });
   }
