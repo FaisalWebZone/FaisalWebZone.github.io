@@ -1,17 +1,17 @@
 /**
- * Faisal Ahmed — LinkedIn-Style Personalized Visitor Notification Engine
- * Sends a silent, non-blocking email notification to faisalahmed49591@gmail.com
- * when someone views the Portfolio or CV.
+ * Faisal Ahmed — Multi-Platform Auto-Detect Visitor Notification Engine
+ * Automatically detects whether the visitor opened the link from:
+ * - Facebook App / Web
+ * - Instagram App / Bio / Story / DM
+ * - LinkedIn App / Web
+ * - Messenger App / Web
+ * - WhatsApp
+ * - Twitter / X
+ * - Email Client (Gmail, Outlook)
+ * - Direct Link
  * 
- * Features:
- * - LinkedIn-Style Identification: Reads ?viewer=Name (or ?v=, ?to=, ?for=, ?name=)
- *   e.g. https://faisalwebzone.github.io/?viewer=Zilan
- *   Email Subject: "🔔 Zilan viewed your profile / portfolio!"
- * - Allows testing different names without getting blocked by session storage.
- * - Throttles repeat visits from the same viewer in a single session.
- * - 100% silent and non-blocking (runs 1.5s after window load).
- * - Zero UI/CSS/DOM footprint.
- * - Captures: Exact Timestamp (BST), Location, IP, ISP, Device, OS, Browser, Source.
+ * NO manual link tampering required! Just share your normal link anywhere.
+ * Sends instant email alert to faisalahmed49591@gmail.com
  */
 
 (function initVisitorTracker() {
@@ -24,59 +24,109 @@
     return;
   }
 
-  // Parse URL parameters for personalized tracking (LinkedIn style)
-  const urlParams = new URLSearchParams(window.location.search);
-  const rawViewer =
-    urlParams.get('viewer') ||
-    urlParams.get('v') ||
-    urlParams.get('to') ||
-    urlParams.get('for') ||
-    urlParams.get('name') ||
-    urlParams.get('user') ||
-    urlParams.get('target');
-
-  let identifiedViewer = null;
-  if (rawViewer && rawViewer.trim() !== '') {
-    identifiedViewer = decodeURIComponent(rawViewer.trim()).replace(/[+_-]/g, ' ');
-    // Save to session so if they navigate to CV or other tabs, identity persists
-    sessionStorage.setItem('fa_identified_viewer', identifiedViewer);
-  } else {
-    // Check if previously identified in this session
-    identifiedViewer = sessionStorage.getItem('fa_identified_viewer') || null;
-  }
-
+  // Prevent spamming multiple alerts in the same session
   const SESSION_KEY = 'fa_portfolio_visitor_tracked';
-  const LAST_VIEWER_KEY = 'fa_last_tracked_viewer';
-  const lastTrackedViewer = sessionStorage.getItem(LAST_VIEWER_KEY);
-
-  // If already tracked in this session and it's the exact same viewer, skip to prevent spam
   if (sessionStorage.getItem(SESSION_KEY)) {
-    if (!identifiedViewer || identifiedViewer === lastTrackedViewer) {
-      return;
-    }
+    return;
   }
 
-  // Helper: Device & OS detection
+  // 1. SMART PLATFORM AUTO-DETECTION ENGINE
+  function detectPlatform() {
+    const ua = navigator.userAgent || '';
+    const ref = (document.referrer || '').toLowerCase();
+    const url = window.location.href.toLowerCase();
+
+    // Check In-App Browsers first (User Agent has exact signatures)
+    if (/FBAN|FBAV|FB_IAB|FB4A/i.test(ua)) {
+      return { name: 'Facebook App', icon: '🔵', type: 'Facebook In-App Browser' };
+    }
+    if (/Instagram/i.test(ua)) {
+      return { name: 'Instagram', icon: '📸', type: 'Instagram App (Bio / Story / DM)' };
+    }
+    if (/LinkedInApp/i.test(ua)) {
+      return { name: 'LinkedIn App', icon: '💼', type: 'LinkedIn Mobile App' };
+    }
+    if (/Messenger/i.test(ua)) {
+      return { name: 'Messenger', icon: '💬', type: 'Facebook Messenger App' };
+    }
+    if (/WhatsApp/i.test(ua)) {
+      return { name: 'WhatsApp', icon: '🟢', type: 'WhatsApp In-App Browser' };
+    }
+    if (/Twitter|Tweetbot/i.test(ua)) {
+      return { name: 'Twitter / X', icon: '🐦', type: 'Twitter / X App' };
+    }
+
+    // Check Document Referrer
+    if (ref.includes('facebook.com') || ref.includes('fb.com')) {
+      return { name: 'Facebook', icon: '🔵', type: 'Facebook (Feed / Post / Profile)' };
+    }
+    if (ref.includes('instagram.com')) {
+      return { name: 'Instagram', icon: '📸', type: 'Instagram (Web / Profile Link)' };
+    }
+    if (ref.includes('linkedin.com') || ref.includes('lnkd.in')) {
+      return { name: 'LinkedIn', icon: '💼', type: 'LinkedIn (Post / Message / Profile)' };
+    }
+    if (ref.includes('messenger.com')) {
+      return { name: 'Messenger', icon: '💬', type: 'Messenger Chat' };
+    }
+    if (ref.includes('whatsapp.com')) {
+      return { name: 'WhatsApp', icon: '🟢', type: 'WhatsApp Web / Chat' };
+    }
+    if (ref.includes('t.co') || ref.includes('x.com') || ref.includes('twitter.com')) {
+      return { name: 'Twitter / X', icon: '🐦', type: 'Twitter / X Post' };
+    }
+    if (ref.includes('mail.google.com') || ref.includes('gmail.com')) {
+      return { name: 'Gmail', icon: '✉️', type: 'Gmail Web Client' };
+    }
+    if (ref.includes('outlook.live.com') || ref.includes('outlook.office.com')) {
+      return { name: 'Outlook Email', icon: '✉️', type: 'Outlook Email Client' };
+    }
+    if (ref.includes('google.com')) {
+      return { name: 'Google Search', icon: '🔍', type: 'Google Organic Search' };
+    }
+    if (ref.includes('github.com')) {
+      return { name: 'GitHub', icon: '🐙', type: 'GitHub Profile / Repo' };
+    }
+
+    // Check URL parameters for explicit campaign / source tags
+    const params = new URLSearchParams(window.location.search);
+    const sourceParam = params.get('utm_source') || params.get('source') || params.get('src') || params.get('from');
+    if (sourceParam) {
+      return { name: sourceParam.toUpperCase(), icon: '🔗', type: `Custom Campaign (${sourceParam})` };
+    }
+
+    if (ref && ref.trim() !== '') {
+      try {
+        const refHost = new URL(ref).hostname;
+        return { name: refHost, icon: '🌐', type: `External Website (${refHost})` };
+      } catch (e) {}
+    }
+
+    return { name: 'Direct / Email / Chat', icon: '📬', type: 'Direct Click / Email / Chat Link' };
+  }
+
+  // 2. DEVICE & OS DETECTOR
   function detectDevice() {
     const ua = navigator.userAgent || '';
     let os = 'Unknown OS';
     if (/Windows/i.test(ua)) os = 'Windows PC';
     else if (/Macintosh|Mac OS/i.test(ua)) os = 'Mac';
-    else if (/iPhone|iPad|iPod/i.test(ua)) os = 'Apple iOS';
-    else if (/Android/i.test(ua)) os = 'Android Device';
+    else if (/iPhone/i.test(ua)) os = 'iPhone';
+    else if (/iPad/i.test(ua)) os = 'iPad';
+    else if (/Android/i.test(ua)) os = 'Android Phone';
     else if (/Linux/i.test(ua)) os = 'Linux';
 
-    let browser = 'Unknown Browser';
-    if (/Edg/i.test(ua)) browser = 'Microsoft Edge';
-    else if (/Chrome/i.test(ua)) browser = 'Google Chrome';
-    else if (/Safari/i.test(ua) && !/Chrome/i.test(ua)) browser = 'Apple Safari';
-    else if (/Firefox/i.test(ua)) browser = 'Mozilla Firefox';
+    let browser = 'Browser';
+    if (/Edg/i.test(ua)) browser = 'Edge';
+    else if (/Chrome/i.test(ua) && !/Edg/i.test(ua)) browser = 'Chrome';
+    else if (/Safari/i.test(ua) && !/Chrome/i.test(ua)) browser = 'Safari';
+    else if (/Firefox/i.test(ua)) browser = 'Firefox';
 
-    const isMobile = /Mobi|Android|iPhone/i.test(ua);
-    return `${isMobile ? '📱 Mobile' : '💻 Desktop'} • ${os} (${browser})`;
+    const isMobile = /Mobi|Android|iPhone|iPad/i.test(ua);
+    return `${isMobile ? '📱 Mobile' : '💻 Desktop'} — ${os} (${browser})`;
   }
 
-  // Helper: Format Bangladesh Standard Time (BST)
+  // 3. BANGLADESH TIME FORMATTER
   function getBangladeshTime() {
     try {
       return new Date().toLocaleString('en-US', {
@@ -89,21 +139,19 @@
     }
   }
 
-  // Track visitor after page has finished loading
+  // 4. MAIN TRACKER EXECUTION
   async function sendVisitorAlert() {
     try {
       sessionStorage.setItem(SESSION_KEY, 'true');
-      if (identifiedViewer) {
-        sessionStorage.setItem(LAST_VIEWER_KEY, identifiedViewer);
-      }
 
+      const platform = detectPlatform();
       let ip = 'N/A';
       let city = 'Unknown City';
       let region = '';
-      let country = 'Unknown Country';
+      let country = 'Bangladesh';
       let isp = 'N/A';
 
-      // Fetch Geolocation silently (fallback chain)
+      // Silent Geo IP lookup
       try {
         const geoRes = await fetch('https://ipwho.is/', { cache: 'no-store' });
         if (geoRes.ok) {
@@ -117,7 +165,6 @@
           }
         }
       } catch (err) {
-        // Fallback to secondary geo API
         try {
           const altRes = await fetch('https://freeipapi.com/api/json');
           if (altRes.ok) {
@@ -131,32 +178,24 @@
       }
 
       const locSummary = region ? `${city}, ${region}, ${country}` : `${city}, ${country}`;
-      const referrer = document.referrer && document.referrer.trim() !== ''
-        ? document.referrer
-        : 'Direct Link / WhatsApp / Messenger';
-
       const pageTitle = document.title || 'Faisal Ahmed Portfolio';
       const pagePath = window.location.pathname.includes('cv')
         ? 'Interactive CV (Faisal-Ahmed.cv.html)'
         : 'Portfolio Home (index.html)';
 
-      // LinkedIn-Style Subject Line
-      const emailSubject = identifiedViewer
-        ? `🔔 ${identifiedViewer} viewed your profile / portfolio!`
-        : `🔔 [Portfolio View] ${city !== 'Unknown City' ? `${city}, ${country}` : 'New Visitor'} viewed your profile!`;
+      // Auto-formatted Email Subject with exact Platform Icon & Name
+      const emailSubject = `${platform.icon} [${platform.name} Alert] Someone opened your portfolio from ${platform.name}!`;
 
       const payload = {
         _subject: emailSubject,
         _template: 'table',
         _captcha: 'false',
-        'Who Viewed Your Profile': identifiedViewer
-          ? `👤 ${identifiedViewer} (LinkedIn-Style Personalized Link)`
-          : '🌐 Organic / Anonymous Visitor',
+        'Social Platform / Source': `${platform.icon} ${platform.type}`,
+        'Visitor Location': locSummary,
         'Time (Bangladesh)': getBangladeshTime(),
         'Visited Page': `${pageTitle} — [${pagePath}]`,
-        'Visitor Location': locSummary,
-        'Traffic Source': referrer,
         'Device & OS': detectDevice(),
+        'Raw Referrer': document.referrer || 'None (Direct / In-App)',
         'Screen Resolution': `${window.screen.width} × ${window.screen.height}`,
         'IP Address': ip,
         'Internet Provider (ISP)': isp,
@@ -176,7 +215,7 @@
     }
   }
 
-  // Defer execution until after all critical rendering is finished
+  // Defer execution until page finishes loading completely
   if (document.readyState === 'complete') {
     setTimeout(sendVisitorAlert, 1500);
   } else {
