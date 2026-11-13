@@ -1,14 +1,17 @@
 /**
- * Faisal Ahmed — Portfolio & CV Realtime Visitor Notification Engine
+ * Faisal Ahmed — LinkedIn-Style Personalized Visitor Notification Engine
  * Sends a silent, non-blocking email notification to faisalahmed49591@gmail.com
- * when a new visitor lands on the site.
+ * when someone views the Portfolio or CV.
  * 
  * Features:
- * - 100% silent and non-blocking (waits until page fully loads).
- * - Zero visual impact on UI/CSS/DOM.
- * - Session-throttled: Only 1 email per visitor session (prevents spam on page refresh/navigation).
- * - Ignores localhost/file:// during development.
- * - Captures: Exact Timestamp (BST), City, Country, IP, ISP, Device, Browser, Referrer.
+ * - LinkedIn-Style Identification: Reads ?viewer=Name (or ?v=, ?to=, ?for=, ?name=)
+ *   e.g. https://faisalwebzone.github.io/?viewer=Zilan
+ *   Email Subject: "🔔 Zilan viewed your profile / portfolio!"
+ * - Allows testing different names without getting blocked by session storage.
+ * - Throttles repeat visits from the same viewer in a single session.
+ * - 100% silent and non-blocking (runs 1.5s after window load).
+ * - Zero UI/CSS/DOM footprint.
+ * - Captures: Exact Timestamp (BST), Location, IP, ISP, Device, OS, Browser, Source.
  */
 
 (function initVisitorTracker() {
@@ -21,10 +24,36 @@
     return;
   }
 
-  // Prevent multiple emails in the same browsing session
+  // Parse URL parameters for personalized tracking (LinkedIn style)
+  const urlParams = new URLSearchParams(window.location.search);
+  const rawViewer =
+    urlParams.get('viewer') ||
+    urlParams.get('v') ||
+    urlParams.get('to') ||
+    urlParams.get('for') ||
+    urlParams.get('name') ||
+    urlParams.get('user') ||
+    urlParams.get('target');
+
+  let identifiedViewer = null;
+  if (rawViewer && rawViewer.trim() !== '') {
+    identifiedViewer = decodeURIComponent(rawViewer.trim()).replace(/[+_-]/g, ' ');
+    // Save to session so if they navigate to CV or other tabs, identity persists
+    sessionStorage.setItem('fa_identified_viewer', identifiedViewer);
+  } else {
+    // Check if previously identified in this session
+    identifiedViewer = sessionStorage.getItem('fa_identified_viewer') || null;
+  }
+
   const SESSION_KEY = 'fa_portfolio_visitor_tracked';
+  const LAST_VIEWER_KEY = 'fa_last_tracked_viewer';
+  const lastTrackedViewer = sessionStorage.getItem(LAST_VIEWER_KEY);
+
+  // If already tracked in this session and it's the exact same viewer, skip to prevent spam
   if (sessionStorage.getItem(SESSION_KEY)) {
-    return;
+    if (!identifiedViewer || identifiedViewer === lastTrackedViewer) {
+      return;
+    }
   }
 
   // Helper: Device & OS detection
@@ -64,6 +93,9 @@
   async function sendVisitorAlert() {
     try {
       sessionStorage.setItem(SESSION_KEY, 'true');
+      if (identifiedViewer) {
+        sessionStorage.setItem(LAST_VIEWER_KEY, identifiedViewer);
+      }
 
       let ip = 'N/A';
       let city = 'Unknown City';
@@ -101,20 +133,28 @@
       const locSummary = region ? `${city}, ${region}, ${country}` : `${city}, ${country}`;
       const referrer = document.referrer && document.referrer.trim() !== ''
         ? document.referrer
-        : 'Direct Link / Bookmark / WhatsApp';
+        : 'Direct Link / WhatsApp / Messenger';
 
       const pageTitle = document.title || 'Faisal Ahmed Portfolio';
       const pagePath = window.location.pathname.includes('cv')
         ? 'Interactive CV (Faisal-Ahmed.cv.html)'
         : 'Portfolio Home (index.html)';
 
+      // LinkedIn-Style Subject Line
+      const emailSubject = identifiedViewer
+        ? `🔔 ${identifiedViewer} viewed your profile / portfolio!`
+        : `🔔 [Portfolio View] ${city !== 'Unknown City' ? `${city}, ${country}` : 'New Visitor'} viewed your profile!`;
+
       const payload = {
-        _subject: `🔔 [Portfolio View] ${city !== 'Unknown City' ? `${city}, ${country}` : 'New Visitor'} opened your site!`,
+        _subject: emailSubject,
         _template: 'table',
         _captcha: 'false',
-        'Visitor Location': locSummary,
+        'Who Viewed Your Profile': identifiedViewer
+          ? `👤 ${identifiedViewer} (LinkedIn-Style Personalized Link)`
+          : '🌐 Organic / Anonymous Visitor',
         'Time (Bangladesh)': getBangladeshTime(),
         'Visited Page': `${pageTitle} — [${pagePath}]`,
+        'Visitor Location': locSummary,
         'Traffic Source': referrer,
         'Device & OS': detectDevice(),
         'Screen Resolution': `${window.screen.width} × ${window.screen.height}`,
